@@ -20,17 +20,50 @@
 
 
 <script type="text/javascript">
-	
-	// 처음에는 모달창을 숨겨 놓는다.
-	$(document).ready(function() {
-		$(".modal a").not(".dropdown-toggle").on("click", function() {
-			$(".modal").modal("hide");
-		});
-	});
 
-	function hamburgerClick() {
+
+/* 	function hamburgerClick() {
 		alert("햄버거 클릭 됨");
+	} */
+	
+	$(document).ready(function(){
+        var target = $("#mySidenav");
+ 
+        // 버튼을 클릭하면 사이드바 열림
+        $(document).on("click", "#hamburger-menu", function (e){
+            target.addClass('emphasized');
+            document.getElementById("mySidenav").style.width = "250px";
+      	  //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        });
+ 
+        // 사이드바 외부를 클릭하면 사이드바 닫힘
+        $(document).mouseup(function (e){
+            if(target.has(e.target).length==0) {
+                target.removeClass('emphasized');
+                document.getElementById("mySidenav").style.width = "0";
+          	 // document.body.style.backgroundColor = "white";
+            } 
+        });
+    });
+	
+	
+	/* Set the width of the side navigation to 250px */
+/* 	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+	    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 	}
+ */
+	
+	/* Set the width of the side navigation to 0 */
+	function closeNav() {
+		$("#mySidenav").removeClass('emphasized');
+		document.getElementById("mySidenav").style.width = "0";
+	  	//document.body.style.backgroundColor = "white";
+	}
+	
+	
+	
+	
 </script>
 
 </head>
@@ -59,76 +92,22 @@ gidori_1@naver.com
 		</form>
 
 		<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-		<a href="javascript:void(0);" class="icon" data-toggle="modal" data-target="#sidebar-right" id="hamburger-menu"> 
+		<a href="javascript:void(0);" class="icon" id="hamburger-menu"> 
 		<i class="fa fa-bars"></i></a>
 	</div>
 
 
-	<!-- 모달을 이용한 오른쪽 사이드바 -->
-	<div class="modal fade right" id="sidebar-right" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" >
-							<!-- 닫기 X 표시 -->
-						<h3><span style="text-align:left"> &times;</span></h3>   
-						<!-- <span aria-hidden="true">&times;</span> -->
-					</button>
-					 <!-- <h4 class="modal-title">모달 사이드바</h4> -->
-				</div>
-				<div class="modal-body">
 
-					<ul class="nav nav-pills nav-stacked text-center lead">
-						<li role="presentation" class="active"><a href="#home">Home</a></li>
-						<li role="presentation" class="dropdown">
-							<a href="#" class="dropdown-toggle" id="myTabDrop1" 
-							data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Services
-									<span class="fa fa-fw fa-chevron-down"></span>
-							</a>
-							<ul class="dropdown-menu btn-block">
-								<li><a href="#design" role="tab">Design</a></li>
-								<li><a href="#develop" role="tab">Develop</a></li>
-								<li><a href="#support" role="tab">Support</a></li>
-							</ul></li>
-						<li role="presentation"><a href="#about">About</a></li>
-					</ul>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
-					<hr>
 
-					<div class="form-group hide">
-						<div class="input-group">
-							<input class="form-control" placeholder="Search"> <span
-								class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="fa fa-fw fa-search"></i>
-								</button>
-							</span>
-						</div>
-					</div>
+<div class="overlay"></div>
 
-					<div class="form-group has-feedback">
-						<input type="text" class="form-control" id="search-right"
-							placeholder="Search"> <span
-							class="glyphicon glyphicon-search form-control-feedback"
-							aria-hidden="true"></span>
-					</div>
-
-					<hr>
-
-					<div class="btn-group-vertical center-block">
-						<a class="btn btn-instagram btn-lg"
-							href="https://www.instagram.com/jorenerene/" target="_blank"><i
-							class="fa fa-fw fa-instagram"></i></a> <a
-							class="btn btn-twitter btn-lg"
-							href="https://www.twitter.com/jorenerene/" target="_blank"><i
-							class="fa fa-fw fa-twitter"></i></a> <a class="btn btn-github btn-lg"
-							href="https://www.github.com/jorenerene/" target="_blank"><i
-							class="fa fa-fw fa-github"></i></a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
