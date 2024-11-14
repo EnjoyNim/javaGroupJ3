@@ -145,7 +145,8 @@
 	width: 50.1vw;
 	height:9vh;
 	left: 0px; 
-	text-align:right;
+	text-align:right; 
+	/* padding: auto 0px; */
 	border-radius: 0px 70px 0px 0px;      /*  4개 설정시    1상좌 2상우 3 하좌 4 하우 */
 	background-color: #F8F8FF;
 	border : 2px solid #DCDCDC;
@@ -154,13 +155,14 @@
 #location, #nearby{
 	position:relative;
 	top:10px;
+	right:10px
 }
 
 
 #community, #myinfo{
 	position:relative;
 	top:10px;
-	left:55px;
+	left:60px;
 }
 
 .footer-center-div {

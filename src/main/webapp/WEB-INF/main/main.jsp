@@ -92,35 +92,51 @@ gidori_1@naver.com
  <!-- 화면 하단의 네비게이션 -->
 <footer>
  <div id="footer-div">
+   
    <div class="footer-left-div">
+ 		
  		<div id=location class="footer-item">
- 			<img alt="지역" src="${ctp}/images/ico_location.png" class="footer-img">
- 			<span class="footer-span">지역</span>
+ 			<a href="https://www.naver.com/" style="text-decoration-line:none">
+ 				<img alt="지역" src="${ctp}/images/ico_location.png" class="footer-img">
+ 				<span class="footer-span" style="color:black">지역</span>
+ 			</a>
  		</div>
+ 		
+ 		
  		<div id=nearby class="footer-item">
- 			<img alt="내주변" src="${ctp}/images/ico_navigator.png" class="footer-img">
- 			<span class="footer-span">내주변</span>
+ 			<a href="https://www.daum.net/" style="text-decoration-line:none">
+ 				<img alt="내주변" src="${ctp}/images/ico_navigator.png" class="footer-img">
+ 				<span class="footer-span" style="color:black">내주변</span>
+ 			</a>
  		</div>
  	</div>
  	
  	
- 	
+ 	<!-- 가운데 동근란 홈 밑에 깔려지는 사각형 div -->
  	<div class="footer-center-div"></div>
  	
  	<div id=home class="footer-item">
+ 		<a href="${ctp}" style="text-decoration-line:none">
  			<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer-img" id="home-img">
- 		</div>
+ 		</a>
+ 	</div>
  	
  	
  	
  	<div class="footer-right-div">
+ 	
  		<div id=community class="footer-item">
- 			<img alt="커뮤니티" src="${ctp}/images/ico_community.png" class="footer-img">
- 			<span class="footer-span">커뮤니티</span>
+ 			<a href="${ctp}" style="text-decoration-line:none">
+ 				<img alt="커뮤니티" src="${ctp}/images/ico_community.png" class="footer-img">
+ 				<span class="footer-span" style="color:black">커뮤니티</span>
+ 			</a>
  		</div>
- 		<div id=myinfo class="footer-item">
- 			<img alt="내정보" src="${ctp}/images/ico_user.png" class="footer-img">
- 			<span class="footer-span">내정보</span>
+ 		
+ 		<div id=myinfo class="footer-item" >
+ 			<a href="${ctp}" style="text-decoration-line:none">	
+ 				<img alt="내정보" src="${ctp}/images/ico_user.png" class="footer-img">
+ 				<span class="footer-span" style="color:black">내정보</span>
+ 			</a>
  		</div>
  	</div>
  </div>
