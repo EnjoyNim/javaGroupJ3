@@ -11,11 +11,9 @@
 <jsp:include page="/include/bs4.jsp" />
 
 <!-- hamburger 매뉴를 위한 css -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="https://kit.fontawesome.com/1e682223ad.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/1e682223ad.js" crossorigin="anonymous"></script>
 <link type="text/css" rel="stylesheet" href="css/main.css">
 
 
@@ -79,7 +77,6 @@ gidori_1@naver.com
 	</div>
 
 
-
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
@@ -88,8 +85,49 @@ gidori_1@naver.com
   <a href="#">Contact</a>
 </div>
 
-
+<!-- 사이드바 외부클릭시 체크용으로 사용되는 div 이다. 이 div 가 클릭되면 사이드바를 닫는다 -->
 <div class="overlay"></div>
+
+
+ <!-- 화면 하단의 네비게이션 -->
+<footer>
+ <div id="footer-div">
+   <div class="footer-left-div">
+ 		<div id=location class="footer-item">
+ 			<img alt="지역" src="${ctp}/images/ico_location.png" class="footer-img">
+ 			<span class="footer-span">지역</span>
+ 		</div>
+ 		<div id=nearby class="footer-item">
+ 			<img alt="내주변" src="${ctp}/images/ico_navigator.png" class="footer-img">
+ 			<span class="footer-span">내주변</span>
+ 		</div>
+ 	</div>
+ 	
+ 	
+ 	
+ 	<div class="footer-center-div"></div>
+ 	
+ 	<div id=home class="footer-item">
+ 			<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer-img" id="home-img">
+ 		</div>
+ 	
+ 	
+ 	
+ 	<div class="footer-right-div">
+ 		<div id=community class="footer-item">
+ 			<img alt="커뮤니티" src="${ctp}/images/ico_community.png" class="footer-img">
+ 			<span class="footer-span">커뮤니티</span>
+ 		</div>
+ 		<div id=myinfo class="footer-item">
+ 			<img alt="내정보" src="${ctp}/images/ico_user.png" class="footer-img">
+ 			<span class="footer-span">내정보</span>
+ 		</div>
+ 	</div>
+ </div>
+
+</footer>
+
+
 
 </body>
 </html>

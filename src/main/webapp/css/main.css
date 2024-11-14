@@ -129,3 +129,98 @@
 }
 
 
+
+  /* 하단의 푸터 지정 */
+#footer-div{
+	text-align:center;
+	position: fixed;
+	bottom:-1px;
+    width: 100vw;
+    height: 9vh;
+    z-index: 997;
+}
+
+.footer-left-div{
+	position:absolute;
+	width: 50.1vw;
+	height:9vh;
+	left: 0px; 
+	text-align:right;
+	border-radius: 0px 70px 0px 0px;      /*  4개 설정시    1상좌 2상우 3 하좌 4 하우 */
+	background-color: #F8F8FF;
+	border : 2px solid #DCDCDC;
+}
+
+#location, #nearby{
+	position:relative;
+	top:10px;
+}
+
+
+#community, #myinfo{
+	position:relative;
+	top:10px;
+	left:55px;
+}
+
+.footer-center-div {
+	width: 3vw;
+	height:9vh;
+	z-index:998;
+	position:absolute;
+	top:19px;
+	left:48.6vw;
+	background-color: #F8F8FF;
+}
+
+#home{
+	
+	width: 3.3vw;
+	height:6vh;
+	z-index:999;
+	position:absolute;
+	top:17px;
+	left:48.4vw;
+	background-color: #F8F8FF;
+	border : 1px solid #DCDCDC;
+	border-radius:70px 70px 70px 70px;
+	box-shadow: 0px 7px 7px 0px #DCDCDC;	
+}
+
+#home-img {
+	position:relative;
+	top:20%;
+}
+
+
+.footer-right-div{
+	position:absolute;
+	top:0px;
+	right:0px; 
+	width: 50.1vw;
+	height:9vh; 
+	text-align:left;
+	border-radius:70px 0px 0px 0px;      /*  4개 설정시    1상좌 2상우 3 하좌 4 하우 */
+	background-color: #F8F8FF;
+	border : 2px solid #DCDCDC;
+}
+
+.footer-item {
+	display:inline; 
+}
+
+.footer-img {
+	width:30px; 
+	height:30px; 
+}
+
+
+.footer-span {
+	position:relative;
+	top : 35px;
+	right : 45px
+	 
+}  
+
+
+
