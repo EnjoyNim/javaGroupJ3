@@ -20,50 +20,32 @@
 
 
 <script type="text/javascript">
-
-
-/* 	function hamburgerClick() {
-		alert("햄버거 클릭 됨");
-	} */
 	
+	// 이 페이지가 로딩될때 처리
 	$(document).ready(function(){
-        var target = $("#mySidenav");
- 
-        // 버튼을 클릭하면 사이드바 열림
+	
+        // 햄버거 매뉴에 onclick 함수를 지정한다. 클릭시 사이드바 표시
         $(document).on("click", "#hamburger-menu", function (e){
-            target.addClass('emphasized');
-            document.getElementById("mySidenav").style.width = "250px";
-      	  //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        	document.getElementById("mySidenav").style.width = "250px";
+        	$('.overlay').fadeIn(); 
         });
  
-        // 사이드바 외부를 클릭하면 사이드바 닫힘
-        $(document).mouseup(function (e){
-            if(target.has(e.target).length==0) {
-                target.removeClass('emphasized');
-                document.getElementById("mySidenav").style.width = "0";
-          	 // document.body.style.backgroundColor = "white";
-            } 
-        });
+         // overlay div 에 onclick 함수를 지정한다. 클릭시 사이드바 닫기
+        $('.overlay').on('click', function () {
+            $('.overlay').fadeOut();
+        	document.getElementById("mySidenav").style.width = "0";
+        }); 
+         
     });
 	
-	
-	/* Set the width of the side navigation to 250px */
-/* 	function openNav() {
-		document.getElementById("mySidenav").style.width = "250px";
-	    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-	}
- */
-	
-	/* Set the width of the side navigation to 0 */
+
+	/* 사이드바의 x 표시를 눌러서 닫기시 처리 함수 */
 	function closeNav() {
-		$("#mySidenav").removeClass('emphasized');
+	 	$('.overlay').fadeOut();
 		document.getElementById("mySidenav").style.width = "0";
-	  	//document.body.style.backgroundColor = "white";
 	}
 	
-	
-	
-	
+		
 </script>
 
 </head>

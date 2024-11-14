@@ -72,7 +72,7 @@
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* 1 Stay on top */
+  z-index: 999; /* 1 Stay on top */
   top: 0; /* Stay at the top */
 /*   left: 0; */
   right: 0;
@@ -92,10 +92,12 @@
   transition: 0.3s;
 }
 
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
+
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
@@ -114,8 +116,16 @@
 }
 
 
-.emphasized {
-    box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px;
+
+/* div overlay 의 크기를 화면 전체로 지정한다. 그리고 display:none 으로 하여 처음에는 숨겨진 상태로 만든다.
+ 그리고 z-index를 사이드바 한 단계 아래로 지정하여 사이드바 외부 클릭시 이벤트를 받아서 사이드바를 닫도록 한다.  */
+.overlay {  
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    display: none;
 }
 
 
