@@ -67,6 +67,7 @@
 
 
 
+
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
@@ -83,13 +84,16 @@
 }
 
 /* The navigation menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
+.sidenav a { /* anchor 태그에 적용하는 css */
+  
   text-decoration: none;
-  font-size: 25px;
+  
+/*   
+padding: 8px 8px 8px 32px;
+font-size: 25px; 
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition: 0.3s; */
 }
 
 

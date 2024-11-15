@@ -16,15 +16,16 @@
 <script src="https://kit.fontawesome.com/1e682223ad.js" crossorigin="anonymous"></script>
 <link type="text/css" rel="stylesheet" href="css/main.css">
 
-
 <script type="text/javascript">
+	'use strict';
 	
 	// 이 페이지가 로딩될때 처리
 	$(document).ready(function(){
 	
         // 햄버거 매뉴에 onclick 함수를 지정한다. 클릭시 사이드바 표시
         $(document).on("click", "#hamburger-menu", function (e){
-        	document.getElementById("mySidenav").style.width = "250px";
+        						// sidenav 의 너비는 270px 정도
+        	document.getElementById("mySidenav").style.width = "270px";
         	$('.overlay').fadeIn(); 
         });
  
@@ -43,7 +44,70 @@
 		document.getElementById("mySidenav").style.width = "0";
 	}
 	
-		
+	
+	
+	
+	// 사이드바의 커뮤니티 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
+	let communityMenuIsOpen = false;
+	function clickCommunityMenu(){
+		let str = "";
+		if(communityMenuIsOpen){ // subMenu가 열려있다면 닫는다.
+			document.getElementById("comSubMenu").innerHTML = "";
+			document.getElementById("community-span").innerHTML = "커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
+			communityMenuIsOpen = false;
+		}else{
+			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>공지사항</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>공식블로그</a><br/>";
+			document.getElementById("comSubMenu").innerHTML = str;
+			document.getElementById("community-span").innerHTML = "커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
+			communityMenuIsOpen = true;
+		}
+	}
+	
+	
+	
+	
+	// 사이드바의 내정보 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
+	let myInfoMenuIsOpen = false;
+	function clickMyInfoMenu(){
+		let str = "";
+		if(myInfoMenuIsOpen){ // subMenu가 열려있다면 닫는다.
+			document.getElementById("myInfoSubMenu").innerHTML = "";
+			document.getElementById("myInfo-span").innerHTML = "내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
+			myInfoMenuIsOpen = false;
+		}else{
+			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>회원가입</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 포인트</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 쿠폰함</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 좋아요 제휴점</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 방문후기</a><br/>";
+			document.getElementById("myInfoSubMenu").innerHTML = str;
+			document.getElementById("myInfo-span").innerHTML = "내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
+			myInfoMenuIsOpen = true;
+		}
+	}
+	
+	
+	
+	// 사이드바의 고객센터 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
+	let serviceMenuIsOpen = false;
+	function clickServiceMenu(){
+		let str = "";
+		if(serviceMenuIsOpen){ // subMenu가 열려있다면 닫는다.
+			document.getElementById("serviceSubMenu").innerHTML = "";
+			document.getElementById("service-span").innerHTML = "고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
+			serviceMenuIsOpen = false;
+		}else{
+			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>1:1채팅</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>자주묻는질문</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>제휴입점신청</a><br/><br/>"+
+			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>마캉스정보</a><br/>";
+			document.getElementById("serviceSubMenu").innerHTML = str;
+			document.getElementById("service-span").innerHTML = "고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
+			serviceMenuIsOpen = true;
+		}
+	}
+	
 </script>
 
 </head>
@@ -83,23 +147,104 @@ gidori_1@naver.com
 
    <!-- 사이드바 부분 -->
 <div id="mySidenav" class="sidenav">
-	<!-- 여기부터 해야한다. 각 요소들을 div 로 묶어서 해야할듯 -->
+  
+  <!--  &times; 는 곱하기 표시 X 를 의미한다. -->
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   
-  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px"> <span><a href="#">로그인</a></span> 또는 <span><a href="#">회원가입</a></span>을 해주세요
+  <div  style="font-size:12px; margin-left:15px" >
+  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px">
+  <a href="#"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="#"><span style="color:blue;">회원가입</span></a>을 해주세요
+  </div>
   <br/>
+  		<!-- 사이드바에서 여기 윗 부분은 헤더처럼 항상 보여져야한다. 작업해야함. -->
   
-  <img alt="홈" src="${ctp}/images/ico_home_empty.png"><p><a href="#">홈</a></p>
-  <br/>
   
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  
+  <a href="#">
+  <div style="margin-left:15px">
+  <img alt="홈아이콘" src="${ctp}/images/ico_home_empty.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;">홈</span>
+  </div>
+  </a>  
+  <hr/>
+  
+  <a href="#">
+  <div style="margin-left:15px">
+  <img alt="핀아이콘" src="${ctp}/images/ico_location.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;">지역별 마사지</span>
+  </div>
+  </a>
+  <hr/>
+  
+  <a href="javascript:clickCommunityMenu()">
+  <div style="margin-left:15px">
+  <img alt="커뮤니티아이콘" src="${ctp}/images/ico_community.png" width="20px" height="20px">                    <!-- &#8896 은 위꺽쇠 -->
+  <span style="color:black; margin-left:5px; font-size:15px;" id="community-span">커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897 </span>
+  </div>
+  </a>
+ 
+  <div id="comSubMenu"></div>
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <hr/>
+  <a href="javascript:clickMyInfoMenu()">
+  <div style="margin-left:15px">
+  <img alt="사람아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;" id="myInfo-span">내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897</span>
+  </div>
+  </a>
+  <div id="myInfoSubMenu"></div>
+  
+  
+  <hr/>
+  
+  <a href="javascript:clickServiceMenu()">
+  <div style="margin-left:15px">
+  <img alt=헤드셋아이콘 src="${ctp}/images/ico_headset.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;" id="service-span">고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897</span>
+  </div>
+  </a>
+  <div id="serviceSubMenu"></div>
+  
+  
+  <hr/>
+  
+  <a href="#">
+  <div style="margin-left:15px">
+  <img alt="이벤트아이콘" src="${ctp}/images/ico_event.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;">이벤트</span>
+  </div>
+  </a>
+  <hr/>
+  
+  <a href="#">
+  <div style="margin-left:15px">
+  <img alt="가방아이콘" src="${ctp}/images/ico_bag.png" width="20px" height="20px">
+  <span style="color:black; margin-left:5px; font-size:15px;">기획전</span>
+  </div>
+  </a>
+  <hr/>
+  
 </div>
+
 
 <!-- 사이드바 외부클릭시 체크용으로 사용되는 div 이다. 이 div 가 클릭되면 사이드바를 닫는다 -->
 <div class="overlay"></div>
+
+
+
+
+
+
 
 
 
