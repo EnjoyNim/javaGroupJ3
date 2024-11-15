@@ -95,17 +95,17 @@ gidori_1@naver.com
    
    <div class="footer-left-div">
  		
- 		<div id=location class="footer-item">
+ 		<div id=location-div class="footer-item">
  			<a href="https://www.naver.com/" style="text-decoration-line:none">
- 				<img alt="지역" src="${ctp}/images/ico_location.png" class="footer-img">
+ 				<img alt="지역" src="${ctp}/images/ico_location.png" class="footer-img"><br/>
  				<span class="footer-span" style="color:black">지역</span>
  			</a>
  		</div>
  		
  		
- 		<div id=nearby class="footer-item">
+ 		<div id=nearby-div class="footer-item">
  			<a href="https://www.daum.net/" style="text-decoration-line:none">
- 				<img alt="내주변" src="${ctp}/images/ico_navigator.png" class="footer-img">
+ 				<img alt="내주변" src="${ctp}/images/ico_navigator.png" class="footer-img"><br/>
  				<span class="footer-span" style="color:black">내주변</span>
  			</a>
  		</div>
@@ -115,7 +115,8 @@ gidori_1@naver.com
  	<!-- 가운데 동근란 홈 밑에 깔려지는 사각형 div -->
  	<div class="footer-center-div"></div>
  	
- 	<div id=home class="footer-item">
+ 	
+ 	<div id=home-div class="footer-item">
  		<a href="${ctp}" style="text-decoration-line:none">
  			<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer-img" id="home-img">
  		</a>
@@ -125,16 +126,16 @@ gidori_1@naver.com
  	
  	<div class="footer-right-div">
  	
- 		<div id=community class="footer-item">
+ 		<div id=community-div class="footer-item">
  			<a href="${ctp}" style="text-decoration-line:none">
- 				<img alt="커뮤니티" src="${ctp}/images/ico_community.png" class="footer-img">
+ 				<img alt="커뮤니티" src="${ctp}/images/ico_community.png" class="footer-img"><br/>
  				<span class="footer-span" style="color:black">커뮤니티</span>
  			</a>
  		</div>
  		
- 		<div id=myinfo class="footer-item" >
+ 		<div id=myinfo-div class="footer-item" >
  			<a href="${ctp}" style="text-decoration-line:none">	
- 				<img alt="내정보" src="${ctp}/images/ico_user.png" class="footer-img">
+ 				<img alt="내정보" src="${ctp}/images/ico_user.png" class="footer-img"><br/>
  				<span class="footer-span" style="color:black">내정보</span>
  			</a>
  		</div>
