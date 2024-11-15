@@ -55,11 +55,10 @@ gidori_1@naver.com
 
 <body>
 
+  <!-- 헤더 부분 -->
 	<div id="header-div">
-
 		<p id="logo-p">
-			<img src="${ctp}/images/logo.svg" alt="마사지 타이쿤"
-				onclick="location.href='${ctp}';">
+			<img src="${ctp}/images/logo.svg" alt="마사지 타이쿤" onclick="location.href='${ctp}';">
 		</p>
 
 		<form method="get" action="search_list.list" id="search-form"
@@ -77,8 +76,22 @@ gidori_1@naver.com
 	</div>
 
 
+
+
+
+
+
+   <!-- 사이드바 부분 -->
 <div id="mySidenav" class="sidenav">
+	<!-- 여기부터 해야한다. 각 요소들을 div 로 묶어서 해야할듯 -->
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px"> <span><a href="#">로그인</a></span> 또는 <span><a href="#">회원가입</a></span>을 해주세요
+  <br/>
+  
+  <img alt="홈" src="${ctp}/images/ico_home_empty.png"><p><a href="#">홈</a></p>
+  <br/>
+  
   <a href="#">About</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
@@ -87,6 +100,13 @@ gidori_1@naver.com
 
 <!-- 사이드바 외부클릭시 체크용으로 사용되는 div 이다. 이 div 가 클릭되면 사이드바를 닫는다 -->
 <div class="overlay"></div>
+
+
+
+
+
+
+
 
 
  <!-- 화면 하단의 네비게이션 -->
@@ -112,17 +132,14 @@ gidori_1@naver.com
  	</div>
  	
  	
- 	<!-- 가운데 동근란 홈 밑에 깔려지는 사각형 div -->
- 	<div class="footer-center-div">
- 	
- 	
- 	<div id=home-div class="footer-item">
- 		<a href="${ctp}" style="text-decoration-line:none">
- 			<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer-img" id="home-img">
- 		</a>
- 	</div>
- 	
- 	</div>
+	 	<!-- 가운데 동근란 홈 밑에 깔려지는 사각형 div -->
+	<div class="footer-center-div">
+		 <div id=home-circle-div class="footer-item">
+		 	<a href="${ctp}" style="text-decoration-line:none">
+		 		<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer-img" id="home-img">
+		 	</a>
+		 </div>
+	</div>
  	
  	
  	<div class="footer-right-div">
