@@ -113,7 +113,7 @@ gidori_1@naver.com
  	
  	
  	<!-- 가운데 동근란 홈 밑에 깔려지는 사각형 div -->
- 	<div class="footer-center-div"></div>
+ 	<div class="footer-center-div">
  	
  	
  	<div id=home-div class="footer-item">
@@ -122,6 +122,7 @@ gidori_1@naver.com
  		</a>
  	</div>
  	
+ 	</div>
  	
  	
  	<div class="footer-right-div">
