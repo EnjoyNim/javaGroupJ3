@@ -26,89 +26,58 @@
         $(document).on("click", "#hamburger-menu", function (e){
         						// sidenav 의 너비는 270px 정도
         	document.getElementById("mySidenav").style.width = "270px";
-        						
-        
         	$('.overlay').fadeIn(); 
         });
  
          // overlay div 에 onclick 함수를 지정한다. 클릭시 사이드바 닫기
-        $('.overlay').on('click', function () {
-            $('.overlay').fadeOut();
-        	document.getElementById("mySidenav").style.width = "0";
-        }); 
+        $('.overlay').on('click', closeNav); 
          
     });
 	
+	
+	let commSubMenuIsOpen = false;
 
 	/* 사이드바의 x 표시를 눌러서 닫기시 처리 함수 */
 	function closeNav() {
 	 	$('.overlay').fadeOut();
 		document.getElementById("mySidenav").style.width = "0";
+		
+		// 커뮤니티 화살표를 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
+		document.getElementById("community-arrow-img").style.transform = "rotate( 360deg )";
+		commSubMenuIsOpen = false;
 	}
 	
+	/*  이런식으로 jquery 에서 css 에 접근할 수 있다.
+	rotated = false;
+	$('.pointer').click(function(){
+	  elem = this;
+	  
+	  $({rotation: 225*rotated}).animate({rotation: 225*!rotated}, {
+	    duration: 500,
+	    step: function(now) {
+	      $(elem).css({'transform' : 'rotate('+ now +'deg)'});
+	    }
+	  });
+	  rotated=!rotated;
+	});*/
 	
 	
-	
-	// 사이드바의 커뮤니티 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
-	let communityMenuIsOpen = false;
+	// 사이드바의 커뮤니티 항목을 클릭하면 
 	function clickCommunityMenu(){
-		let str = "";
-		if(communityMenuIsOpen){ // subMenu가 열려있다면 닫는다.
-			document.getElementById("comSubMenu").innerHTML = "";
-			document.getElementById("community-span").innerHTML = "커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
-			communityMenuIsOpen = false;
-		}else{
-			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>공지사항</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>공식블로그</a><br/>";
-			document.getElementById("comSubMenu").innerHTML = str;
-			document.getElementById("community-span").innerHTML = "커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
-			communityMenuIsOpen = true;
+		// 이렇게 해당 요소의 style 에 접근해서 속성에 값을 줄 수 있다.
+		// 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
+		if(!commSubMenuIsOpen){ // 원래상태를 기준으로 하기에 bool 변수를 줘서 180, 360 으로 처리해야한다.
+			document.getElementById("community-arrow-img").style.transform = "rotate( 180deg )";
+			document.getElementById("community-arrow-img").style.transition = "0.4s";
+			commSubMenuIsOpen = true;
+		}else{ // 원상태로 되돌린다.
+			document.getElementById("community-arrow-img").style.transform = "rotate( 360deg )";
+			document.getElementById("community-arrow-img").style.transition = "0.4s";
+			commSubMenuIsOpen = false;
 		}
 	}
 	
-	
-	
-	
-	// 사이드바의 내정보 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
-	let myInfoMenuIsOpen = false;
-	function clickMyInfoMenu(){
-		let str = "";
-		if(myInfoMenuIsOpen){ // subMenu가 열려있다면 닫는다.
-			document.getElementById("myInfoSubMenu").innerHTML = "";
-			document.getElementById("myInfo-span").innerHTML = "내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
-			myInfoMenuIsOpen = false;
-		}else{
-			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>회원가입</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 포인트</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 쿠폰함</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 좋아요 제휴점</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>내 방문후기</a><br/>";
-			document.getElementById("myInfoSubMenu").innerHTML = str;
-			document.getElementById("myInfo-span").innerHTML = "내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
-			myInfoMenuIsOpen = true;
-		}
-	}
-	
-	
-	
-	// 사이드바의 고객센터 항목을 클릭하면 서브매뉴를 동적으로 생성하고 닫는다.
-	let serviceMenuIsOpen = false;
-	function clickServiceMenu(){
-		let str = "";
-		if(serviceMenuIsOpen){ // subMenu가 열려있다면 닫는다.
-			document.getElementById("serviceSubMenu").innerHTML = "";
-			document.getElementById("service-span").innerHTML = "고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897"; // 아래꺽쇠표시
-			serviceMenuIsOpen = false;
-		}else{
-			str = "<hr/><a href='#' style='margin-left:15px; font-size:12px; color:black'>1:1채팅</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>자주묻는질문</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>제휴입점신청</a><br/><br/>"+
-			"<a href='#' style='margin-left:15px; font-size:12px;color:black'>마캉스정보</a><br/>";
-			document.getElementById("serviceSubMenu").innerHTML = str;
-			document.getElementById("service-span").innerHTML = "고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8896"; // 위꺽쇠표시
-			serviceMenuIsOpen = true;
-		}
-	}
+
 	
 </script>
 
@@ -166,78 +135,67 @@ gidori_1@naver.com
   
   <br/><br/><br/><br/>
   
-  <a href="#">
-  <div style="margin-left:15px">
-  <img alt="홈아이콘" src="${ctp}/images/ico_home_empty.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;">홈</span>
-  </div>
-  </a>  
-  <hr/>
   
-  <a href="#">
-  <div style="margin-left:15px">
-  <img alt="핀아이콘" src="${ctp}/images/ico_location.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;">지역별 마사지</span>
-  </div>
-  </a>
-  <hr/>
   
-  <a href="javascript:clickCommunityMenu()">
-  <div style="margin-left:15px">
-  <img alt="커뮤니티아이콘" src="${ctp}/images/ico_community.png" width="20px" height="20px">                    <!-- &#8896 은 위꺽쇠 -->
-  <span style="color:black; margin-left:5px; font-size:15px;" id="community-span">커뮤니티 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897 </span>
-  </div>
-  </a>
  
-  <div id="comSubMenu"></div>
- 
+  <div onclick="#" style="margin-left:15px;cursor:pointer;">
+	  <img alt="홈아이콘" src="${ctp}/images/ico_home_empty.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;">홈</span>
+  </div>
+  <hr/>
   
+
+  <div onclick="#" style="margin-left:15px;cursor:pointer;">
+	  <img alt="핀아이콘" src="${ctp}/images/ico_location.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;">지역별 마사지</span>
+  </div>
+  <hr/>
   
+
+
+  <div id="community-box" onclick="clickCommunityMenu()" style="margin-left:15px;cursor:pointer;">
+	  <img alt="커뮤니티아이콘" src="${ctp}/images/ico_community.png" width="20px" height="20px">                   
+	  <span style="color:black; margin-left:5px; font-size:15px;" id="community-span">커뮤니티</span>
+ 	  <img class="arrow-img" id="community-arrow-img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png">             
   
-  
-  
-  
-  
-  
+  </div>
   
   
   <hr/>
-  <a href="javascript:clickMyInfoMenu()">
-  <div style="margin-left:15px">
-  <img alt="사람아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;" id="myInfo-span">내정보 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897</span>
+ 
+  <div onclick="clickMyInfoMenu()" style="margin-left:15px;cursor:pointer;">
+	  <img alt="사람아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;" id="myInfo-span">내정보</span>
+	  <img class="arrow-img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png"> 
   </div>
-  </a>
   <div id="myInfoSubMenu"></div>
   
   
   <hr/>
   
-  <a href="javascript:clickServiceMenu()">
-  <div style="margin-left:15px">
-  <img alt=헤드셋아이콘 src="${ctp}/images/ico_headset.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;" id="service-span">고객센터 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &#8897</span>
+  <div onclick="clickServiceMenu()" style="margin-left:15px;cursor:pointer;">
+	  <img alt=헤드셋아이콘 src="${ctp}/images/ico_headset.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;" id="service-span">고객센터</span>
+	  <img class="arrow-img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png"> 
   </div>
-  </a>
   <div id="serviceSubMenu"></div>
   
   
   <hr/>
   
-  <a href="#">
-  <div style="margin-left:15px">
-  <img alt="이벤트아이콘" src="${ctp}/images/ico_event.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;">이벤트</span>
+
+  <div onclick="#" style="margin-left:15px;cursor:pointer;">
+	  <img alt="이벤트아이콘" src="${ctp}/images/ico_event.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;">이벤트</span>
   </div>
-  </a>
   <hr/>
   
-  <a href="#">
-  <div style="margin-left:15px">
-  <img alt="가방아이콘" src="${ctp}/images/ico_bag.png" width="20px" height="20px">
-  <span style="color:black; margin-left:5px; font-size:15px;">기획전</span>
+
+  <div onclick="#" style="margin-left:15px;cursor:pointer;">
+	  <img alt="가방아이콘" src="${ctp}/images/ico_bag.png" width="20px" height="20px">
+	  <span style="color:black; margin-left:5px; font-size:15px;">기획전</span>
   </div>
-  </a>
+
   <hr/>
   
 </div>
