@@ -26,6 +26,9 @@
         $(document).on("click", "#hamburger-menu", function (e){
         						// sidenav 의 너비는 270px 정도
         	document.getElementById("mySidenav").style.width = "270px";
+        	document.getElementById("mySidenav-header").style.width = "270px";
+        						
+        
         	$('.overlay').fadeIn(); 
         });
  
@@ -33,6 +36,7 @@
         $('.overlay').on('click', function () {
             $('.overlay').fadeOut();
         	document.getElementById("mySidenav").style.width = "0";
+        	document.getElementById("mySidenav-header").style.width = "0";
         }); 
          
     });
@@ -42,6 +46,7 @@
 	function closeNav() {
 	 	$('.overlay').fadeOut();
 		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("mySidenav-header").style.width = "0";
 	}
 	
 	
@@ -145,20 +150,23 @@ gidori_1@naver.com
 
 
 
-   <!-- 사이드바 부분 -->
-<div id="mySidenav" class="sidenav">
+	<!-- 사이드 네비의 헤더부분은 따로 뺐다. scroll 의 영향없이 항상 고정되도록. -->
+   <div id="mySidenav-header" class="sidenav-header">
+	  <!--  &times; 는 곱하기 표시 X 를 의미한다. -->
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  
+	  <div id="mySidenav-header-content" style="font-size:12px; margin-left:15px" >
+	  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px">
+	  <a href="#"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="#"><span style="color:blue;">회원가입</span></a>을 해주세요
+	  </div>
   
-  <!--  &times; 는 곱하기 표시 X 를 의미한다. -->
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  
-  <div  style="font-size:12px; margin-left:15px" >
-  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px">
-  <a href="#"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="#"><span style="color:blue;">회원가입</span></a>을 해주세요
   </div>
+  
   <br/>
-  		<!-- 사이드바에서 여기 윗 부분은 헤더처럼 항상 보여져야한다. 작업해야함. -->
-  
-  
+<br/>
+   <!-- 사이드바 부분 -->
+<div id="mySidenav" class="sidenav"> 
+   
   
   <a href="#">
   <div style="margin-left:15px">

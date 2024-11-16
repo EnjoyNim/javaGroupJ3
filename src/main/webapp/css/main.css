@@ -2,7 +2,7 @@
 
 #header-div {
 	border: 1px solid gray;
-	position:relative;
+	position:pixed;
 	height:70px;
 	border-radius: 1px;
 	top: -2px;   /* 위로 살짝 올려서 윗쪽 선이 안보이도록 */
@@ -68,18 +68,38 @@
 
 
 
-/* The side navigation menu */
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 999; /* 1 Stay on top */
-  top: 0; /* Stay at the top */
-/*   left: 0; */
-  right: 0;
+
+
+
+.sidenav-header {
+  position: fixed;
+  top: 0%;
+  right: 0px;
+  height: 9%; 
+  width: 0px; 
+  z-index: 999; 
   background-color: #F0FFF0; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#mySidenav-header-content {
+	position:relative;
+	top: 50px;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+  position: fixed;
+  top: 9%;
+  height: 91%; 
+  width: 0px; 
+  z-index: 999; 
+  right: 0px;
+  background-color: #F0FFF0; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top:20px;
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -98,13 +118,13 @@ font-size: 25px;
 
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+/* .sidenav a:hover {
   color: #f1f1f1;
 }
-
+ */
 
 /* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+.sidenav-header .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
