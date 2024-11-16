@@ -71,66 +71,56 @@
 
 
 
-.sidenav-header {
-  position: fixed;
-  top: 0%;
-  right: 0px;
-  height: 9%; 
-  width: 0px; 
-  z-index: 999; 
-  background-color: #F0FFF0; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
 
-#mySidenav-header-content {
-	position:relative;
-	top: 50px;
-}
 
 
 /* The side navigation menu */
 .sidenav {
   position: fixed;
-  top: 9%;
-  height: 91%; 
+  top: 0;
+  height: 100%; 
   width: 0px; 
   z-index: 999; 
   right: 0px;
-  background-color: #F0FFF0; /* Black*/
+  background-color: #F0FFF0; 
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top:20px;
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/* The navigation menu links */
+
 .sidenav a { /* anchor 태그에 적용하는 css */
-  
   text-decoration: none;
+}
+
+  /* 사이드네비의 헤더부분 */
+.sidenav-header {
+  position: sticky;
+  top: 0;
+  height:70px;
+/*    헤더 아래쪽이 은은하게 비치도록 blur 처리
+  backdrop-filter: blur(5px); 
+   헤더 아래쪽이 약간은 보이도록 alpha 값 지정 */
+  background-color: rgba(255, 255, 255, 1); 
+   
+  }
   
-/*   
-padding: 8px 8px 8px 32px;
-font-size: 25px; 
-  color: #818181;
-  display: block;
-  transition: 0.3s; */
-}
-
-
-/* When you mouse over the navigation links, change their color */
-/* .sidenav a:hover {
-  color: #f1f1f1;
-}
- */
-
-/* Position and style the close button (top right corner) */
+ 
 .sidenav-header .closebtn {
   position: absolute;
-  top: 0;
-  right: 25px;
+  top: -20px;
+  right: 10px;
   font-size: 36px;
-  margin-left: 50px;
 }
+
+ #mySidenav-header-content {
+	position:relative;
+	top: 30px;
+} 
+
+
+
+
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -145,6 +135,7 @@ font-size: 25px;
  그리고 z-index를 사이드바 한 단계 아래로 지정하여 사이드바 외부 클릭시 이벤트를 받아서 사이드바를 닫도록 한다.  */
 .overlay {  
     position: fixed;
+    top:0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);

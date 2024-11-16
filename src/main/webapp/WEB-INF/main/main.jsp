@@ -26,7 +26,6 @@
         $(document).on("click", "#hamburger-menu", function (e){
         						// sidenav 의 너비는 270px 정도
         	document.getElementById("mySidenav").style.width = "270px";
-        	document.getElementById("mySidenav-header").style.width = "270px";
         						
         
         	$('.overlay').fadeIn(); 
@@ -36,7 +35,6 @@
         $('.overlay').on('click', function () {
             $('.overlay').fadeOut();
         	document.getElementById("mySidenav").style.width = "0";
-        	document.getElementById("mySidenav-header").style.width = "0";
         }); 
          
     });
@@ -46,7 +44,6 @@
 	function closeNav() {
 	 	$('.overlay').fadeOut();
 		document.getElementById("mySidenav").style.width = "0";
-		document.getElementById("mySidenav-header").style.width = "0";
 	}
 	
 	
@@ -150,7 +147,12 @@ gidori_1@naver.com
 
 
 
-	<!-- 사이드 네비의 헤더부분은 따로 뺐다. scroll 의 영향없이 항상 고정되도록. -->
+
+   <!-- 사이드바 부분 -->
+<div id="mySidenav" class="sidenav"> 
+   
+  
+  	<!-- 사이드 네비의 헤더부분은 따로 뺐다. scroll 의 영향없이 항상 고정되도록. -->
    <div id="mySidenav-header" class="sidenav-header">
 	  <!--  &times; 는 곱하기 표시 X 를 의미한다. -->
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -162,11 +164,7 @@ gidori_1@naver.com
   
   </div>
   
-  <br/>
-<br/>
-   <!-- 사이드바 부분 -->
-<div id="mySidenav" class="sidenav"> 
-   
+  <br/><br/><br/><br/>
   
   <a href="#">
   <div style="margin-left:15px">
