@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* The side navigation menu */
+.sidenav {
+  position: fixed;
+  top: 0;
+  height: 100%; 
+  width: 0px; 
+  z-index: 999; 
+  right: 0px;
+  background-color: #F0FFF0; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top:20px;
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+.sidenav a { /* anchor 태그에 적용하는 css */
+  text-decoration: none;
+}
+
+  /* 사이드네비의 헤더부분 */
+.sidenav_header {
+  position: sticky;
+  top: 0;
+  height:70px;
+/*    헤더 아래쪽이 은은하게 비치도록 blur 처리
+  backdrop-filter: blur(5px); 
+   헤더 아래쪽이 약간은 보이도록 alpha 값 지정 */
+  background-color: rgba(255, 255, 255, 1); 
+   
+  }
+  
+ 
+.sidenav_header .closebtn {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  font-size: 36px;
+}
+
+ #mySidenav_header_content {
+	position:relative;
+	top: 30px;
+} 
+
+.sidenav .menu_img{
+	margin-left:15px;
+}
+
+.sidenav .down_arrow_img{
+	position:absolute;
+	right: 10px;
+	width: 15px;
+	height: 15px;
+}
+
+/*   사이드네비의 매뉴항목을 클릭시 나타나는 섭매뉴 구븐 hr */
+.sidenav .submenu_hr{
+	visibility:hidden;
+	height:0px;
+	margin-top:0;
+}
+
+.sidenav .submenu_ul{
+	display:none;
+	list-style-type: none; /* 아이템앞에 점 없애기 */ 
+}
+
+.sidenav .submenu_ul li{
+	margin-left:-25px;
+}
+
+.sidenav .menu_label_span {
+	color:black; 
+	margin-left:5px; 
+	font-size:15px;
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+/* div overlay 의 크기를 화면 전체로 지정한다. 그리고 display:none 으로 하여 처음에는 숨겨진 상태로 만든다.
+ 그리고 z-index를 사이드바 한 단계 아래로 지정하여 사이드바 외부 클릭시 이벤트를 받아서 사이드바를 닫도록 한다.  */
+.overlay {  
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    display: none;
+}
