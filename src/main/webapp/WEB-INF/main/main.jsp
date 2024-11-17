@@ -20,7 +20,9 @@
 	'use strict';
 	
 	let commSubMenuIsOpen = false;
-	
+	let myinfoSubMenuIsOpen = false;
+	let serviceSubMenuIsOpen = false;
+	            		
 	// 이 페이지가 로딩될때 처리
 	$(document).ready(function(){
 	
@@ -33,99 +35,97 @@
  
          // overlay div 에 onclick 함수를 지정한다. 클릭시 사이드바 닫기
         $('.overlay').on('click', closeNav); 
-     	// community_box 를 클릭시 처리할 함수를 등록
-        $("#community_box").click(closeCommBox);
+         
+     	// community_box 를 클릭시 처리할 함수를 등록, jquery 에서 매개변수가 있는 함수 등록시에는 이렇게 한단다..
+        $("#community_box").on('click', clickSubMenu.bind(null, 'community_box'));
+     	// myinfo_box 를 클릭시 처리할 함수를 등록
+        $("#myinfo_box").on('click', clickSubMenu.bind(null, 'myinfo_box'));
+     	// service_box 를 클릭시 처리할 함수를 등록
+        $("#service_box").on('click', clickSubMenu.bind(null, 'service_box'));
     });
 	
 	
-	function closeCommBox(){
-            //클릭된 태그의 자식 태그중 ul 태그에 hide 클래스를 넣든지 빼든지 한다.(class hide 에 정의된 css 가 삭제되거나 적용됨)
-            //$(this).children("ul").toggleClass("hide");
-        
-            // next 는 바로 다음요소이고 다다음 요소는 이렇게 next next 로 해야한다.
-            // 참고로 prev 는 앞의 요소임
-            let submenu =  $("#community_box").next(".submenu_hr").next(".submenu_ul"); 
+	
+	// 사이드네비의 섭매뉴를 열거나 닫는다.
+	function clickSubMenu(id){
+		
+        	let el =  $("#"+id);
             
+            let subMenuUl =  el.next(".submenu_hr").next(".submenu_ul"); 
+    
             // submenu 가 화면상에 보일때는 위로 부드럽게 접고 아니면 아래로 펼치기
-            if( submenu.is(":visible") ){
+            if( subMenuUl.is(":visible") ){
             	
-            	submenu.slideUp();
+            	el.children("down_arrow_img").css({"transform":"rotate( 360deg )", "transition":"0.4s"});
+            	subMenuUl.slideUp();
+            	el.next(".submenu_hr").css({"visibility":"hidden", "height":"0px", "margin-top":"0"});
             	
-            	$("#community_box").next(".submenu_hr").css({"visibility":"hidden", "height":"0px", "margin-top":"0"});
-            	
-            	// remove() :선택된요소를 포함, 하위요소들을 제거 == 요소자체를 지운다
-            	// empty() : 선택된 요소의 하위요소들만 제거 == 요소자체가 아니라 내용을 지운다
-            	//$("#community_box hr" ).remove();
+            	switch(id){
+	            	case 'community_box':
+	            		commSubMenuIsOpen = false;
+	            		break;
+	            	case 'myinfo_box':
+	            		myinfoSubMenuIsOpen = false;
+	            		break;
+	            	case 'service_box':
+	            		serviceSubMenuIsOpen = false;
+	            		break;
+	            	default:break;
+            	}
             	
             }else{
             	
-            	//submenu.before("<hr/>"); // submenu 앞에 원하는 요소를 추가
+            	el.children("down_arrow_img").css({"transform":"rotate( 180deg )", "transition":"0.4s"});
+            	el.next(".submenu_hr").css({"visibility":"visible", "height":"1px", "margin-top":"2px"});
+	
+	            subMenuUl.slideDown();
+	            	
+	            switch(id){
+	            	case 'community_box':
+	            		commSubMenuIsOpen = true;
+	            		break;
+	            	case 'myinfo_box':
+	            		myinfoSubMenuIsOpen = true;
+	            		break;
+	            	case 'service_box':
+	            		serviceSubMenuIsOpen = true;
+	            		break;
+	            	default:break;
+	            }
             	
-            	$("#community_box").next(".submenu_hr").css({"visibility":"visible", "height":"1px", "margin-top":"2px"});
-
-                submenu.slideDown();
             }
 	}
 	
 
-	/* 사이드바의 x 표시를 눌러서 닫기시 처리 함수 */
+	/* 사이드바의 x 표시를 눌러서 닫을때 처리 함수 */
 	function closeNav() {
 	 	$('.overlay').fadeOut();
 		document.getElementById("mySidenav").style.width = "0";
 		
 		// 커뮤니티 화살표를 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
 		if(commSubMenuIsOpen){
-			
-			document.getElementById("community_arrow_img").style.transform = "rotate( 360deg )";
-			
 			commSubMenuIsOpen = false;
-			
-			closeCommBox();
+			clickSubMenu("community_box");
+		}
+		
+		// 내정보 화살표를 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
+		if(myinfoSubMenuIsOpen){
+			myinfoSubMenuIsOpen = false;
+			clickSubMenu("myinfo_box");
+		}
+		
+		// 고객센터 화살표를 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
+		if(serviceSubMenuIsOpen){
+			serviceSubMenuIsOpen = false;
+			clickSubMenu("service_box");
 		}
 	}
 	
-	
-	
-	/*  이런식으로 jquery 에서 css 에 접근할 수 있다.
-	rotated = false;
-	$('.pointer').click(function(){
-	  elem = this;
-	  
-	  $({rotation: 225*rotated}).animate({rotation: 225*!rotated}, {
-	    duration: 500,
-	    step: function(now) {
-	      $(elem).css({'transform' : 'rotate('+ now +'deg)'});
-	    }
-	  });
-	  rotated=!rotated;
-	});*/
-	
-	
-	// 사이드바의 커뮤니티 항목을 클릭하면 
-	function clickCommunityMenu(){
-		// 이렇게 해당 요소의 style 에 접근해서 속성에 값을 줄 수 있다.
-		// 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
-		if(!commSubMenuIsOpen){ // 원래상태를 기준으로 하기에 bool 변수를 줘서 180, 360 으로 처리해야한다.
-			document.getElementById("community_arrow_img").style.transform = "rotate( 180deg )";
-			document.getElementById("community_arrow_img").style.transition = "0.4s";
-			commSubMenuIsOpen = true;
-		}else{ // 원상태로 되돌린다.
-			document.getElementById("community_arrow_img").style.transform = "rotate( 360deg )";
-			document.getElementById("community_arrow_img").style.transition = "0.4s";
-			commSubMenuIsOpen = false;
-		}
-	}
-	
-
 
 	
 </script>
 
 </head>
-
-<!-- 폰트어썸
-gidori_1@naver.com
-고마워요11% -->
 
 
 <body>
@@ -151,12 +151,6 @@ gidori_1@naver.com
 	</div>
 
 
-
-
-
-
-
-
    <!-- 사이드바 부분 -->
 <div id="mySidenav" class="sidenav"> 
    
@@ -176,8 +170,6 @@ gidori_1@naver.com
   <br/><br/><br/><br/>
   
   
-  
- 
   <div onclick="#" style="cursor:pointer;">
 	  <img alt="홈아이콘" src="${ctp}/images/ico_home_empty.png" width="20px" height="20px" class="menu_img">
 	  <span class="menu_label_span">홈</span>
@@ -191,53 +183,59 @@ gidori_1@naver.com
   </div>
   <hr/>
   
-
-
-
-
+  
   <div>
-  	<div id="community_box" onclick="clickCommunityMenu()" style="cursor:pointer;">
+  	<div id="community_box" style="cursor:pointer;">
     	<img alt="커뮤니티아이콘" src="${ctp}/images/ico_community.png" width="20px" height="20px" class="menu_img">                   
 		<span class="menu_label_span">커뮤니티</span>
-	 	<img class="arrow_img" id="community_arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png">             
+	 	<img class="down_arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png">             
  	</div>
   	<hr class="submenu_hr"/>
   	  					
   	<ul class="submenu_ul" style="cursor:pointer;">
-  		<li onclick="location.href='#';" style="margin-left:-25px">공지사항</li><br/>
-  		<li onclick="location.href='#';" style="margin-left:-25px">공식블로그</li>
+  		<li onclick="location.href='#';">공지사항</li><br/>
+  		<li onclick="location.href='#';">공식블로그</li>
+  	</ul>
+  </div>
+  <hr/>
+ 
+   <div>
+  	<div id="myinfo_box" style="cursor:pointer;">
+    	<img alt="사람아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px" class="menu_img">                   
+		<span class="menu_label_span">내정보</span>
+	 	<img class="down_arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png">             
+ 	</div>
+  	<hr class="submenu_hr"/>
+  	  					
+  	<ul class="submenu_ul" style="cursor:pointer;">
+  		<li onclick="location.href='#';">회원가입</li><br/>
+  		<li onclick="location.href='#';">내포인트</li><br/>
+  		<li onclick="location.href='#';">내쿠폰함</li><br/>
+  		<li onclick="location.href='#';">내 좋아요 제휴점</li><br/>
+  		<li onclick="location.href='#';">내 방문후기</li>
   	</ul>
   </div>
   
   <hr/>
- 
- 
- 
- 
- 
-  <div onclick="clickMyInfoMenu()" style="cursor:pointer;">
-	  <img alt="사람아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px" class="menu_img">
-	  <span class="menu_label_span" id="myInfo_span">내정보</span>
-	  <img class="arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png"> 
   
-  		<hr class="submenu_hr"/>
+  <div>
+  	<div id="service_box" style="cursor:pointer;">
+    	<img alt="헤드셋아이콘" src="${ctp}/images/ico_user.png" width="20px" height="20px" class="menu_img">                   
+		<span class="menu_label_span">고객센터</span>
+	 	<img class="down_arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png">             
+ 	</div>
+  	<hr class="submenu_hr"/>
+  	  					
+  	<ul class="submenu_ul" style="cursor:pointer;">
+  		<li onclick="location.href='#';">1:1채팅</li><br/>
+  		<li onclick="location.href='#';">자주묻는질문</li><br/>
+  		<li onclick="location.href='#';">제휴입점신청</li><br/>
+  		<li onclick="location.href='#';">마캉스정보</li>
+  	</ul>
   </div>
-  <div id="myInfoSubMenu"></div>
-  
   
   <hr/>
-  
-  <div onclick="clickServiceMenu()" style="cursor:pointer;">
-	  <img alt=헤드셋아이콘 src="${ctp}/images/ico_headset.png" width="20px" height="20px" class="menu_img">
-	  <span class="menu_label_span" id="service_span">고객센터</span>
-	  <img class="arrow_img" alt="아래펼침꺽쇠" src="${ctp}/images/ico_down_arrow.png"> 
-      <hr class="submenu_hr"/>
-  </div>
-  <div id="serviceSubMenu"></div>
-  
-  
-  <hr/>
-  
+
 
   <div onclick="#" style="cursor:pointer;">
 	  <img alt="이벤트아이콘" src="${ctp}/images/ico_event.png" width="20px" height="20px" class="menu_img">
