@@ -51,7 +51,8 @@
     
 /* 이걸 right 로 하면 화면 가로를 줄일때, 우측을 기준으로 48.2% 유지하기 때문에
 이 div 가 좌측으로 밀린다. */
-	right:48.2%;  
+	left:48.2%;
+/* 	right:48.2%;   */
 	width: 70px;
 	height:80px;
 	z-index:998;
@@ -85,7 +86,7 @@
 .footer_right_div{
 	position:absolute;
 	top:0px;
-	right:0px;
+	left:50%;
 	width: 50%;
 	height:80px; 
 	border-radius:75px 0px 0px 0px;      /*  4개 설정시    1상좌 2상우 3 하좌 4 하우 */

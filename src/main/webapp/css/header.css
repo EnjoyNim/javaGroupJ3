@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 #header_div {
+	display:flex;
+	/* flex-wrap:wrap; */
+	justify-content:center;
+	align-items: center;
+	
 	border: 1px solid gray;
 	position:pixed;
 	height:70px;
@@ -8,17 +13,25 @@
 	top: -2px;   /* 위로 살짝 올려서 윗쪽 선이 안보이도록 */
 }
 
-#logo_p {
+#header_logo_img {
+	 /* grow , shrink  grow는 남는 여백을 차지하는 얼마나 차지할지 값, shrink 는 부족한 공간에서 얼마나 줄어들지 값,  그냥 0 0 으로 한다. */
+	flex : 0 0 auto;
+	
+	 width:3vw; 
+	/* width:45px;  */
+	height:40px;
 	position:absolute;
-	top:5px;
-	left:25%;
+	left:33%;
 	cursor:pointer;
 }
 
 #search_form {
+	 /* grow , shrink  grow는 남는 여백을 차지하는 얼마나 차지할지 값, shrink 는 부족한 공간에서 얼마나 줄어들지 값,  그냥 0 0 으로 한다. */
+	flex : 0 0 auto;
+	
 	position:absolute;
 	top:15px;
-	right: 33%;
+	left: 38%;
 	height:40px;
 	width: 30%;
 	background: white;
@@ -27,39 +40,45 @@
 	border : 1px solid #BC8F8F;
 }
 
-
-#hamburger_menu {
-	position:absolute;
-	top:13px;
-	right:30%;
-	font-size:30px;
-	color:black;
-}
-
-
 #search_txt {
 	border: none;
 	background: none;
 	outline: none;
-	float:left;
 	padding: 0px;
 	color: #898989;
 	font-size:16px;
 	line-height:30px;
-	width: 200px;
+	width: 100%;
 	height:100%
 }
 
+  /* 폰트를 이용한 돋보기 버튼 */
 #search_btn{
+	position:absolute;
+	right:20px;
+	top:0px;
+	
 	color:#BC8F8F;
-	float:right;
-	width:40px;
+	width:20px;
 	height:100%;
 	border-radius:50%;
 	background: white;
 	border: none;
 	font-size: 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
+
+
+#hamburger_menu {
+	 /* grow , shrink  grow는 남는 여백을 차지하는 얼마나 차지할지 값, shrink 는 부족한 공간에서 얼마나 줄어들지 값,  그냥 0 0 으로 한다. */
+	flex : 0 0 auto;
+	
+	
+	position:absolute;
+	
+	left:69%;
+	font-size:28px;
+	color:black;
+}
+
+
+

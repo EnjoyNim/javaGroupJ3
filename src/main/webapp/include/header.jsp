@@ -26,8 +26,12 @@
 	
         // 햄버거 매뉴에 onclick 함수를 지정한다. 클릭시 사이드바 표시
         $(document).on("click", "#hamburger_menu", function (e){
-        						// sidenav 의 너비는 270px 정도
+        	
+        	// 사이드네비가 나올때는 천천히 나오도록
+        	document.getElementById("mySidenav").style.transition="0.5s";
+        	// sidenav 의 너비는 270px 정도
         	document.getElementById("mySidenav").style.width = "270px";
+        	
         	$('.overlay').fadeIn(); 
         });
  
@@ -46,9 +50,9 @@
 	
   <!-- 헤더 부분 -->
 	<div id="header_div">
-		<p id="logo_p">
-			<img src="${ctp}/images/logo.svg" alt="마사지 타이쿤" onclick="location.href='${ctp}';">
-		</p>
+		
+		<img id="header_logo_img" src="${ctp}/images/logo.svg" alt="마사지 타이쿤" onclick="location.href='${ctp}';">
+		
 
 		<form method="get" action="search_list.list" id="search_form"
 			autocomplete="off">

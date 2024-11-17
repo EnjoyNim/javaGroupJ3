@@ -59,6 +59,8 @@
 	/* 사이드바의 x 표시를 눌러서 닫을때 처리 함수 */
 	function closeNav() {
 	 	$('.overlay').fadeOut();
+	 	/* 사이드네비가 들어갈때는 빠르게 들어가도록하자. */
+	 	document.getElementById("mySidenav").style.transition="0.2s";
 		document.getElementById("mySidenav").style.width = "0";
 		
 		// 커뮤니티 화살표를 사이드네비가 닫힐때 원상태로 돌려놓아야한다.
