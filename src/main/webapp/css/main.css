@@ -115,14 +115,47 @@ img {vertical-align: middle;} */
   .text {font-size: 11px}
 }
 
+#nearby_shop {
+	cursor:pointer;
+}
+#nearby_shop a{
+   	/* 밑줄 표시 않도록 */
+	text-decoration:none;	
+}
 
 
+ /* 내 주변 추천샵, nearby_shop css */
+#nearby_shop .review_and_heart {
+	display:flex;
+	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
+	justify-content:flex-start;
+	 /* 수직정렬을 중앙 */
+	align-items:center;
+	 /* 이상하게 샵 이름다음에 빈칸이 생겨서 마진탑을 -15px 줬음 */
+	margin-top:-15px;
+}
 
 
+#nearby_shop .review_and_heart .inner {
+	flex: 0 0 auto;
+	display:flex;
+	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
+	justify-content:center;
+	 /* 수직정렬을 중앙 */
+	align-items:center;
+}
 
 
+#nearby_shop .review_and_heart .inner div{
+	flex: 0 0 auto;
+}
 
+#nearby_shop .review_and_heart .inner img{
+	width:15px;
+	height:15px;
+}
 
+ 
 
 
 

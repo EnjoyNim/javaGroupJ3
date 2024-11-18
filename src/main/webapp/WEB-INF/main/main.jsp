@@ -167,7 +167,42 @@ function showSlides() {
 <div id="nearby_shop" style="overflow:hidden">
  <div class="swiper-container ">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
+  
+    <div class="swiper-slide">
+    	<a href="https://www.naver.com">
+    	    <div><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
+    		<p>사창동 마사지 더킹</p>
+    
+    		
+    				<!-- flex -->
+    			<div class="review_and_heart">
+    					<!-- flex -->
+    			   <div class="inner">
+    			   	 	<!-- <div class="ico_review"></div> -->
+    			   	 	<img alt="리뷰아이콘" src="${ctp}/images/ico_review.png">
+    			   	 	<div class="review_cnt" style="margin-left:5px">4</div>
+    			   </div>
+    			   <div class="inner" style="margin-left:10px">
+    			   		<img alt="리뷰아이콘" src="${ctp}/images/ico_heart_fill.png">
+    			   	 <!-- 	<div class="ico_heart_fill"></div> -->
+    			   	 	<div class="heart_cnt" style="margin-left:5px">15</div>
+    			   </div>
+    			</div>
+    			
+    					<!-- flex -->
+    			<div class="dist_and_price">
+    				<div class="dist">0.3<span><em class="unit">km</em></span></div>
+    				<div class="price">
+    					<p class="original">"130,000"<em class="unit_ko">원</em></p>
+    					<p class="dc"><span>15%</span><strong>"110,000"</strong><em class="unit_ko">원</em></p>
+    				</div>
+    			</div>
+    			
+    	</a>
+    </div>
+    
+    
+    
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby2.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby3.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby4.webp" style="width:100%"></div>
@@ -177,6 +212,13 @@ function showSlides() {
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby8.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby9.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby10.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby11.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby12.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby13.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby14.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby15.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby16.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div>
   </div>
 </div>
 	
