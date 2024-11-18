@@ -28,7 +28,7 @@
 	justify-content: center;
 	align-items: center;
 	 /* 밑줄 표시 않도록 */
-	text-decoration:none;
+	text-decoration-line:none;
 	width:11%;
 }
 
@@ -56,7 +56,7 @@
 	align-items:center;
 	border-radius: 5px;
 	/* 밑줄 표시 않도록 */
-	text-decoration:none;
+	text-decoration-line:none;
 }
 
 #upper_content .eventlist a img{
@@ -85,8 +85,8 @@ img {vertical-align: middle;} */
 
 /* The dots/bullets/indicators */
 .dot {
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -115,17 +115,24 @@ img {vertical-align: middle;} */
   .text {font-size: 11px}
 }
 
-#nearby_shop {
+
+
+
+
+/* 내 주변 추천샵, nearby_shop css */
+
+#nearby_shop, #new_shop {
 	cursor:pointer;
+/* 	overflow:hidden 을 꼭 해줘야한다. 안그러면 앞 뒤로 이미지가 넘어가서 나옴 */
+	overflow:hidden;
+	margin-top:30px;
 }
-#nearby_shop a{
+#nearby_shop a, #new_shop a{
    	/* 밑줄 표시 않도록 */
-	text-decoration:none;	
+	text-decoration-line:none;	
 }
 
-
- /* 내 주변 추천샵, nearby_shop css */
-#nearby_shop .review_and_heart {
+#nearby_shop .review_and_heart, #new_shop .review_and_heart {
 	display:flex;
 	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
 	justify-content:flex-start;
@@ -135,8 +142,7 @@ img {vertical-align: middle;} */
 	margin-top:-15px;
 }
 
-
-#nearby_shop .review_and_heart .inner {
+#nearby_shop .review_and_heart .inner, #new_shop .review_and_heart .inner {
 	flex: 0 0 auto;
 	display:flex;
 	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
@@ -145,23 +151,58 @@ img {vertical-align: middle;} */
 	align-items:center;
 }
 
-
-#nearby_shop .review_and_heart .inner div{
+#nearby_shop .review_and_heart .inner div, #new_shop .review_and_heart .inner div{
 	flex: 0 0 auto;
 }
 
-#nearby_shop .review_and_heart .inner img{
+#nearby_shop .review_and_heart .inner img, #new_shop .review_and_heart .inner img{
 	width:15px;
 	height:15px;
 }
 
- 
+#nearby_shop .dist_and_price, #new_shop .dist_and_price {
+	display:flex;
+	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
+	justify-content:space-between;
+	 /* 수직정렬을 바닥 */
+	align-items:flex-end;
+}
+
+#nearby_shop .dist_and_price .price, #new_shop .dist_and_price .price {
+	display:flex;
+	flex-direction:column;
+	 /* 가로정렬을 뒤쪽으로 몰리도록 설정 */
+	justify-content:flex-end;
+	 /* 수직정렬을 바닥 */
+	align-items:flex-end;
+}
 
 
 
 
+/* 회원가입소개 div 의 css */
+.register_ad{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	cursor:pointer;
+	border: 1px solid #0bc7ec;
+	border-radius: 6px;
+}
 
+.register_ad .left_group{
+	margin-left:20px;
+	flex: 0 0 auto;
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+}
 
+.register_ad .left_group .text_group{
+	flex: 0 0 auto;
+	display:flex;
+	flex-direction:column;
+}
 
 
 

@@ -49,21 +49,24 @@
 </script>
 	
   <!-- 헤더 부분 -->
-	<div id="header_div">
+	<header>
 		
-		<img id="header_logo_img" src="${ctp}/images/logo.svg" alt="마사지 타이쿤" onclick="location.href='${ctp}';">
+		<div id="header_div">
 		
-
-		<form method="get" action="search_list.list" id="search_form"
-			autocomplete="off">
-			<input type="text" name="keyword" id="search_txt"
-				placeholder="검색어를 입력해주세요." required>
-			<button id="search_btn" type="submit">
-				<i class="fa-solid fa-magnifying-glass"></i>
-			</button>
-		</form>
-
-		<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-		<a href="javascript:void(0);" class="icon" id="hamburger_menu"> 
-		<i class="fa fa-bars"></i></a>
-	</div>
+			<img id="header_logo_img" src="${ctp}/images/logo.svg" alt="마사지 타이쿤" onclick="location.href='${ctp}';">
+			
+	
+			<form method="get" action="search_list.list" id="search_form"
+				autocomplete="off">
+				<input type="text" name="keyword" id="search_txt"
+					placeholder="검색어를 입력해주세요." required>
+				<button id="search_btn" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+	
+			<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+			<a href="javascript:void(0);" class="icon" id="hamburger_menu"> 
+			<i class="fa fa-bars"></i></a>
+		</div>
+	</header>

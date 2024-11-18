@@ -19,8 +19,9 @@
 
 </head>
 
+   <!-- 바디태그 페딩탑에 헤더높이 70, 페딩바텀에 푸터높이 80 줘야함  -->
+<body style="padding-top:70px; padding-bottom:80px">
 
-<body>
 <!-- 헤더영역 -->
 <jsp:include page="/include/header.jsp" />
 <!-- 사이드네비 영역 -->
@@ -29,7 +30,9 @@
 
    <!-- 본문 -->
 <div id="container">
- 		<!-- 1번 section -->
+
+
+ 		<!-- 1번 section: 큰 카테고리 매뉴 -->
 		<div id="upper_content">
 		
                 <div class="big_category">
@@ -96,11 +99,11 @@
                 </div>
 		</div>
 		
-		<!--  end of upper content -->
+		
 		
 	
 		
-<!-- 2번 section -->
+<!-- 2번 section: 자동 이미지 슬라이더 -->
 <div class="slideshow_container">
 	
 	<div class="mySlides fade" onclick="location.href='#'">
@@ -126,7 +129,7 @@
 
 <br>
 
-<div style="text-align:center">
+<div style="text-align:center; margin-top:-55px">
   <span class="dot"></span> 
   <span class="dot"></span> 
   <span class="dot"></span> 
@@ -161,11 +164,13 @@ function showSlides() {
 		
 	
 	
-<!-- 3번 section -->	
-		
-<!-- 내 주변 추천샵 swiper,  overflow:hidden 을 꼭 해줘야한다. 안그러면 앞 뒤로 이미지가 넘어가서 나옴 -->		
-<div id="nearby_shop" style="overflow:hidden">
- <div class="swiper-container ">
+	
+<!-- 3번 section: 내 주변 추천샵 -->	
+	
+<div id="nearby_shop">
+ <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
+ javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(nearby_shop)을 사용해야한다. -->
+ <div class="swiper-container nearby_shop">
   <div class="swiper-wrapper">
   
     <div class="swiper-slide">
@@ -173,7 +178,6 @@ function showSlides() {
     	    <div><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
     		<p>사창동 마사지 더킹</p>
     
-    		
     				<!-- flex -->
     			<div class="review_and_heart">
     					<!-- flex -->
@@ -191,10 +195,11 @@ function showSlides() {
     			
     					<!-- flex -->
     			<div class="dist_and_price">
-    				<div class="dist">0.3<span><em class="unit">km</em></span></div>
+    				<div class="dist" style="margin-bottom:15px">0.3<span><em class="unit">km</em></span></div>
     				<div class="price">
-    					<p class="original">"130,000"<em class="unit_ko">원</em></p>
-    					<p class="dc"><span>15%</span><strong>"110,000"</strong><em class="unit_ko">원</em></p>
+    					<p class="original" style="text-decoration:line-through">130,000<em class="unit_ko">원</em></p>
+    					<p class="dc" style="margin-top:-15px"><span style="color:red;">15%</span><strong> 110,000</strong>
+    					<em class="unit_ko">원</em></p>
     				</div>
     			</div>
     			
@@ -220,13 +225,12 @@ function showSlides() {
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby16.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div>
   </div>
-</div>
-	
+ </div>
 </div>
 
 <script type="text/javascript">
-	
-	new Swiper('.swiper-container', {
+		/* swiper 를 두개이상 사용할때는 이렇게 구분하는 클래스이름을 사용해서 생성해야한다. */
+	new Swiper('.nearby_shop', {
 		  // direction: 'horizontal';  기본값이므로 생략 가능. 수직은 vertical 값 주기
 		  slidesPerView: 4, // 한번에 보여줄 슬라이드 개수
 		  slidesPerGroup: 4,
@@ -236,8 +240,114 @@ function showSlides() {
 
 </script>
 
-		
 	
+	
+	
+		
+<!-- 4번 section: 회원가입소개 div -->
+
+<div class="register_ad" style="margin-top:10px;" onclick="location.href='#'">
+	<div class="left_group"> <!-- flex 레이아웃 -->
+		<img alt="로고 이미지" src="${ctp}/images/logo_m.svg">
+		<div class="text_group" style="margin-left:10px">
+			<p style="margin-top:10px;">마사지 타이쿤이 처음이신가요?</p>
+			<p style="margin-top:-15px;">회원가입 후 <span>혜택 및 알림</span>을 받아보세요!</p>
+		</div>
+	</div>
+	<div class="right_group" style="margin-right:5px">
+		<img alt="오른쪽 꺽쇠" src="${ctp}/images/ico_right_arrow.png">
+	</div>
+
+</div>
+		
+		
+		
+		
+<!-- 5번 section: 신규입점 swiper -->	
+		
+		
+<div id="new_shop">
+ <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
+ javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(new_shop)을 사용해야한다. -->
+ <div class="swiper-container new_shop">
+  <div class="swiper-wrapper">
+  
+    <div class="swiper-slide">
+    	<a href="https://www.naver.com">
+    	    <div><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
+    		<p>사창동 마사지 더킹</p>
+    
+    				<!-- flex -->
+    			<div class="review_and_heart">
+    					<!-- flex -->
+    			   <div class="inner">
+    			   	 	<!-- <div class="ico_review"></div> -->
+    			   	 	<img alt="리뷰아이콘" src="${ctp}/images/ico_review.png">
+    			   	 	<div class="review_cnt" style="margin-left:5px">4</div>
+    			   </div>
+    			   <div class="inner" style="margin-left:10px">
+    			   		<img alt="리뷰아이콘" src="${ctp}/images/ico_heart_fill.png">
+    			   	 <!-- 	<div class="ico_heart_fill"></div> -->
+    			   	 	<div class="heart_cnt" style="margin-left:5px">15</div>
+    			   </div>
+    			</div>
+    			
+    					<!-- flex -->
+    			<div class="dist_and_price">
+    				<div class="dist" style="margin-bottom:15px">0.3<span><em class="unit">km</em></span></div>
+    				<div class="price">
+    					<p class="original" style="text-decoration:line-through">130,000<em class="unit_ko">원</em></p>
+    					<p class="dc" style="margin-top:-15px"><span style="color:red;">15%</span><strong> 110,000</strong>
+    					<em class="unit_ko">원</em></p>
+    				</div>
+    			</div>
+    			
+    	</a>
+    </div>
+    
+    
+    
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby2.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby3.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby4.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby5.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby6.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby7.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby8.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby9.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby10.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby11.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby12.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby13.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby14.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby15.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby16.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div>
+  </div>
+ </div>
+</div>
+
+<script type="text/javascript">
+/* swiper 를 두개이상 사용할때는 이렇게 구분하는 클래스이름을 사용해서 생성해야한다. */
+	new Swiper('.new_shop', {
+		  // direction: 'horizontal';  기본값이므로 생략 가능. 수직은 vertical 값 주기
+		  slidesPerView: 4, // 한번에 보여줄 슬라이드 개수
+		  slidesPerGroup: 4,
+		  spaceBetween: 10 // 슬라이드 사이 여백
+		 
+		});
+
+</script>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

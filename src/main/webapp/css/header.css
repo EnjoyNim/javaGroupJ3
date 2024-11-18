@@ -1,16 +1,35 @@
 @charset "UTF-8";
 
+header {
+  /* 이렇게 값을 주면 헤더가 고정되고 스크롤에 영향을 받지 않는다. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  
+  
+  z-index:997; /* 999 는 사이드바, 998은 사이드바 닫기용 overlay의 값이다. */
+}
+
 #header_div {
+  	position:fixed;
+	height:70px;
+	width:100%;
+	top: -2px;  /* 위로 살짝 올려서 윗쪽 선이 안보이도록 */
+  
 	display:flex;
 	/* flex-wrap:wrap; */
 	justify-content:center;
 	align-items: center;
 	
 	border: 1px solid gray;
-	position:pixed;
-	height:70px;
 	border-radius: 1px;
-	top: -2px;   /* 위로 살짝 올려서 윗쪽 선이 안보이도록 */
+	
+	/* 이렇게 하지 않으면 헤더가 투명해서 밑으로 지나가는 내용이 보임 */
+	background:white;
+  	opacity: 1;
+	
 }
 
 #header_logo_img {
