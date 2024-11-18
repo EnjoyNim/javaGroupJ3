@@ -15,7 +15,7 @@
             // submenu 가 화면상에 보일때는 위로 부드럽게 접고 아니면 아래로 펼치기
             if( subMenuUl.is(":visible") ){
             	
-            	el.children("down_arrow_img").css({"transform":"rotate( 360deg )", "transition":"0.4s"});
+            	el.children(".down_arrow_img").css({"transform":"rotate( 360deg )", "transition":"0.4s"});
             	subMenuUl.slideUp();
             	el.next(".submenu_hr").css({"visibility":"hidden", "height":"0px", "margin-top":"0"});
             	
@@ -34,7 +34,7 @@
             	
             }else{
             	
-            	el.children("down_arrow_img").css({"transform":"rotate( 180deg )", "transition":"0.4s"});
+            	el.children(".down_arrow_img").css({"transform":"rotate( 180deg )", "transition":"0.4s"});
             	el.next(".submenu_hr").css({"visibility":"visible", "height":"1px", "margin-top":"2px"});
 	
 	            subMenuUl.slideDown();

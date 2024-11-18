@@ -1,5 +1,138 @@
 @charset "UTF-8";
 
 
+#container {
+	/* 본문의 너비는 50% 정도로하고 길게한다. 스마트폰에 맞춤 */
+	width:50%;
+	margin-left:25%;
+}
+
+#container #upper_content {
+	width: 100%
+}
+
+
+#upper_content .big_category {
+	display:flex;
+	margin-top:2%;
+	justify-content:space-between;
+	align-items:center;
+}
+
+
+/*  앵커태그에도 flex 설정을 할 수 있다. */
+#upper_content .big_category a {
+	flex: 1;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	 /* 밑줄 표시 않도록 */
+	text-decoration:none;
+	width:11%;
+}
+
+
+#upper_content .big_category a img{
+	
+	width:115px;
+	height:115px;
+}
+
+  /* 2. 이벤트 리스트 css */
+
+#upper_content .eventlist {
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+}
+
+#upper_content .eventlist a{
+	width:32%;
+	height:32%;
+	background-color:#dcdcdc;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-radius: 5px;
+	/* 밑줄 표시 않도록 */
+	text-decoration:none;
+}
+
+#upper_content .eventlist a img{
+	width:32px;
+	height:36px;
+}
+
+
+
+
+
+
+
+/* .slideshow_container {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;} */
+
+/* Slideshow container */
+.slideshow_container {
+  max-width: 1000px;
+  margin-top : 20px;
+  cursor:pointer;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.1s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  /* 이 값과 자바스크립트에서 showSlides() 함수안에  setTimeout 값이 같아야 자연스럽다. */
+   animation-duration: 3s; 
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
