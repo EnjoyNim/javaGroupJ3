@@ -168,6 +168,9 @@ function showSlides() {
 <!-- 3번 section: 내 주변 추천샵 -->	
 	
 <div id="nearby_shop">
+
+<p style="font-size:18px; font-weight:bold">내 주변 추천샵</p>
+
  <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
  javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(nearby_shop)을 사용해야한다. -->
  <div class="swiper-container nearby_shop">
@@ -335,7 +338,7 @@ function showSlides() {
 		  slidesPerGroup: 4,
 		  spaceBetween: 10 // 슬라이드 사이 여백
 		 
-		});
+	});
 
 </script>	
 		

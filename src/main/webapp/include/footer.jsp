@@ -29,7 +29,7 @@
 	<div class="footer_center_div">
 		 <div id=home_circle_div class="footer_item">
 		 	<a href="${ctp}" style="text-decoration-line:none">
-		 		<img alt="홈" src="${ctp}/images/ico_home_fill.png" class="footer_img" id="home_img">
+		 		<img alt="홈" src="${ctp}/images/ico_home.png" class="footer_img" id="home_img">
 		 	</a>
 		 </div>
 	</div>
