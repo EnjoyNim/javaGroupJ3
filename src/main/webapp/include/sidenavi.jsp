@@ -98,7 +98,7 @@
 	  <div id="mySidenav_header_content" style="font-size:12px; margin-left:15px" >
 	  <img alt="스마일" src="${ctp}/images/img_drop_smile.png" width="30px" height="30px">
 	  
-	   로그인한 상태에서는 이 부분이 보여지면 안되고 "~~님 어서오세요" 
+	  <!--  로그인한 상태에서는 이 부분이 보여지면 안되고 "~~님 어서오세요"  -->
 	  <a href="${ctp}/Login.mem"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="${ctp}/MemberJoin.mem"><span style="color:blue;">회원가입</span></a>을 해주세요
 	  </div>
   

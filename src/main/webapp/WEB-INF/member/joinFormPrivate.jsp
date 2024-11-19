@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>loginform.jsp</title>
+<title>joinFormPrivate.jsp</title>
 <style>
     /* 페이지 기본 설정 */
     body {
@@ -105,8 +105,11 @@
         background-color: #019cad; /* 제출 버튼 호버 시 배경색 변경 */
     }
 </style>
+
 </head>
+
 <body>
+
     <div class="container">
         <div class="title">개인회원가입</div>
         <div class="description">회원가입을 하시면 마캉스의 모든 서비스를 이용하실 수 있습니다.<br>
@@ -143,5 +146,7 @@
             <button type="submit" class="submit-btn">회원가입</button>
         </form>
     </div>
+    <!-- footer 영역 -->
+<jsp:include page="/include/footer.jsp" />
 </body>
 </html>

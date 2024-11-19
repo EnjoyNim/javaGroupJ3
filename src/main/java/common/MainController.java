@@ -24,6 +24,7 @@ public class MainController extends HttpServlet {
 		com = com.substring(com.lastIndexOf("/"), com.lastIndexOf("."));
 		
 		if(com.equals("/MainPage")) {
+			
 			viewPage += "/main.jsp";
 		
 		}

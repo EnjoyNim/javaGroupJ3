@@ -47,7 +47,6 @@ public class MemberController extends HttpServlet {
 		}
 		
 		
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}
