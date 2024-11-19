@@ -10,14 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet({"/Main", "/main", "/h", "/home"})
+@WebServlet("*.main")
 public class MainController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	// 공지사항 DB에서 가져오기...
+
+		MainInterface command = null;
 		
-		String viewPage = "/WEB-INF/main/main.jsp";
+		String viewPage = "/WEB-INF/main";
+		
+		String com = request.getRequestURI();
+		com = com.substring(com.lastIndexOf("/"), com.lastIndexOf("."));
+		
+		if(com.equals("/MainPage")) {
+			viewPage += "/main.jsp";
+		
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

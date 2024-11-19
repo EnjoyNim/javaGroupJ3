@@ -118,6 +118,12 @@ img {vertical-align: middle;} */
 
 
 
+.section_title{
+	font-size:18px; 
+	font-weight:bold;
+}
+
+
 
 /* 내 주변 추천샵, nearby_shop css */
 
@@ -125,14 +131,14 @@ img {vertical-align: middle;} */
 	cursor:pointer;
 /* 	overflow:hidden 을 꼭 해줘야한다. 안그러면 앞 뒤로 이미지가 넘어가서 나옴 */
 	overflow:hidden;
-	margin-top:30px;
+	margin-top:50px;
 }
 #nearby_shop a, #new_shop a{
    	/* 밑줄 표시 않도록 */
 	text-decoration-line:none;	
 }
 
-#nearby_shop .review_and_heart, #new_shop .review_and_heart {
+.review_and_heart{
 	display:flex;
 	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
 	justify-content:flex-start;
@@ -142,7 +148,7 @@ img {vertical-align: middle;} */
 	margin-top:-15px;
 }
 
-#nearby_shop .review_and_heart .inner, #new_shop .review_and_heart .inner {
+.review_and_heart .inner {
 	flex: 0 0 auto;
 	display:flex;
 	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
@@ -151,16 +157,16 @@ img {vertical-align: middle;} */
 	align-items:center;
 }
 
-#nearby_shop .review_and_heart .inner div, #new_shop .review_and_heart .inner div{
+.review_and_heart .inner div{
 	flex: 0 0 auto;
 }
 
-#nearby_shop .review_and_heart .inner img, #new_shop .review_and_heart .inner img{
+.review_and_heart .inner img{
 	width:15px;
 	height:15px;
 }
 
-#nearby_shop .dist_and_price, #new_shop .dist_and_price {
+.dist_and_price {
 	display:flex;
 	 /* 가로정렬을 앞쪽으로 몰리도록 설정 */
 	justify-content:space-between;
@@ -168,7 +174,7 @@ img {vertical-align: middle;} */
 	align-items:flex-end;
 }
 
-#nearby_shop .dist_and_price .price, #new_shop .dist_and_price .price {
+.dist_and_price .price {
 	display:flex;
 	flex-direction:column;
 	 /* 가로정렬을 뒤쪽으로 몰리도록 설정 */
@@ -203,6 +209,73 @@ img {vertical-align: middle;} */
 	display:flex;
 	flex-direction:column;
 }
+
+.panel_main_line {
+	width: 95%;
+	height:10px;
+	z-index:-1;
+	background-color:#f2f2f2;
+}
+
+
+/*최근 예약 많은 마사지 타이쿤 추천샵 css*/
+#recent_most_booked_shop .tab_menu {
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+ 	padding : 8px 0; 
+	height:40px;
+	margin-bottom: 20px;
+}
+
+#recent_most_booked_shop .tab_menu .region_menu {
+	display: flex;
+	/* 리스트아이템들도 flex 를 이용해서 가로로 배열되게 할 수 있다. */
+	justify-content:space-evenly;
+	align-items:center;
+}
+
+#recent_most_booked_shop .tab_menu .region_menu .tab_menu_item {
+	/* 리스트 아이템들 점 없앰 */
+	list-style:none;
+}
+
+#recent_most_booked_shop .tab_menu .region_menu .tab_menu_item a {
+	/* 앵커태그 밑줄 없앰 */
+	text-decoration-line:none;
+}
+
+#recent_most_booked_shop .tab_menu .region_menu .tab_menu_item a::after{
+	content:"";
+	display:block;
+	width:35px;
+	height:3px;
+/* 	position:absolute;
+ 	bottom:10px;
+	left:38.5%;  */
+	background-color:#333;
+	
+}
+
+
+#recent_most_booked_shop .swiper-slide a{
+	
+	/* 이렇게 위에 부모요소의 아이디를 써줘야 이게 먹힌다. 이상하넹.. */
+	text-decoration-line:none;
+}
+
+#ad_banner{
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+}
+
+#ad_banner img{
+	/* 이미지들에 width 와 height 값을 지정해준후에 아래 flex 속성값을
+	지정하면 화면 크기가 변화할때  이미지의 크기도 같이 늘어나거나 줄어든다.  */
+	flex: 1 1 auto;
+}
+
+
 
 
 

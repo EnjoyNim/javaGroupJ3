@@ -19,7 +19,7 @@
 
 </head>
 
-   <!-- 바디태그 페딩탑에 헤더높이 70, 페딩바텀에 푸터높이 80 줘야함  -->
+<!-- 바디태그 페딩탑에 헤더높이 70, 페딩바텀에 푸터높이 80 줘야함  -->
 <body style="padding-top:70px; padding-bottom:80px">
 
 <!-- 헤더영역 -->
@@ -38,14 +38,10 @@
                 <div class="big_category">
                   
                         <a href="${ctp}/MainCourse.mc?course=마사지">
-                        
                             <div class="thumb">
                                 <img src="${ctp}/images/main_thumb01.png" alt="마사지 이미지">
                             </div>
-                            
-                            
                             <div class="lab">마사지</div>
-                            
                         </a>
                     
                         <a href="${ctp}/MainCourse.mc?course=에스테틱">
@@ -84,7 +80,6 @@
                             </div>
                             <div class="lab">해외</div>
                         </a>
-                    
                  </div>
                  
                 
@@ -169,7 +164,7 @@ function showSlides() {
 	
 <div id="nearby_shop">
 
-<p style="font-size:18px; font-weight:bold">내 주변 추천샵</p>
+<p  class="section_title">내 주변 추천샵</p>
 
  <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
  javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(nearby_shop)을 사용해야한다. -->
@@ -270,6 +265,7 @@ function showSlides() {
 		
 		
 <div id="new_shop">
+<p  class="section_title">신규 입점</p>
  <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
  javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(new_shop)을 사용해야한다. -->
  <div class="swiper-container new_shop">
@@ -342,18 +338,25 @@ function showSlides() {
 
 </script>	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+<div class="panel_main_line"></div>		
+
+
+
+
+
+
+
+
+<!-- 6번 section: 최근 예약 많은 마사지 타이쿤 추천샵 swiper -->	
+   <!-- 여기에 제휴 입점신청과 광고상품안내 넣는걸로 시작 -->
+   
+ <div id="ad_banner">
+ 	<a href="#"><img alt="" src="${ctp}/images/img_contract_shop.png" width="100%" height="100%"></a>
+ 	<a href="#"><img alt="" src="${ctp}/images/img_introduction_service.png" width="100%" height="100%"></a>
+ </div>  
+	
+			
 <!-- container 끝 -->		
 </div>
 
