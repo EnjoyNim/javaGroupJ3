@@ -284,7 +284,7 @@
 		
 		let tel = document.getElementById("tel").value.trim();
 			
-		if(email==""|| emial.length<3){
+		if(email==""|| email.length<3){
 			alert("이메일을 입력하세요.");
 			return false;
 		}
@@ -400,7 +400,7 @@
                 <input type="number" id="tel" name="tel" placeholder="핸드폰 입력" required>
             </div>
             
-            <button type="submit" class="submit-btn" onclick="finalCheck()">회원가입</button>
+            <input type="button" class="submit-btn" onclick="finalCheck()" value="회원가입">
             
         </form>
         

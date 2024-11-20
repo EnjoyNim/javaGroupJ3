@@ -52,13 +52,19 @@ public class MemberController extends HttpServlet {
 			command.execute(request, response);
 			return;
 		}
-		
 			
 		else if(com.equals("/JoinPrivateOk")) {
-		command = new JoinPrivateOkCommand();
-		command.execute(request, response);
-		viewPage = "/include/message.jsp";
+			command = new JoinPrivateOkCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
 		}
+		
+		else if(com.equals("/Logout")) {
+			command = new LogoutCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet" href="css/login.css">
+<link type="text/css" rel="stylesheet" href="${ctp}/css/login.css">
 <title>Login.jsp</title>
 
 <script>

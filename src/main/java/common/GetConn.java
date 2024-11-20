@@ -13,7 +13,7 @@ public class GetConn {
 	private String driver ="com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost:3306/javagroup3";
 	private String user = "root";
-	private String password = "1234";  // 학원은 1234 , 집은 bodum1004
+	private String password = "bodum1004";  // 학원은 bodum1004 , 집은 bodum1004
 	
 	private GetConn() {
 		try {

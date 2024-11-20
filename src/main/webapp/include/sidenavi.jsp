@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"></c:set>
 
-<link type="text/css" rel="stylesheet" href="css/sidenavi.css">
+<link type="text/css" rel="stylesheet" href="${ctp}/css/sidenavi.css">
 <script type="text/javascript">
 	'use strict';
 
@@ -105,7 +105,7 @@
 	  
 	  <c:if test="${not empty sNickName}"> <!--  로그인한 상태에서는 "~~님 환영합니다."  -->
 	  <span style="color: black; margin-left:5px; font-size:17px; font-weight:bold">${sNickName}</span>님 환영합니다.
-	       <!-- 로그아웃 부분,  여기부터 해야한다. -->
+	       <!-- 로그아웃 부분 -->
 	  <a href="${ctp}/Logout.mem"><span style="color: blue; margin-left:5px">로그아웃</span></a>
 	  </c:if>
 	  
@@ -120,7 +120,7 @@
   <br/><br/><br/><br/>
   
   
-  <div onclick="#" style="cursor:pointer;">
+  <div onclick="location.href='${ctp}'" style="cursor:pointer;">
 	  <img alt="홈아이콘" src="${ctp}/images/ico_home_empty.png" width="20px" height="20px" class="menu_img">
 	  <span class="menu_label_span">홈</span>
   </div>
@@ -199,6 +199,14 @@
 	  <span class="menu_label_span">기획전</span>
   </div>
   <hr/>
+  
+  
+  <div>
+  	
+  
+  </div>
+  
+  
   
 </div>
 

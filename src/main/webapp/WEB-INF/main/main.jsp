@@ -9,7 +9,8 @@
 <title>Massage Tycoon</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link type="text/css" rel="stylesheet" href="css/main.css">
+
+<link type="text/css" rel="stylesheet" href="${ctp}/css/main.css">
 
 <!-- swiper 관련 CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />

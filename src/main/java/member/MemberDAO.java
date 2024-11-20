@@ -71,8 +71,6 @@ public class MemberDAO {
 				vo.setPwd(rs.getString("pwd"));
 				vo.setNickName(rs.getString("nickName"));
 				vo.setName(rs.getString("name"));
-				vo.setGender(rs.getString("gender"));
-				vo.setBirthday(rs.getString("birthday"));
 				vo.setTel(rs.getString("tel"));
 				vo.setAddress(rs.getString("address"));
 				vo.setEmail(rs.getString("email"));
@@ -119,8 +117,6 @@ public class MemberDAO {
 				vo.setPwd(rs.getString("pwd"));
 				vo.setNickName(rs.getString("nickName"));
 				vo.setName(rs.getString("name"));
-				vo.setGender(rs.getString("gender"));
-				vo.setBirthday(rs.getString("birthday"));
 				vo.setTel(rs.getString("tel"));
 				vo.setAddress(rs.getString("address"));
 				vo.setEmail(rs.getString("email"));
@@ -276,13 +272,11 @@ public class MemberDAO {
 		int result = 0;
 		
 		try {
-			sql ="update member set name=?, nickName=?, gender=?, birthday=?, tel=?, address=?, "
+			sql ="update member set name=?, nickName=?, tel=?, address=?, "
 					+ "email=?, content=?, photo=?, userInfo=? where mid = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getName());
 			pstmt.setString(2, vo.getNickName());
-			pstmt.setString(3, vo.getGender());
-			pstmt.setString(4, vo.getBirthday());
 			pstmt.setString(5, vo.getTel());
 			pstmt.setString(6, vo.getAddress());
 			pstmt.setString(7, vo.getEmail());
@@ -411,8 +405,6 @@ public class MemberDAO {
 				vo.setPwd(rs.getString("pwd"));
 				vo.setNickName(rs.getString("nickName"));
 				vo.setName(rs.getString("name"));
-				vo.setGender(rs.getString("gender"));
-				vo.setBirthday(rs.getString("birthday"));
 				vo.setTel(rs.getString("tel"));
 				vo.setAddress(rs.getString("address"));
 				vo.setEmail(rs.getString("email"));
@@ -477,8 +469,6 @@ public class MemberDAO {
 					vo.setPwd(rs.getString("pwd"));
 					vo.setNickName(rs.getString("nickName"));
 					vo.setName(rs.getString("name"));
-					vo.setGender(rs.getString("gender"));
-					vo.setBirthday(rs.getString("birthday"));
 					vo.setTel(rs.getString("tel"));
 					vo.setAddress(rs.getString("address"));
 					vo.setEmail(rs.getString("email"));
