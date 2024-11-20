@@ -105,6 +105,8 @@
 	  
 	  <c:if test="${not empty sNickName}"> <!--  로그인한 상태에서는 "~~님 환영합니다."  -->
 	  <span style="color: black; margin-left:5px; font-size:17px; font-weight:bold">${sNickName}</span>님 환영합니다.
+	       <!-- 로그아웃 부분,  여기부터 해야한다. -->
+	  <a href="${ctp}/Logout.mem"><span style="color: blue; margin-left:5px">로그아웃</span></a>
 	  </c:if>
 	  
 	  <c:if test="${empty sNickName}">

@@ -245,7 +245,7 @@
 			
 			alert("아이디 중복체크를 해주세요.");
 			document.getElementById("check_id_duplicate").focus();
-			return;
+			return false;
 		}
 		
 		let pwd = document.getElementById("pwd").value.trim();
@@ -258,14 +258,14 @@
 		
 		if(pwd!=pwdConfirm){
 			alert("비밀번호를 다시 입력해주세요.");
-			return;
+			return false;
 		}
 		
 		let name = document.getElementById("name").value.trim();	
 	
 		if(name==""|| name.length<2){
 			alert("이름을 입력하세요.");
-			return;
+			return false;
 		}
 		
 		let nickName = document.getElementById("nick_name").value.trim();
@@ -277,7 +277,7 @@
 			
 			alert("닉네임 중복체크를 해주세요.");
 			document.getElementById("check_nick_name_duplicate").focus();
-			return;
+			return false;
 		}
 
 		let email = document.getElementById("email").value.trim();
@@ -286,12 +286,12 @@
 			
 		if(email==""|| emial.length<3){
 			alert("이메일을 입력하세요.");
-			return;
+			return false;
 		}
 		
 		if(tel==""|| tel.length<7){
 			alert("전화번호를 입력하세요.");
-			return;
+			return false;
 		}
 		
 		document.myform.submit();
