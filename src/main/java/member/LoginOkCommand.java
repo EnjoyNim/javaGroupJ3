@@ -20,7 +20,7 @@ public class LoginOkCommand implements MemberInterface {
 		MemberDAO dao = new MemberDAO();
 		
 		// 해당 아이디를 가진 회원이 존재하는지 체크, 있다면 해당 아이디를 가진 회원의 정보를 vo 에 담아서 리턴
-		MemberVO vo = dao.memberIdOrNickNameCheck(mid, true);
+		MemberVO vo = dao.getMemberByIdOrNickName(mid, true);
 
 		if (vo == null || vo.getPwd() == null) { // 회원 정보가 없다는 것.
 				request.setAttribute("message", "회원정보가 없습니다.\\n 확인하고 다시 로그인하세요.");

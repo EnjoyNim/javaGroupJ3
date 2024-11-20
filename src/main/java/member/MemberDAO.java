@@ -39,6 +39,8 @@ public class MemberDAO {
 
 	
 	
+	
+	
 	/**
 	 * member 테이블에서 아이디나 닉네임 체크, midCheck 가 true 이면 아이디검색, false 이면 닉네임검색
 	 * 
@@ -46,7 +48,7 @@ public class MemberDAO {
 	 * @param isMidCheck : true 이면 mid, false 이면 nickName 을 체크해봄
 	 * @return : 일치하는 레코드를 담은 MemberVO 객체, 없어도 비어있는 MemberVO 객체를 생성해서 보낸다. 따라서 null 리턴은 아니다.
 	 */
-	public MemberVO memberIdOrNickNameCheck(String strToCheck, boolean isMidCheck) {
+	public MemberVO getMemberByIdOrNickName(String strToCheck, boolean isMidCheck) {
 
 		MemberVO vo = new MemberVO();
 
@@ -157,22 +159,19 @@ public class MemberDAO {
 
 	}
 
+	// 회원가입, 가입정보를 member 테이블에 insert 한다.
 	public int setMemberJoinOk(MemberVO vo) {
 		int result = 0;
 		try {
-			sql = "insert into Member values(default,?,?,?,?,?,?,?,?,?,?,?,?,default,default,"
-					+ "default,default,default,default,default)";
+			sql = "insert into Member values(default,?,?,?,?,?,default,?,default,default,"
+					+ "default,default,default,default,default,default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getMid());
 			pstmt.setString(2, vo.getPwd());
 			pstmt.setString(3, vo.getNickName());
 			pstmt.setString(4, vo.getName());
-			pstmt.setString(5, vo.getGender());
-			pstmt.setString(6, vo.getBirthday());
-			pstmt.setString(7, vo.getTel());
-			pstmt.setString(8, vo.getAddress());
-			pstmt.setString(9, vo.getEmail());
-			pstmt.setString(12, vo.getUserInfo());
+			pstmt.setString(5, vo.getTel());
+			pstmt.setString(6, vo.getEmail());
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -510,6 +509,8 @@ public class MemberDAO {
 			}
 			return vos;
 		}
+
+		
 
 	
 	/*

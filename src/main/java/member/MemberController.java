@@ -44,8 +44,21 @@ public class MemberController extends HttpServlet {
 			// 업체회원가입을 선택했을때
 		}else if(com.equals("/MemberJoinFormCompany")) {
 			viewPage += "/joinFormCompany.jsp";
+		
+		}
+		// 회원가입 폼에서 아이디 중복체크를 클릭했을때
+		else if(com.equals("/CheckMemberInfoDuplicate")) {
+			command = new CheckMemberInfoDuplicateCommand();
+			command.execute(request, response);
+			return;
 		}
 		
+			
+		else if(com.equals("/JoinPrivateOk")) {
+		command = new JoinPrivateOkCommand();
+		command.execute(request, response);
+		viewPage = "/include/message.jsp";
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

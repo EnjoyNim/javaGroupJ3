@@ -1,4 +1,5 @@
 show tables;
+drop table member;
 
 create table member(
 	-- 개인정보 보호법상 탈퇴한 회원의 정보는 한달이내에 삭제, 폐기해야한다.
@@ -7,9 +8,7 @@ create table member(
 	pwd varchar(100) not null, /* 회원 비밀번호(SHA256 암호화처리) */
 	nickName varchar(30) not null, /* 회원 닉네임(중복불허/수정가능) */
 	name varchar(30) not null, /* 회원 성명(중복허용) */
-	gender char(2) not null default '여자', /* 회원 성별 */
-	birthday datetime default now(), /* 회원 생일 */
-	tel varchar(15),  /* 전화번호: 010-1234-5678 */
+	tel varchar(15) not null,  /* 전화번호: 010-1234-5678 */
 	address varchar(100),  /* 주소(우편번호: 다음 API 활용 ) */
 	email varchar(60) not null, /* 이메일(아이디/비밀번호 분실시에 사용) - 형식체크필수 */
 	userInfo char(3) default '공개', /* 회원 정보 공개유무(공개/비공개) */
