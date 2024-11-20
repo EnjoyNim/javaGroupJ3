@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"></c:set>
 
 <!-- 부트스트랩 사용을 위한 추가, 여기에 jquery cdn 도 이미 들어가 있다. -->
@@ -12,36 +13,10 @@
  
 <!-- 헤더 검색창의 돋보기를 사용하기 위한 cdn -->
 <script src="https://kit.fontawesome.com/1e682223ad.js" crossorigin="anonymous"></script>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 
 
 <script type="text/javascript">
 	'use strict';
-	
-	// request.setAttribute(); 로 넣은 값 얻어오는 여러가지 방식들, 브라우저가 넣은 parameter 값은 ${param.name} 으로 얻어올수 있다.
-	
-	/* 1. 표현식으로 얻어오기, 해당키에 맵핑된 값이 없으면 null 리턴 */
-	<%-- let searchHide = <%= (String)request.getAttribute("headerSearchHide")%> --%>  
-	
-	/* 2. EL 사용,  request scope 내에서만 찾는다. 없으면 empty string 리턴 */
-	//let searchHide = ${requestScope.headerSearchHide}; 
-	
-	/* 3. EL 사용, 모든 스코프(page, request, sesstion, application 순서) 에서 다 찾는다. 없으면 empty string 리턴 */
-	//let searchHide = ${headerSearchHide}; 
-	
-	
-	
-	// 자바스크립트 변수에 넘기는 것이므로 문자열값임을 알리기위해서 쌍따옴표로 묶어줘야한다. 그냥 넣으면 is not defined 에러남
-	<%--  let searchHide = "<%= (String)request.getAttribute("showHeaderSearch")%>"; --%>
-	// 자바스크립트 변수에 넘기는 것이므로 문자열값임을 알리기위해서 쌍따옴표나 홑따옴표로 묶어줘야한다.
-	//let searchHide = '${requestScope.showHeaderSearch}'; 
-	
-	
-/* 	let searchHide = '${showHeaderSearch}';
-	alert("showHeaderSearch:"+searchHide); 
- */
-	
 	
 	let commSubMenuIsOpen = false;
 	let myinfoSubMenuIsOpen = false;

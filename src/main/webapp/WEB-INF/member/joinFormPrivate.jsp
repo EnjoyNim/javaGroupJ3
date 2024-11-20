@@ -300,7 +300,6 @@
 	
 	
 	
-	
 	// 두개의 pwd 입력 텍스트가 서로 같은지 체크
  	function checkTwoPwds(){
 		
@@ -316,7 +315,6 @@
 	} 
 	
 
-	
 
 </script>
 
