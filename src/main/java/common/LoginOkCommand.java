@@ -1,4 +1,4 @@
-package member;
+package common;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,26 +7,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import common.SecurityUtil;
+import member.MemberDAO;
+import store.StoreDAO;
 
-public class LoginOkCommand implements MemberInterface {
+public class LoginOkCommand implements MainInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		
 		String mid = request.getParameter("mid") == null ? "" : request.getParameter("mid");
 		String pwd = request.getParameter("pwd") == null ? "" : request.getParameter("pwd");
 
-		MemberDAO dao = new MemberDAO();
+		MemberDAO mDao = new MemberDAO();
 		
 		// 해당 아이디를 가진 회원이 존재하는지 체크, 있다면 해당 아이디를 가진 회원의 정보를 vo 에 담아서 리턴
-		MemberVO vo = dao.getMemberByIdOrNickName(mid, true);
-
-		if (vo == null || vo.getPwd() == null) { // 회원 정보가 없다는 것.
-				request.setAttribute("message", "회원정보가 없습니다.\\n 확인하고 다시 로그인하세요.");
-				// 로그인 창을 다시 보여준다.
-				request.setAttribute("url", "Login.mem");
-				return;
+		VOInterface vo = mDao.getMemberByIdOrNickName(mid, true);
+		
+		if (vo == null || vo.getPwd() == null) { // 개인회원 테이블에 정보가 없다는 것.
+			vo = new StoreDAO().getStoreByIdOrStoreName(mid, true);
+				if(vo == null || vo.getPwd() == null) { // 업체회원 테이블에도 정보가 없으면
+					request.setAttribute("message", "회원정보가 없습니다.\\n 확인하고 다시 로그인하세요.");
+					// 로그인 창을 다시 보여준다.
+					request.setAttribute("url", "Login.main");
+					return;
+				}
 		}
 			
 		// 저장된 비밀번호에서 salt 키를 분리시켜서 다시 암호화후 비교처리해야한다.
@@ -46,7 +52,7 @@ public class LoginOkCommand implements MemberInterface {
 		if (!vo.getPwd().equals(salt + pwd)) {
 			request.setAttribute("message", "비밀번호가 틀립니다.\\n 확인하고 다시 로그인하세요.");
 			// 로그인 창을 다시 보여준다.
-			request.setAttribute("url", "Login.mem");
+			request.setAttribute("url", "Login.main");
 			return;
 		}
 
@@ -79,7 +85,8 @@ public class LoginOkCommand implements MemberInterface {
 		// 세션에 저장할 항목 : mid, nickName
 		HttpSession session = request.getSession();
 		session.setAttribute("sMid", mid);
-		session.setAttribute("sNickName", vo.getNickName());
+		session.setAttribute("sNickName", vo.getNickName()==null?"":vo.getNickName());
+		session.setAttribute("sStoreName", vo.getStoreName()==null?"":vo.getStoreName());
 		session.setAttribute("sLevel", vo.getLevel());
 		session.setAttribute("sLastDate", vo.getLastDate());
 

@@ -4,6 +4,7 @@
 <c:set var="ctp" value="${pageContext.request.contextPath}"></c:set>
 
 <link type="text/css" rel="stylesheet" href="${ctp}/css/sidenavi.css">
+
 <script type="text/javascript">
 	'use strict';
 
@@ -88,6 +89,9 @@
 	
 </script>
 
+<!-- 사이드네비 영역 css 파일을 jsp 형식으로 만든것을 포함시킴-->
+<%-- <jsp:include page="/css/sidenaviCSS.jsp" /> --%>
+
    <!-- 사이드바 부분 -->
 <div id="mySidenav" class="sidenav"> 
    
@@ -104,13 +108,19 @@
 	  
 	  
 	  <c:if test="${not empty sNickName}"> <!--  로그인한 상태에서는 "~~님 환영합니다."  -->
-	  <span style="color: black; margin-left:5px; font-size:17px; font-weight:bold">${sNickName}</span>님 환영합니다.
-	       <!-- 로그아웃 부분 -->
-	  <a href="${ctp}/Logout.mem"><span style="color: blue; margin-left:5px">로그아웃</span></a>
+		  <span style="color: black; margin-left:5px; font-size:17px; font-weight:bold">${sNickName}</span>님 환영합니다.
+		       <!-- 로그아웃 부분 -->
+		  <a href="${ctp}/Logout.main"><span style="color: blue; margin-left:5px">로그아웃</span></a>
 	  </c:if>
 	  
-	  <c:if test="${empty sNickName}">
-	  <a href="${ctp}/Login.mem"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="${ctp}/MemberJoin.mem"><span style="color:blue;">회원가입</span></a>을 해주세요
+	  <c:if test="${not empty sStoreName}"> <!--  로그인한 상태에서는 "~~님 환영합니다."  -->
+		  <span style="color: black; margin-left:5px; font-size:17px; font-weight:bold">${sStoreName}</span>님 환영합니다.
+		       <!-- 로그아웃 부분 -->
+		  <a href="${ctp}/Logout.main"><span style="color: blue; margin-left:5px">로그아웃</span></a>
+	  </c:if>
+	  
+	  <c:if test="${empty sNickName && empty sStoreName}">
+	 	 <a href="${ctp}/Login.main"><span style="color: blue; margin-left:5px">로그인</span></a> 또는 <a href="${ctp}/MemberJoin.main"><span style="color:blue;">회원가입</span></a>을 해주세요
 	  </c:if>
 	  
 	  </div>

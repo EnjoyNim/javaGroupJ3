@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>member.jsp</title>
+    <title>joinType.jsp</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,13 +75,13 @@
         <div class="description">궁금하신 사항은 고객센터 <strong><span style="color:red;">1544-7363</span></strong>로 문의 바랍니다.</div>
         <div class="options">
             <!-- 개인회원 -->
-            <div class="option-card" onclick="location.href='${ctp}/MemberJoinFormPrivate.mem'">
+            <div class="option-card" onclick="location.href='${ctp}/JoinFormPrivate.mem'">
                <img src="${ctp}/images/membersa.svg"  title="개인회원">
                 <div class="option-card-title">개인회원</div>
                 <div class="option-card-description">추가 혜택과 간편 정보!<br>가입하고 마캉스 가자!</div>
             </div>
             <!-- 업체회원 -->
-            <div class="option-card" onclick="location.href='${ctp}/MemberJoinFormCompany.mem'">
+            <div class="option-card" onclick="location.href='${ctp}/JoinFormStore.st'">
                  <img src="${ctp}/images/membergi.svg"  title="업체회원">
                 <div class="option-card-title">업체회원</div>
                 <div class="option-card-description">마캉스로 업체 등록과<br>관리를 빠르고 간편하게!</div>

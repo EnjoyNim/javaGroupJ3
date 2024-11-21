@@ -10,7 +10,9 @@ public class CheckMemberInfoDuplicateCommand implements MemberInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
 		// mid 는 idToCheck 키가 존재 하지 않다면 null 이다.
 		String strToCheck = request.getParameter("strToCheck");
 		boolean flag = request.getParameter("isIdCheck").equals("true");

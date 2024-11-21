@@ -1,4 +1,4 @@
-package member;
+package store;
 
 import java.io.IOException;
 
@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.SecurityUtil;
 
-public class JoinPrivateOkCommand implements MemberInterface {
+public class JoinStoreOkCommand implements StoreInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
 		String mid = request.getParameter("mid")==null? "": request.getParameter("mid");
 		String pwd = request.getParameter("pwd")==null? "": request.getParameter("pwd");
 		String name = request.getParameter("name")==null? "": request.getParameter("name");
-		String nickName = request.getParameter("nickName")==null? "": request.getParameter("nickName");
+		String storeName = request.getParameter("storeName")==null? "": request.getParameter("storeName");
+		String address = request.getParameter("address")==null? "": request.getParameter("address");
 		String email = request.getParameter("email")==null? "": request.getParameter("email");
 		String tel = request.getParameter("tel")==null? "": request.getParameter("tel");
 		
@@ -42,37 +43,35 @@ public class JoinPrivateOkCommand implements MemberInterface {
 		
 		
 		
-		MemberVO vo = new MemberVO();
+		StoreVO vo = new StoreVO();
 		vo.setMid(mid);
 		
 		// pwd sha256처리 해야함
 		vo.setPwd(pwd);
 		
 		vo.setName(name);
-		vo.setNickName(nickName);
+		vo.setStoreName(storeName);
+		vo.setAddress(address);
 		vo.setEmail(email);
 		vo.setTel(tel);
 		
 		
-		MemberDAO dao = new MemberDAO();
+		StoreDAO dao = new StoreDAO();
 		
-		int result = dao.setMemberJoinOk(vo);
+		int result = dao.setStoreJoinOk(vo);
 		
 		
 		if(result !=  0) {
 		  	
 		  	request.setAttribute("message", "회원가입이 성공적으로 완료되었습니다.");
 		  	// 회원가입이 성공적이었으므로 이제 로그인창으로 보냄
-		  	request.setAttribute("url", "Login.mem"); 
+		  	request.setAttribute("url", "Login.main"); 
 		  	
 		  }else {
 		  	
 		  	request.setAttribute("message", "회원가입에 실패하였습니다.");
-		  	request.setAttribute("url", "JoinFormPrivate.mem");
+		  	request.setAttribute("url", "JoinFormStore.st");
 		  }
-		
-		
-		
 	}
 
 }

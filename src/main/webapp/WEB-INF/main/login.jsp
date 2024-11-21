@@ -49,6 +49,10 @@
 </script>
 </head>
 <body>
+
+<!-- main css 를 jsp 페이지에 넣고 포함시키기 -->
+<%-- <jsp:include page="/css/loginCSS.jsp" /> --%>
+
 <!-- 페딩바텀에 푸터높이 80 줘야함  -->
 <body style="padding-bottom:80px">
 
@@ -61,7 +65,7 @@
         회원이 아니시면 회원가입 후 다양한 혜택을 누리세요.</div>
     
     <!-- 유효성 검사 함수 validateForm 호출 -->
-    <form name="myform" action="LoginOk.mem" method="post" onsubmit="return validateForm()">
+    <form name="myform" action="LoginOk.main" method="post" onsubmit="return validateForm()">
         <input type="text" name="mid" class="input-field" placeholder="아이디" required>
         <input type="password" name="pwd" class="input-field" placeholder="비밀번호" required>
         <button type="submit" class="login-btn">로그인</button>
@@ -73,7 +77,7 @@
         <img src="${ctp}/images/KakaoTalkLogin1.png" alt="Kakao Login">
     </div>
     <div id="mk__login_join" class="fixed__box">
-        <p class="signed">아직 마캉스 회원이 아니세요? <a href="MemberJoin.mem">회원가입</a></p>
+        <p class="signed">아직 마캉스 회원이 아니세요? <a href="MemberJoin.main">회원가입</a></p>
     </div>
 </div>
     

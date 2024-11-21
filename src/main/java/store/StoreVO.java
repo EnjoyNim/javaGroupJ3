@@ -1,8 +1,8 @@
-package member;
+package store;
 
 import common.VOInterface;
 
-public class MemberVO implements VOInterface{
+public class StoreVO implements VOInterface{
 	// sql 과 같은 변수들
 	private int idx;
 	private String mid;
@@ -198,9 +198,5 @@ public class MemberVO implements VOInterface{
 				+ lastDate + ", tempMid=" + tempMid + ", elapsedDays=" + elapsedDays + ", strLevel=" + strLevel + "]";
 	}
 	
-
-
-
-		
 	
 }

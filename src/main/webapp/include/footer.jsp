@@ -2,6 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctp" value="${pageContext.request.contextPath}"></c:set>
 <link type="text/css" rel="stylesheet" href="css/footer.css">
+ 
+ <!-- 푸터 영역 css 파일을 jsp 형식으로 만든것을 포함시킴-->
+<%-- <jsp:include page="/css/footerCSS.jsp" /> --%>
+
  <!-- 화면 하단의 네비게이션 -->
 <footer>
  <div id="footer_div">

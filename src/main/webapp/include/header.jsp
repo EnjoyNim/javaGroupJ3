@@ -49,6 +49,10 @@
 	
 </script>
 	
+	
+<!-- 헤더 영역 css 파일을 jsp 형식으로 만든것을 포함시킴-->
+<%-- <jsp:include page="/css/headerCSS.jsp" /> --%>
+	
   <!-- 헤더 부분 -->
 	<header>
 		

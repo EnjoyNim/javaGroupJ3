@@ -23,6 +23,10 @@
 <!-- 헤더와 푸터를 고정시켰기에 바디태그 페딩탑에 헤더높이 70, 페딩바텀에 푸터높이 80 줘야함  -->
 <body style="padding-top:70px; padding-bottom:80px">
 
+
+<!-- main css 를 jsp 페이지에 넣고 포함시키기 -->
+<%-- <jsp:include page="/css/mainCSS.jsp" /> --%>
+
 <!-- 헤더영역 -->
 <jsp:include page="/include/header.jsp" />
 <!-- 사이드네비 영역 -->
@@ -173,7 +177,7 @@ function showSlides() {
   <div class="swiper-wrapper">
   
     <div class="swiper-slide">
-    	<a href="https://www.naver.com">
+    	<a href="ShowStoreDetail.st">
     	    <div><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
     		<p>사창동 마사지 더킹</p>
     
@@ -186,7 +190,7 @@ function showSlides() {
     			   	 	<div class="review_cnt" style="margin-left:5px">4</div>
     			   </div>
     			   <div class="inner" style="margin-left:10px">
-    			   		<img alt="리뷰아이콘" src="${ctp}/images/ico_heart_fill.png">
+    			   		<img alt="하트아이콘" src="${ctp}/images/ico_heart_fill.png">
     			   	 <!-- 	<div class="ico_heart_fill"></div> -->
     			   	 	<div class="heart_cnt" style="margin-left:5px">15</div>
     			   </div>
@@ -353,8 +357,10 @@ function showSlides() {
    <!-- 여기에 제휴 입점신청과 광고상품안내 넣는걸로 시작 -->
    
  <div id="ad_banner">
- 	<a href="#"><img alt="" src="${ctp}/images/img_contract_shop.png" width="100%" height="100%"></a>
- 	<a href="#"><img alt="" src="${ctp}/images/img_introduction_service.png" width="100%" height="100%"></a>
+ 		<!-- 제휴 입점 신청 -->
+ 	<a href="ContractApply.main"><img alt="" src="${ctp}/images/img_contract_shop.png" width="100%" height="100%"></a>
+ 		<!-- 광고 상품 안내 -->
+ 	<a href="ShowAd.main"><img alt="" src="${ctp}/images/img_introduction_service.png" width="100%" height="100%"></a>
  </div>  
 	
 			

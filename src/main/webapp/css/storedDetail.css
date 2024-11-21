@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body{
+	/* 본문의 너비는 50% 정도로하고 길게한다. 스마트폰에 맞춤 */
+	width:50%;
+	margin-left:25%;
+}
+
+#shop_screen_shot {
+	cursor:pointer;
+/* 	overflow:hidden 을 꼭 해줘야한다. 안그러면 앞 뒤로 이미지가 넘어가서 나옴 */
+	overflow:hidden;
+	margin-top:50px;
+}
+
+#review_and_heart {
+	display:flex; 
+	/* 좌측정렬 */
+	justify-content:flex-start;	
+	align-items:center;
+}
+
+#review_and_heart .inner {
+	display:flex; 
+	/* 좌측정렬 */
+	justify-content:flex-start;
+	align-items:center;	
+}
+
+.review_and_heart .inner img{
+	width:18px;
+	height:18px;
+}
+
+#pan_tab_menu1 {
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+	cursor:pointer;
+	background-color:pink;
+}
+
+#pan_tab_menu1 .tab_menu{
+	flex:1 1 auto;
+	text-align:center;
+   	border:1px solid gray;
+}
+
+#pan_tab_menu1 #course_info{
+	background-color:#333;
+}
+
+#pan_tab_menu1 #store_info, #review_count{
+	background-color:white;
+}
+
+
+

@@ -216,8 +216,6 @@ public class MemberDAO {
 				vo.setPwd(rs.getString("pwd"));
 				vo.setNickName(rs.getString("nickName"));
 				vo.setName(rs.getString("name"));
-				vo.setGender(rs.getString("gender"));
-				vo.setBirthday(rs.getString("birthday"));
 				vo.setTel(rs.getString("tel"));
 				vo.setAddress(rs.getString("address"));
 				vo.setEmail(rs.getString("email"));

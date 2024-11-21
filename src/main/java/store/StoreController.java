@@ -1,4 +1,4 @@
-package member;
+package store;
 
 import java.io.IOException;
 
@@ -9,38 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.JoinPrivateOkCommand;
+
 @SuppressWarnings("serial")
-@WebServlet("*.mem")
-public class MemberController extends HttpServlet {
+@WebServlet("*.st")
+public class StoreController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		MemberInterface command = null;
+		StoreInterface command = null;
 		
-		String viewPage = "/WEB-INF/member";
+		String viewPage = "/WEB-INF/store";
 		
 		String com = request.getRequestURI();
 		com = com.substring(com.lastIndexOf("/"), com.lastIndexOf("."));
 		
-		System.out.println("MemberController com:"+com);
+		System.out.println("StoreController com:"+com);
 	
-			// 개인회원가입을 선택했을때
-		if(com.equals("/JoinFormPrivate")) {
-			viewPage += "/joinFormPrivate.jsp";
+		
+			// 업체회원가입을 선택했을때
+		if(com.equals("/JoinFormStore")) {
+			viewPage += "/joinFormStore.jsp";
 		
 		}
-		// 회원가입 폼에서 아이디 중복체크를 클릭했을때
-		else if(com.equals("/CheckMemberInfoDuplicate")) {
-			command = new CheckMemberInfoDuplicateCommand();
-			command.execute(request, response);
-			return;
-		}
-			
-		else if(com.equals("/JoinPrivateOk")) {
-			command = new JoinPrivateOkCommand();
+		else if(com.equals("/JoinStoreOk")) {
+			command = new JoinStoreOkCommand();
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/ShowStoreDetail")) {
+			viewPage += "/storeDetail.jsp";
 		}
 		
 		
