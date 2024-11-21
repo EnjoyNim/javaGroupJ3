@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail2_sleep2_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(-632.5 -1392.808)">
+        <path id="패스_262" d="M640.5 1432h7.412l-7.412 7.359h7.412" class="cls-2" transform="translate(0 -0.551)"/>
+        <path id="패스_263" d="M640.5 1432h11.986l-11.986 11.9h11.986" class="cls-2" transform="translate(10.313 -12.45)"/>
+        <path id="패스_264" d="M640.5 1432h16.863l-16.863 16.742h16.863" class="cls-2" transform="translate(25.137 -29.192)"/>
+    </g>
+</svg>

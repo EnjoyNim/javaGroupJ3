@@ -32,27 +32,476 @@ body{
 	height:18px;
 }
 
-#pan_tab_menu1 {
+
+
+#pan1_course #pan1_tab_menu {
 	display:flex;
 	width:100%;
 	justify-content:space-around;
 	cursor:pointer;
-	background-color:pink;
 }
 
-#pan_tab_menu1 .tab_menu{
+#pan1_course #pan1_tab_menu .tab_menu{
 	flex:1 1 auto;
 	text-align:center;
    	border:1px solid gray;
 }
 
-#pan_tab_menu1 #course_info{
-	background-color:#333;
+
+#pan1_course #store_theme {
+	list-style: none; /* li 아이템에 점을 없앤다. */
+	display:flex;
+	flex-wrap:wrap;  /* 넘치는 아이템들 랩핑 */
+	row-gap:6px;
+	column-gap:30px;
 }
 
-#pan_tab_menu1 #store_info, #review_count{
-	background-color:white;
+
+/*  ul 의 자손중 .status 클래스의 앞에 가상의 요소를 넣고 그 요소를 display block
+ 으로 설정하고 회색을 띄도록 설정한다. 그러면 다음에 오는 p 태그는 가상요소의 밑으로
+ 들어가게 된다.*/
+#store_theme .status:before {
+    position: relative;
+    content: "";
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: grayscale(100%);
+    margin-bottom: 9.00390625px;
+    margin-top: 13.2057291667px;
+}
+
+/*  이게 정말 중요하다.  .status.on 은 두 단어 사이에 공백이 있으면
+안되고 붙어있어야한다. 즉 status 와 on 두개를 다 포함하고 있는
+클래스를 의미한다. 즉 on 이 붙은 클래스에는 회색을 제거하여 이미지 원래
+의 색인 형광색이 나도록 한다.*/
+#store_theme .status.on:before {
+    filter: grayscale(0);
 }
 
 
 
+ /* work 앞에 가상요소의 배경 이미지를 설정해준다. */
+#store_theme .work:before {
+    background: url(../images/status/icon-status-work.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .park:before {
+    background: url(../images/status/icon-status-park.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .sleep:before {
+    background: url(../images/status/icon-status-sleep.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .shower:before {
+    background: url(../images/status/icon-status-shower.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .week:before {
+    background: url(../images/status/icon-status-week.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .people:before {
+    background: url(../images/status/icon-status-people.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .event:before {
+    background: url(../images/status/icon-status-event.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .wifi:before {
+    background: url(../images/status/icon-status-wifi.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .couple:before {
+    background: url(../images/status/icon-status-couple.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .sleep2:before {
+    background: url(../images/status/icon-status-sleep2.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .person:before {
+    background: url(../images/status/icon-status-person.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .couple_room:before {
+    background: url(../images/status/icon-status-couple.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .coupon:before {
+    background: url(../images/status/icon-status-coupon.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .first:before {
+    background: url(../images/status/icon-status-first.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .birth:before {
+    background: url(../images/status/icon-status-birth.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .soldier:before {
+    background: url(../images/status/icon-status-soldier.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .review:before {
+    background: url(../images/status/icon-status-review.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .sms:before {
+    background: url(../images/status/icon-status-sms.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .parking:before {
+    background: url(../images/status/icon-status-parking.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+#store_theme .reservation:before {
+    background: url(../images/status/icon-status-reserve.svg) no-repeat 50%;
+    width: 33.6145833333px;
+    height: 33.6145833333px;
+    background-size: contain;
+}
+
+
+.pan_course .course {
+    -o-object-fit: contain;
+    object-fit: contain;
+    border-radius: 7.203125px;
+    background-color: #f5f5f5;
+    padding-top: 18.0078125px;
+    padding-bottom: 18.0078125px;
+    margin-bottom:30px;
+}
+
+.pan_course .course .course_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.pan_course .course .course_header p {
+    font-size: 15.6067708333px;
+    font-weight: 700;
+    letter-spacing: -.7803385417px;
+    text-align: left;
+    color: #333;
+}
+
+
+
+
+.pan_course .course .course_container {
+    display: flex;
+    justify-content: end;
+    overflow: hidden;
+}
+
+.pan_course .course .course_container .items {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 27.6119791667px;
+    list-style:none;
+}
+
+.pan_course .course .course_container .items li .discount {
+    font-size: 13.2057291667px;
+    font-weight: 500;
+    letter-spacing: -.6602864583px;
+    text-align: right;
+    color: #bbb;
+    margin-right: 10px;
+}
+
+.pan_course .course .course_container .items li .discount .dc {
+    
+    color: #f77;
+}
+
+.pan_course .course .course_container .items li .discount .org {
+    
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.pan_course .course .course_container .items li .price strong {
+    margin-left: 8.4036458333px;
+    font-size: 21.609375px;
+    font-weight: 700;
+    letter-spacing: -1.08046875px;
+    color: #0bc7ec;
+    margin-right:10px;    
+}
+
+
+#pan2_store #pan2_tab_menu {
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+	cursor:pointer;
+}
+
+#pan2_store #pan2_tab_menu .tab_menu{
+	flex:1 1 auto;
+	text-align:center;
+   	border:1px solid gray;
+}
+
+
+
+#pan2_store {
+    padding-top: 36.015625px;
+    padding-bottom: 48.0208333333px;
+}
+
+#pan2_store .text_section+.text_section {
+    border-top: solid 1.2005208333px #e5e5e5;
+    margin-top: 24.0104166667px;
+    padding-top: 24.0104166667px;
+}
+
+
+
+
+.panel-main-line {
+    display: block;
+    height: 10px;
+    background-color: #f2f2f2;
+    margin: 0 3.2px;
+}
+
+
+
+
+
+
+#pan3_review #pan3_tab_menu {
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+	cursor:pointer;
+}
+
+#pan3_review #pan3_tab_menu .tab_menu{
+	flex:1 1 auto;
+	text-align:center;
+   	border:1px solid gray;
+}
+
+
+
+#pan3_review #mk__shop_review {
+    margin-top: 75.0325520833px;
+}
+
+#pan3_review #mk__review_chart>header {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#pan3_review #mk__review_chart>header h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#pan3_review #mk__review_chart>header .more {
+    font-size: 14px;
+    color: #707070;
+    display: inline-block;
+    width: 57px;
+    height: 18px;
+    line-height: 18px;
+    white-space: nowrap;
+}
+
+#pan3_review #mk__review_chart .reviewbox__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#pan3_review #mk__review_chart .reviewbox__summary p.total {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 0;
+}
+
+#pan3_review #mk__review_chart .reviewbox__summary .post {
+    display: inline-flex
+;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #c3c3c3;
+    height: 26px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #333;
+    border-radius: 13px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+#pan3_review .reviewbox__graphs {
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+
+#pan3_review .reviewbox__graphs .wraps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+
+#pan3_review .reviewbox__graphs .wraps li {
+    display: block;
+    position: relative;
+    height: 40px;
+    background: #f8f8f8;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+
+#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-10::before {
+    background: url(../images/icon_review_grp10.svg) no-repeat 0 0 / contain;
+}
+
+#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-2::before {
+    background: url(../images/icon_review_grp2.svg) no-repeat 0 0 / contain;
+}
+
+#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-3::before {
+    background: url(../images/icon_review_grp3.svg) no-repeat 0 0 / contain;
+}
+
+#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab:before {
+    content: "";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 24px;
+    vertical-align: middle;
+    background-position: center !important;
+}
+
+
+#pan3_review .reviewbox__graphs .wraps li .lab {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+#pan3_review  #mk__review_chart .reviewbox__graphs .wraps li:nth-of-type(1) .fill {
+    background: rgba(11, 199, 236, .5);
+}
+#pan3_review  #mk__review_chart .reviewbox__graphs .wraps li .fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 40px;
+    z-index: 2;
+    background: #f8f8f8;
+    opacity: .5;
+    display: block;
+}
+
+
+#pan3_review .reviewbox__graphs .wraps li+li {
+    margin-top: 10px;
+}
+
+#pan3_review .reviewbox__graphs .wraps li:nth-of-type(2) .fill {
+    background: rgba(11, 199, 236, .4);
+}
+
+#pan3_review .reviewbox__graphs .wraps li:nth-of-type(3) .fill {
+    background: rgba(11, 199, 236, .2);
+}

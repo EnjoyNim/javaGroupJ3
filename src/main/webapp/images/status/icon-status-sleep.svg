@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail1_sleep1_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:bevel;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(1.481 9.568)">
+        <path id="선_297" d="M3.202 0L0 5.604" class="cls-2" transform="translate(2.587 11.686)"/>
+        <path id="선_298" d="M3.589 0L0 6.281" class="cls-2" transform="translate(11.999 18.928)"/>
+        <path id="선_299" d="M0 0L3.202 5.604" class="cls-2" transform="translate(47.247 11.926)"/>
+        <path id="선_300" d="M0 0L3.645 6.379" class="cls-2" transform="translate(37.393 19.07)"/>
+        <path id="선_301" d="M0 0L0 5.845" class="cls-2" transform="translate(26.292 21.727)"/>
+        <path id="패스_254" d="M3.045 9.293c14.028 16.791 31.144 17.019 45.268.607l.524-.607" class="cls-2" transform="translate(0.69 -0.323)"/>
+    </g>
+</svg>

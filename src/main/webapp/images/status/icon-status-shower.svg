@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail6_shower_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(718.606 -481.414)">
+        <path id="사각형_403" d="M4 0h14a4 4 0 0 1 4 4v11.8a.2.2 0 0 1-.2.2H.2a.2.2 0 0 1-.2-.2V4a4 4 0 0 1 4-4z" class="cls-2" transform="translate(-710.107 498.414)"/>
+        <path id="패스_333" fill="none" fill-rule="evenodd" stroke="#0bc7ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5px" d="M-706.395 498.295v-5.647a5.648 5.648 0 0 1 5.648-5.648h16.942a5.646 5.646 0 0 1 5.647 5.647v40.18" transform="translate(7.339 0)"/>
+        <g id="그룹_237" transform="translate(-0.081)">
+            <path id="선_325" d="M0 0L0 4.236" class="cls-2" transform="translate(-707.525 520.708)"/>
+            <path id="선_326" d="M0 0L0 8" class="cls-2" transform="translate(-698.606 521.414)"/>
+            <path id="선_327" d="M0 0L0 4.236" class="cls-2" transform="translate(-690.583 520.708)"/>
+        </g>
+    </g>
+</svg>

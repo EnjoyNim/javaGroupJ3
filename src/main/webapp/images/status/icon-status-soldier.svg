@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail14_soldier_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px;fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="그룹_258" transform="translate(5.502 2.4)">
+        <path id="패스_349" d="M38.1 23.718l-16.111 7.289-16.108-7.289V2.946l16.108 7.727L38.1 2.946z" class="cls-2" transform="translate(0 0)"/>
+        <path id="패스_350" d="M5.881 14.428l15.761 6.932 17.474-7.52" class="cls-2" transform="translate(0 17.167)"/>
+        <path id="패스_351" d="M5.881 17.428l15.761 6.932 17.474-7.52" class="cls-2" transform="translate(0 21.894)"/>
+    </g>
+</svg>

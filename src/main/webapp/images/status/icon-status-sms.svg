@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail17_sms_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="그룹_262" transform="translate(-376.569 -1409.59)">
+        <path id="패스_83" d="M41.245 3.25H6.512a4.4 4.4 0 0 0-4.4 4.4v19.944a4.4 4.4 0 0 0 4.4 4.4h3.61l5.085 8.8a1.871 1.871 0 0 0 3.258 0L23.571 32h17.608a4.4 4.4 0 0 0 4.4-4.4V7.652a4.4 4.4 0 0 0-4.337-4.4z" class="cls-2" transform="translate(380.723 1416.649)"/>
+        <path id="선_86" d="M0 0L13.207 0" class="cls-2" transform="translate(389.216 1430.046)"/>
+        <path id="선_87" d="M0 0L28.614 0" class="cls-2" transform="translate(389.216 1438.851)"/>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail5_wifi_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(-42 -655.95)">
+        <path id="패스_255" d="M69.768 704.477L46 670.969a41.209 41.209 0 0 1 47.536 0z" class="cls-2" transform="translate(0 0)"/>
+        <path id="패스_256" d="M48.523 672.424a41.475 41.475 0 0 1 35.542 0" class="cls-2" transform="translate(3.474 6.977)"/>
+        <path id="패스_257" d="M51.326 674.869a43.382 43.382 0 0 1 22.218 0" class="cls-2" transform="translate(7.333 13.941)"/>
+    </g>
+</svg>

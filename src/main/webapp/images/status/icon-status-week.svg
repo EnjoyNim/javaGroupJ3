@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail15_week_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <g id="그룹_261" transform="translate(4.1 2.628)">
+        <rect id="사각형_404" width="42.139" height="37.561" class="cls-2" rx="5" transform="translate(3.831 6.738)"/>
+        <path id="선_339" d="M0 0L42.139 0" class="cls-2" transform="translate(3.831 13.753)"/>
+        <g id="그룹_259" transform="translate(12.509 2.444)">
+            <path id="선_340" d="M0 0L0 3.863" class="cls-2"/>
+            <path id="선_341" d="M0 0L0 3.863" class="cls-2" transform="translate(24.783)"/>
+        </g>
+        <g id="그룹_260" transform="translate(14.498 20.216)">
+            <path id="패스_352" fill="#0bc7ec" d="M8.135 14.16v-.045a4.3 4.3 0 0 1 4.387-4.5 4.3 4.3 0 0 1 4.382 4.5v.045a4.386 4.386 0 1 1-8.768 0zM23.1 9.868h3.467l-7.232 8.838-5.805 7.231h-3.467l7.093-8.654zm-11.775 4.248v.045c0 .964.6 1.584 1.2 1.584s1.192-.595 1.192-1.584v-.045c0-.964-.553-1.584-1.192-1.584-.67 0-1.2.595-1.2 1.584zm8.4 7.574v-.045a4.386 4.386 0 1 1 8.768 0v.045a4.386 4.386 0 1 1-8.768 0zm5.576 0v-.045c0-.964-.55-1.584-1.195-1.584-.664 0-1.192.595-1.192 1.584v.045c0 .964.6 1.584 1.192 1.584s1.194-.598 1.194-1.585z" transform="translate(-8.135 -9.615)"/>
+        </g>
+    </g>
+</svg>

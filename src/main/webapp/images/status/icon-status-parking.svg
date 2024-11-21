@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="icon_detail18_parking_on" width="56" height="56" viewBox="0 0 56 56">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#0bc7ec;stroke-linecap:round;stroke-width:2.5px;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(58.507 4.113)">
+        <circle id="타원_76" cx="23" cy="23" r="23" class="cls-2" transform="translate(-53.507 1.887)"/>
+        <g id="그룹_169" transform="translate(-36.862 11.812)">
+            <path id="패스_265" fill="none" stroke="#0bc7ec" stroke-linecap="round" stroke-width="2.5px" d="M-33.507 12.967v25.285" transform="translate(33.507 -12.11)"/>
+            <path id="사각형_383" d="M0 0h11a7 7 0 0 1 7 7 7 7 0 0 1-7 7H0V0z" class="cls-2"/>
+        </g>
+    </g>
+</svg>
