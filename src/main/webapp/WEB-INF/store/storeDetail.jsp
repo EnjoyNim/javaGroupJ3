@@ -13,14 +13,15 @@
 <!-- swiper 관련 CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+<!-- jQuery 와 ajax 사용을 위한 cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <!-- swiper 관련 JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body style="padding-top:70px; padding-bottom:80px">
 
-		
-<!-- include 헤더(상세페이지에 맞춘) -->
 	
 <div id="shop_detail">
 
@@ -65,8 +66,9 @@
 </script>
 
 	<!-- vo로부터 타이틀과 주소를 가져와서 처리 -->
-<h5 style="font-weidht:bold">타이틀 (예 서초동 마사지 오투타이)</h5>
-<p style="font-size:13px">주소 (예 서울 서초구 서초대로75길 34/ 서초동 1208-14 5층)</p>
+<div style="font-size:24px;font-weidht:bold; height:30px; margin-top:10px">
+	<strong>타이틀 (예 서초동 마사지 오투타이)</strong></div>
+<p style="font-size:15px;">주소 (예 서울 서초구 서초대로75길 34/ 서초동 1208-14 5층)</p>
 
 	<!-- flex -->
 <div id="review_and_heart" class="review_and_heart">
@@ -515,7 +517,7 @@
 									alt="이모티콘">
 							</div>
 							<p class="usr">
-								<strong class="name">조용한소음 </strong> <span class="date">2024-06-17</span>
+								<strong class="name">조용한소음 </strong><br/><span class="date">2024-06-17</span>
 							</p>
 
 						</dt>
@@ -552,7 +554,7 @@
 									alt="이모티콘">
 							</div>
 							<p class="usr">
-								<strong class="name">다이어트중마주친치킨 </strong> <span class="date">2024-06-17</span>
+								<strong class="name">다이어트중마주친치킨 </strong><br/><span class="date">2024-06-17</span>
 							</p>
 
 						</dt>
@@ -589,7 +591,7 @@
 									alt="이모티콘">
 							</div>
 							<p class="usr">
-								<strong class="name">역기드는그녀 </strong> <span class="date">2024-04-21</span>
+								<strong class="name">역기드는그녀 </strong><br/> <span class="date">2024-04-21</span>
 							</p>
 
 						</dt>
@@ -626,7 +628,7 @@
 									alt="이모티콘">
 							</div>
 							<p class="usr">
-								<strong class="name">브레오스 </strong> <span class="date">2024-04-19</span>
+								<strong class="name">브레오스 </strong><br/> <span class="date">2024-04-19</span>
 							</p>
 
 						</dt>
@@ -696,7 +698,14 @@
 	</div>
 
 
-
+<script>
+  $('a').click(function () {
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+    return false;
+  });
+</script>
 
 
 
