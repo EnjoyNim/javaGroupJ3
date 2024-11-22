@@ -711,7 +711,8 @@
 
 
 
-
+<!-- footer 영역 -->
+<jsp:include page="/include/footer.jsp" />
 
 </body>
 </html>
