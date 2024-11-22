@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body{
+#store_detail_body{
 	/* 본문의 너비는 50% 정도로하고 길게한다. 스마트폰에 맞춤 */
 	width:50%;
 	margin-left:25%;
@@ -355,20 +355,19 @@ body{
     margin-top: 75.0325520833px;
 }
 
-#pan3_review #review_chart>header {
-    display: flex
-;
+#pan3_review #review_chart #review_header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-#pan3_review #review_chart>header h3 {
+#pan3_review #review_chart #review_header h3 {
     font-size: 20px;
     font-weight: 700;
 }
 
-#pan3_review #review_chart>header .more {
+#pan3_review #review_chart #review_header .more {
     font-size: 14px;
     color: #707070;
     display: inline-block;

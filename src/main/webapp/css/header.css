@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-header {
+#fixed_header {
   /* 이렇게 값을 주면 헤더가 고정되고 스크롤에 영향을 받지 않는다. */
   position: fixed;
   top: 0;

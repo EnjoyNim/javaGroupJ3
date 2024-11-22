@@ -38,7 +38,10 @@ public class StoreController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
+		// 샵을 선택해서 클릭했을때 보여줄 샵 상세페이지
 		else if(com.equals("/ShowStoreDetail")) {
+			// 상세페이지가 보여질때는 헤더페이지의 검색창을 보이지 않고 그자리에 해당 업소 상호명을 보여주도록
+			request.setAttribute("headerForStoreDetail", "true");
 			viewPage += "/storeDetail.jsp";
 		}
 		

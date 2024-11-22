@@ -14,13 +14,18 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- jQuery 와 ajax 사용을 위한 cdn -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 
 <!-- swiper 관련 JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
-<body style="padding-top:70px; padding-bottom:80px">
+<body id="store_detail_body" style="padding-top:70px; padding-bottom:80px">
+
+<!-- 헤더영역 -->
+<jsp:include page="/include/header.jsp" />
+<!-- 사이드네비 영역 -->
+<jsp:include page="/include/sidenavi.jsp" />
 
 	
 <div id="shop_detail">
@@ -462,12 +467,12 @@
 		<div id="shop_review_div_box" class="reviewbox">
 		
 			<div id="review_chart">
-				<header>
+				<div id="review_header">
 					<h3>방문후기</h3>
 					<a
 						href="https://www.makangs.com/review.php?code=4583&amp;back=%2Fshop.php%3Fcode%3D4583"
 						class="more">더보기</a>
-				</header>
+				</div>
 
 				<section class="reviewbox_summary">
 					<p class="total">

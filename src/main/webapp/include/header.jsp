@@ -54,7 +54,7 @@
 <%-- <jsp:include page="/css/headerCSS.jsp" /> --%>
 	
   <!-- 헤더 부분 -->
-	<header>
+	<header id="fixed_header">
 		
 		<div id="header_div">
 		
