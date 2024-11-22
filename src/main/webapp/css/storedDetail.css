@@ -351,11 +351,11 @@ body{
 
 
 
-#pan3_review #mk__shop_review {
+#pan3_review #shop_review_div_box {
     margin-top: 75.0325520833px;
 }
 
-#pan3_review #mk__review_chart>header {
+#pan3_review #review_chart>header {
     display: flex
 ;
     justify-content: space-between;
@@ -363,12 +363,12 @@ body{
     margin-bottom: 10px;
 }
 
-#pan3_review #mk__review_chart>header h3 {
+#pan3_review #review_chart>header h3 {
     font-size: 20px;
     font-weight: 700;
 }
 
-#pan3_review #mk__review_chart>header .more {
+#pan3_review #review_chart>header .more {
     font-size: 14px;
     color: #707070;
     display: inline-block;
@@ -378,20 +378,20 @@ body{
     white-space: nowrap;
 }
 
-#pan3_review #mk__review_chart .reviewbox__summary {
+#pan3_review #review_chart .reviewbox_summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 
-#pan3_review #mk__review_chart .reviewbox__summary p.total {
+#pan3_review #review_chart .reviewbox_summary p.total {
     font-size: 18px;
     color: #333;
     margin-bottom: 0;
 }
 
-#pan3_review #mk__review_chart .reviewbox__summary .post {
+#pan3_review #review_chart .reviewbox_summary .post {
     display: inline-flex
 ;
     justify-content: center;
@@ -413,13 +413,13 @@ body{
 
 
 
-#pan3_review .reviewbox__graphs {
+#pan3_review .reviewbox_graphs {
     margin-top: 10px;
     margin-bottom: 60px;
 }
 
 
-#pan3_review .reviewbox__graphs .wraps {
+#pan3_review .reviewbox_graphs .wraps {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -427,7 +427,7 @@ body{
 }
 
 
-#pan3_review .reviewbox__graphs .wraps li {
+#pan3_review .reviewbox_graphs .wraps li {
     display: block;
     position: relative;
     height: 40px;
@@ -439,19 +439,19 @@ body{
 
 
 
-#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-10::before {
-    background: url(../images/icon_review_grp10.svg) no-repeat 0 0 / contain;
+#pan3_review #review_chart .reviewbox_graphs .wraps li .lab.lab-10::before {
+    background: url(../images/review/icon_review_grp10.svg) no-repeat 0 0 / contain;
 }
 
-#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-2::before {
-    background: url(../images/icon_review_grp2.svg) no-repeat 0 0 / contain;
+#pan3_review #review_chart .reviewbox_graphs .wraps li .lab.lab-2::before {
+    background: url(../images/review/icon_review_grp2.svg) no-repeat 0 0 / contain;
 }
 
-#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab.lab-3::before {
-    background: url(../images/icon_review_grp3.svg) no-repeat 0 0 / contain;
+#pan3_review #review_chart .reviewbox_graphs .wraps li .lab.lab-3::before {
+    background: url(../images/review/icon_review_grp3.svg) no-repeat 0 0 / contain;
 }
 
-#pan3_review #mk__review_chart .reviewbox__graphs .wraps li .lab:before {
+#pan3_review #review_chart .reviewbox_graphs .wraps li .lab:before {
     content: "";
     display: inline-flex;
     justify-content: center;
@@ -463,7 +463,7 @@ body{
 }
 
 
-#pan3_review .reviewbox__graphs .wraps li .lab {
+#pan3_review .reviewbox_graphs .wraps li .lab {
     position: absolute;
     left: 0;
     top: 0;
@@ -477,11 +477,21 @@ body{
     margin: 0;
 }
 
-
-#pan3_review  #mk__review_chart .reviewbox__graphs .wraps li:nth-of-type(1) .fill {
+ /* li 아이템들 중 1번째 것의 배경색 지정 */
+#pan3_review  #review_chart .reviewbox_graphs .wraps li:nth-of-type(1) .fill {
     background: rgba(11, 199, 236, .5);
 }
-#pan3_review  #mk__review_chart .reviewbox__graphs .wraps li .fill {
+/* li 아이템들 중 2번째 것의 배경색 지정 */
+#pan3_review  #review_chart .reviewbox_graphs .wraps li:nth-of-type(2) .fill {
+    background: rgba(11, 199, 236, .4);
+}
+/* li 아이템들 중 3번째 것의 배경색 지정 */
+#pan3_review  #review_chart .reviewbox_graphs .wraps li:nth-of-type(3) .fill {
+    background: rgba(11, 199, 236, .2);
+}
+
+/* li 아이템들의 자손중 .fill 클래스들 요소들 배경색 지정 */
+#pan3_review  #review_chart .reviewbox_graphs .wraps li .fill {
     position: absolute;
     left: 0;
     top: 0;
@@ -494,14 +504,159 @@ body{
 }
 
 
-#pan3_review .reviewbox__graphs .wraps li+li {
+#pan3_review .reviewbox_graphs .wraps li+li {
     margin-top: 10px;
 }
 
-#pan3_review .reviewbox__graphs .wraps li:nth-of-type(2) .fill {
-    background: rgba(11, 199, 236, .4);
+
+
+
+
+
+
+
+
+
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles {
+    margin-top: 0;
+    padding-bottom: 120px;
 }
 
-#pan3_review .reviewbox__graphs .wraps li:nth-of-type(3) .fill {
-    background: rgba(11, 199, 236, .2);
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article {
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt {
+    position: relative;
+    margin-bottom: 30px;
+    width: 190px;
+    float: left;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt .figure {
+    width: 32px;
+    float: left;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt .figure img {
+    width: 100%;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt .usr {
+    float: left;
+    margin-left: 8px;
+    margin-bottom: 0;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt .usr .name {
+    margin-top: 0;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dt .usr .date {
+    font-size: 13px;
+    color: #c3c3c3;
+    /* font-family: 500; */
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article dd .memo.is--limit {
+    min-height: 30px;
+    position: relative;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions {
+    margin-top: 20px;
+    font-size: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react {
+    display: inline-block;
+    height: 26px;
+    line-height: 23px;
+    box-sizing: border-box;
+    border: 2px solid #ececec;
+    background: #fbfbfb;
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react:before {
+    content: "";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 39px;
+    height: 20px;
+    background-position: center !important;
+}
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-1:before {
+    background: url(../images/review/icon_review_grp1.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-2:before {
+    background: url(../images/review/icon_review_grp2.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-3:before {
+    background: url(../images/review/icon_review_grp3.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-4:before {
+    background: url(../images/review/icon_review_grp4.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-5:before {
+    background: url(../images/review/icon_review_grp5.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-6:before {
+    background: url(../images/review/icon_review_grp6.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-7:before {
+    background: url(../images/review/icon_review_grp7.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-8:before {
+    background: url(../images/review/icon_review_grp8.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-9:before {
+    background: url(../images/review/icon_review_grp9.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-10:before {
+    background: url(../images/review/icon_review_grp10.svg) no-repeat 0 0 / contain;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react.react-11:before {
+    background: url(../images/review/icon_review_grp11.svg) no-repeat 0 0 / contain;
+}
+
+
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react>span {
+    font-size: 12px;
+    font-weight: 700;
+}
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article .reactions .react span {
+    vertical-align: middle;
+}
+
+
+
+
+
+#pan3_review #shop_review_div_box #mk__review_list .notify-block-group-button {
+    padding-top: 5px;
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/*    +는 인접형제선택자 라고 한다. .article+.article 는 class article 다음에 오는 article 을 의미한다.
+   즉, 2번째 , 3번째... article 들로, 그들 앞에 다른 article 이 있기만 하면 선택된다. */
+#pan3_review #shop_review_div_box #mk__review_list .reviewbox__articles .article+.article {
+    padding-top: 30px;
+    border-top: 1px solid #d9d9d9;
 }

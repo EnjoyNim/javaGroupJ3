@@ -457,8 +457,9 @@
 
 
 
-		<div id="mk__shop_review" class="reviewbox">
-			<div id="mk__review_chart">
+		<div id="shop_review_div_box" class="reviewbox">
+		
+			<div id="review_chart">
 				<header>
 					<h3>방문후기</h3>
 					<a
@@ -466,7 +467,7 @@
 						class="more">더보기</a>
 				</header>
 
-				<section class="reviewbox__summary">
+				<section class="reviewbox_summary">
 					<p class="total">
 						<strong>4</strong>명이 참여
 					</p>
@@ -476,10 +477,10 @@
 				</section>
 				<!-- // .reviewbox__summary -->
 
-				<div class="reviewbox__conts">
+				<div class="reviewbox_contents">
 
 
-					<div class="reviewbox__graphs">
+					<div class="reviewbox_graphs">
 						<ul class="wraps">
 							<li>
 								<p class="lab lab-10">
@@ -502,13 +503,15 @@
 					<!-- // .reviewbox__graphs -->
 				</div>
 			</div>
+			
+			
 			<div id="mk__review_list">
 				<div class="reviewbox__articles">
 
 					<dl class="article">
 						<dt>
 							<div class="figure">
-								<img src="${ctp}/images/level-icon-1@2x.png"
+								<img src="${ctp}/images/level/level-icon-1@2x.png"
 									alt="이모티콘">
 							</div>
 							<p class="usr">
@@ -545,7 +548,7 @@
 					<dl class="article">
 						<dt>
 							<div class="figure">
-								<img src="${ctp}/images/level-icon-1@2x.png"
+								<img src="${ctp}/images/level/level-icon-1@2x.png"
 									alt="이모티콘">
 							</div>
 							<p class="usr">
@@ -582,7 +585,7 @@
 					<dl class="article">
 						<dt>
 							<div class="figure">
-								<img src="${ctp}/images/level-icon-1@2x.png"
+								<img src="${ctp}/images/level/level-icon-1@2x.png"
 									alt="이모티콘">
 							</div>
 							<p class="usr">
@@ -619,7 +622,7 @@
 					<dl class="article">
 						<dt>
 							<div class="figure">
-								<img src="${ctp}/images/level-icon-1@2x.png"
+								<img src="${ctp}/images/level/level-icon-1@2x.png"
 									alt="이모티콘">
 							</div>
 							<p class="usr">
