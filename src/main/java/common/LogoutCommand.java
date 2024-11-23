@@ -17,11 +17,17 @@ public class LogoutCommand implements MainInterface {
 				// 세션 끊기
 				HttpSession session = request.getSession();
 				
+				
 				String nickName = (String)session.getAttribute("sNickName");
+				String storeName = (String)session.getAttribute("sStoreName");
+				String name = nickName.equals("")?storeName:nickName;
+				
+				System.out.println("nickName:"+nickName+", storeName:"+storeName);
+				System.out.println("name:"+name);
 				
 				session.invalidate();
 				
-				request.setAttribute("message", nickName+"님 로그아웃 되었습니다.");
+				request.setAttribute("message", name+"님 로그아웃 되었습니다.");
 				request.setAttribute("url", "Login.main");
 	}
 

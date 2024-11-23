@@ -7,6 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+ <!-- jQuery 와 ajax 사용을 위한 cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <title>allianceApply.jsp</title>
 <style>
     /* 페이지의 전반적인 스타일 설정 */
@@ -86,6 +89,170 @@
 </style>
 
 <script>
+
+
+'use strict';
+
+// 중복체크를 통과한 아이디를 저장하는 변수
+let checkedStoreId = "";
+
+// 아이디 유효성 검사 함수
+function checkId(storeId) {
+	
+    const idPattern = /^[a-zA-Z0-9]{4,12}$/; // 아이디는 4~12자, 영문과 숫자만 허용
+
+    if (!idPattern.test(storeId)) {
+        alert("아이디는 4~12자의 영문자와 숫자만 사용할 수 있습니다.");
+        return false;
+    }
+    return true;
+}
+
+// 비밀번호 유효성 검사 함수
+function checkPwd(pwd) {
+	
+    const pwdPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // 비밀번호는 최소 8자, 하나 이상의 영문자, 숫자, 특수문자를 포함해야 함
+
+    if (!pwdPattern.test(pwd)) {
+        alert("비밀번호는 최소 8자 이상, 하나 이상의 영문자, 숫자, 특수문자를 포함해야 합니다.");
+        return false;
+    }
+    return true;
+}
+
+
+// 아이디 중복여부를 체크한다. 
+function checkStoreIdDuplicate(){
+	
+	let storeIdToCheck = document.getElementById("store_id").value.trim();
+	
+	if(!checkId(storeIdToCheck)){
+		return;
+	}
+	
+	$.ajax({ 
+		type:"post",
+		
+		url:"CheckMemberInfoDuplicate.mem",
+		
+		data:{"strToCheck":storeIdToCheck,
+			"isIdCheck":"true"},    // 이것은 아이디 체크임을 표시
+		
+		success:function(res){
+			
+			if(res!=""){ // 해당 아이디를 갖고 있는 회원이 있다면 그 회원의 아이디가 돌아온다.
+				
+				$("#store_id_check_result").html(res+"는 사용할 수 없습니다. 다른 아이디를 선택해주세요.");
+				document.getElementById("store_id").focus();
+			}
+			else{
+				$("#store_id_check_result").html(storeIdToCheck+"는 사용할 수 있는 아이디입니다.");
+				
+				// 체크된 아이디에 저장해둠
+				checkedStoreId = storeIdToCheck;
+				
+				document.getElementById("pwd").focus();
+			}
+		},
+		error:function(){
+			alert("전송오류!");
+		}
+		
+	});
+}
+
+
+// 서버로 가입정보를 보내기 전에 마지막으로 입력정보들을 체크한다.
+function finalCheck(){
+	
+	let storeId = document.getElementById("store_id").value.trim();
+	
+	if(!checkId(storeId)){
+		return;
+	}
+	
+	// 아이디 중복체크를 했는지 여부 체크
+	if(checkedStoreId!=storeId){ // 현재 폼에 입력된 아이디와 중복체크때 저장한 아이디가 다르다면 다시 중복체크 하도록.
+		console.log("storeId:",storeId);
+		console.log("checkedStoreId:",checkedStoreId);
+		
+		alert("아이디 중복체크를 해주세요.");
+		document.getElementById("check_store_id_duplicate").focus();
+		return false;
+	}
+	
+	let pwd = document.getElementById("pwd").value.trim();
+	
+	if(!checkPwd(pwd)){
+		return;
+	}
+			
+	let pwdConfirm = document.getElementById("confirm_pwd").value.trim();
+	
+	if(pwd!=pwdConfirm){
+		alert("비밀번호를 다시 입력해주세요.");
+		return false;
+	}
+	
+	
+	let storeName = document.getElementById("store_name").value.trim();	
+
+	if(storeName==""|| storeName.length<2){
+		alert("업체명을 입력하세요.");
+		document.getElementById("store_name").focus();
+		return false;
+	}
+	
+	let contactName = document.getElementById("contact_name").value.trim();	
+
+	if(contactName==""|| contactName.length<2){
+		alert("담당자 이름을 입력하세요.");
+		document.getElementById("contact_name").focus();
+		return false;
+	}
+	
+	let contactPhone = document.getElementById("contact_phone").value.trim();	
+
+	if(contactPhone==""|| contactPhone.length<8){
+		alert("담당자 연락처를 입력하세요.");
+		document.getElementById("contact_phone").focus();
+		return false;
+	}
+	
+	let contactTime = document.getElementById("contact_time").value.trim();	
+
+	if(contactTime==""){
+		alert("통화 가능시간을 입력하세요.");
+		document.getElementById("contact_time").focus();
+		return false;
+	}
+	
+	document.myform.submit();
+}
+
+
+
+// 두개의 pwd 입력 텍스트가 서로 같은지 체크
+	function checkTwoPwds(){
+	
+	let pwd = document.getElementById("pwd").value.trim();
+	
+	let pwdConfirm = document.getElementById("confirm_pwd").value.trim();
+
+	if(pwd!=pwdConfirm){
+		document.getElementById("two_pwds_check_result").innerHTML = "두 비밀번호가 일치하지 않습니다.";
+	}else{
+		document.getElementById("two_pwds_check_result").innerHTML = "";
+	}
+} 
+
+
+
+
+
+
+/* 
     function validateForm(event) {
         // 체크박스 그룹 검사
         const checkboxes = document.querySelectorAll('input[name="knowWay"]:checked'); // 선택된 체크박스
@@ -113,7 +280,7 @@
         }
 
         return true; // 모든 유효성 검사를 통과한 경우 폼 제출 허용
-    }
+    } */
 </script>
 </head>
 <body>
@@ -126,52 +293,68 @@
             아래 양식을 작성하여 제휴 신청을 진행해주세요. 작성해주신 내용은 검토 후 연락드리겠습니다.
         </div>
         <!-- 입력 폼 -->
-        <form action="processAllianceApply.jsp" method="post" onsubmit="validateForm(event)">
+        <form name="myform" action="ProcessAllianceApply.st" method="post">
+        	<!-- 아이디와 비밀번호 입력받아야함. -->
+        
+            <div class="form-group">
+		        <label for="store_id">아이디 *</label>
+		        <input type="text" id="store_id" name="storeId" placeholder="아이디를 입력해주세요." style="width:80%" required>
+		    	<input type="button" value="중복확인" id="check_store_id_duplicate" style="width:17%" onclick="checkStoreIdDuplicate()" style = "flex-basis:10%; margin-left:10px">
+		    </div>
+		               
+            <div class="form-group">
+            	<!-- 아이디의 중복여부 결과를 출력해줄 div -->            
+            	<div id="store_id_check_result" style = "margin-left:250px;"></div>
+            </div>
+		    
+		    <div class="form-group">
+		        <label for="pwd">비밀번호 *</label>
+		        <input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요." required>
+		    </div>
+		    
+		    <div class="form-group">
+		        <label for="confirm_pwd">비밀번호 확인 *</label>
+		        <input type="password" id="confirm_pwd" onkeyup="checkTwoPwds()" placeholder="비밀번호 확인" required>
+		    </div>
+		    
+		    <div class="form-group">
+            	<!-- 비밀번호의 일치여부를 출력해줄 div -->            
+            	<div id="two_pwds_check_result" style = "margin-left:250px;"></div>
+            </div>
+		    
+		    
 		    <!-- 회사명 입력 -->
 		    <div class="form-group">
-		        <label for="companyName">업체명</label>
-		        <input type="text" id="companyName" name="companyName" placeholder="지역+업체명을 입력해주세요. 예시)강남 마캉스테라피" required>
+		        <label for="store_name">업체명 *</label>
+		        <input type="text" id="store_name" name="storeName" placeholder="지역+업체명을 입력해주세요. 예시)강남 마캉스테라피" required>
 		    </div>
 		
 		    <!-- 담당자 이름 입력 -->
 		    <div class="form-group">
-		        <label for="contactName">담당자 이름</label>
-		        <input type="text" id="contactName" name="contactName" placeholder="담당자 이름을 입력해주세요" required>
+		        <label for="contact_name">담당자 이름 *</label>
+		        <input type="text" id="contact_name" name="contactName" placeholder="담당자 이름을 입력해주세요" required>
 		    </div>
 		
 		    <!-- 연락처 입력 -->
 		    <div class="form-group">
-		        <label for="contactPhone">연락처</label>
-		        <input type="tel" id="contactPhone" name="contactPhone" placeholder="담당자 연락처를 입력해주세요" required>
+		        <label for="contact_phone">연락처 *</label>
+		        <input type="tel" id="contact_phone" name="contactPhone" placeholder="담당자 연락처를 입력해주세요" required>
 		    </div>
 		
 		    <!-- 통화가능 시간 입력 -->
 		    <div class="form-group">
-		        <label for="contactTime">통화 가능시간</label>
-		        <input type="text" id="contactTime" name="contactTime" placeholder="통화 가능시간을 입력해주세요. 예시: 오전 9시~오후 6시" required>
+		        <label for="contact_time">통화 가능시간 *</label>
+		        <input type="text" id="contact_time" name="contactTime" placeholder="통화 가능시간을 입력해주세요. 예시: 오전 9시~오후 6시" required>
 		    </div>
 		
 		    <!-- 체크박스 그룹 -->
 		<div class="form-group" style="display: flex; align-items: center; gap: 15px;">
-		    <label><strong>* 마캉스에서 담당자님께 통화 가능한 시간에 연락드립니다.</strong></label>
+		    <label><strong>* 마사지 타이쿤에서 담당자님께 통화 가능한 시간에 연락드립니다.</strong></label>
 		</div>
-		<div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-		    <label><input type="checkbox" name="knowWay" value="마캉스를 알게된 경로"> 마캉스를 알게된 경로</label>
-		    <label><input type="checkbox" name="knowWay" value="지인추천"> 지인추천</label>
-		    <label><input type="checkbox" name="knowWay" value="인터넷검색"> 인터넷검색</label>
-		    <label><input type="checkbox" name="knowWay" value="외부광고"> 외부광고</label>
-		    <label><input type="checkbox" name="knowWay" value="홍보물"> 홍보물</label>
-		</div>
-		</br>
-		
-		<!-- 체크박스 에러 메시지 -->
-		<p id="checkboxError" style="color: red; display: none; margin-top: 5px;">
-		    * 마캉스를 알게된 경로를 선택해 주세요.
-		</p>
-		
+			
 		    <!-- 텍스트 영역 -->
 		    <div class="inputs mt35">
-		        <textarea name="wr_content" cols="30" rows="5" style="height:100px; width:100%;" placeholder="입점 신청 시 문의 내용을 적어주세요." required></textarea>
+		        <textarea name="inquiry" cols="30" rows="5" style="height:100px; width:100%;" placeholder="입점 신청 시 문의 내용을 적어주세요." required></textarea>
 		    </div>
 		    <br/>
 		
@@ -204,13 +387,17 @@
 		            ※ 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있습니다. 동의하지 않을 경우 제휴/입점 문의가 제한될 수 있습니다.
 		        </p>
 		    </div>
-		    </br>
+		    <br/>
 		
 		    <!-- 제출 버튼 -->
 		    <div style="text-align:center;width:770px">
-		        <button type="submit" class="submit-btn">입점 신청하기</button>
+		        <input type="button" class="submit-btn" value="입점 신청하기" onclick="finalCheck()">
 		    </div>
 		</form>
     </div>
+    
+    <!-- footer 영역 -->
+<jsp:include page="/include/footer.jsp" />
+
 </body>
 </html>

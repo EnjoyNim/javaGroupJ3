@@ -9,7 +9,7 @@ import java.util.List;
 
 import common.GetConn;
 
-public class StoreDAO {
+public class StorePageResourceDAO {
 
 	private Connection conn = GetConn.getInstance().getConnection();
 
@@ -41,25 +41,25 @@ public class StoreDAO {
 
 
 
+	// 여기부터해야한다. storePageResource 에 insert 하고 아래에 select 하는 부분 완성하고
+	//https://velog.io/@teon98/ajax%EB%A1%9C-%EB%AA%A8%EB%8B%AC%EC%B0%BD%EC%97%90-%EC%83%81%EC%84%B8%EA%B2%B0%EA%B3%BC-%EB%9D%84%EC%9A%B0%EA%B8%B0-with-jsp
+	//위 페이지 참고해서 admin 에 addAlliance.jsp 를 만들고 그 페이지를 adminMain.jsp 안에 모달에 결과로써 넣어줘야함.
+	// 그리고 모달안의 테이블에서 입점상점의 정보와 페이지작성에 필요한 정보를 입력받고 그걸 다시 디비에 업데이트...등 종이게 적어놨다.
+	
 	// 제휴신청폼에 정보를 allianceStores 테이블에 insert 한다. 이때는 몇몇 필드는 default 로 남겨둔다.
 	// 나중에 관리자가 신청한 내역을 보고 따로 연락하여 나머지 구체적인 정보를 입점처리할때 따로 입력한다.
-	public int insertAllianceAppliedStore(StoreVO vo) {
+	public int insertStorePageResource(StorePageResourceVO vo) {
 		int result = 0;
 		try {
-			sql = "insert into allianceStores values(default,?,?,?,default,default,default,default,"
+			sql = "insert into storePageResource values(default,?,?,?,default,default,default,default,"
 					+ "default,default,default,default,?,?,?,?, default, default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getStoreId());
-			pstmt.setString(2, vo.getPwd());
-			pstmt.setString(3, vo.getStoreName());
-			pstmt.setString(4, vo.getContactName());
-			pstmt.setString(5, vo.getContactPhone());
-			pstmt.setString(6, vo.getContactTime());
-			pstmt.setString(7, vo.getInquiry());
+			
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
-			System.out.println(getClass() + " insertAllianceAppliedStore e :" + e.getMessage());
+			System.out.println(getClass() + " insertStorePageResource e :" + e.getMessage());
 		} finally {
 			pstmtClose();
 		}
@@ -76,16 +76,16 @@ public class StoreDAO {
 	 * @param isStoreIdCheck : true 이면 storeId, false 이면 storeName 을 체크해봄
 	 * @return : 일치하는 레코드를 담은 StoreVO 객체, 없어도 비어있는 StoreVO 객체를 생성해서 보낸다. 따라서 null 리턴은 아니다.
 	 */
-	public StoreVO getStoreByIdOrStoreName(String strToCheck, boolean isStoreIdCheck) {
+	public StoreVO getStorePageResourceByIdOrStoreName(String strToCheck, boolean isStoreIdCheck) {
 
 		StoreVO vo = new StoreVO();
 
 		try {
 
 			if (isStoreIdCheck) {
-				sql = "select * from allianceStores where storeId=?";
+				sql = "select * from storePageResource where storeId=?";
 			} else {
-				sql = "select * from allianceStores where storeName=?";
+				sql = "select * from storePageResource where storeName=?";
 			}
 
 			pstmt = conn.prepareStatement(sql);
@@ -127,7 +127,7 @@ public class StoreDAO {
 		int totRecCnt = 0;
 		try {
 
-			sql = "select count(idx) as totRecCnt from allianceStores";
+			sql = "select count(idx) as totRecCnt from storePageResource";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -155,7 +155,7 @@ public class StoreDAO {
 		try {
 			// datediff함수는 인수1 - 인수2 결과를 day 로 리턴, timestampdiff 함수는 인수2 - 인수3 의 차이를 hour로
 			// 리턴
-			sql = "select * from allianceStores order by idx desc limit ?,?";
+			sql = "select * from storePageResource order by idx desc limit ?,?";
 			// subQuery 를 이용해서 게시판의 리스트를 가져오고 각 게시글들에 달린 댓글 수도 가져온다.
 			// b.idx 는 from 절에 board 를 지칭한 b 이다. 섭쿼리를 사용할때는 이렇게 테이블에 다른 명칭을 줘야 하는듯?
 

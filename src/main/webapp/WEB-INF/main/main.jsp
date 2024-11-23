@@ -176,7 +176,12 @@ function showSlides() {
  <div class="swiper-container nearby_shop">
   <div class="swiper-wrapper">
   
+<%--     서버에서 넘어온 vos 를 foreach 로 vo 로 분리후에 각 vo에 정보를 가지고 각각 swiper-solide 를 생성해야한다.
+    그리고 a 태그의 href 에는 href="ShowStoreDetail.st?storeIdx=${vo.getShopIdx}" 지정해서 서버로 넘겨야한다. 
+    그럼 서버는 해당 shopIdx 를 입점샵테이블에서 찾아 vo 를 만들어서 request 에 담은후 다시 브라우저로 넘겨준다.
+   --%>
     <div class="swiper-slide">
+    	
     	<a href="ShowStoreDetail.st">
     	    <div><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
     		<p>사창동 마사지 더킹</p>

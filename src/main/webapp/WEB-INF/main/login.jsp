@@ -11,7 +11,8 @@
 <script>
     // 아이디 유효성 검사 함수
     function checkId() {
-        const userId = document.myform.userId.value; // 아이디 입력 값 가져오기
+        const userId = document.myform.id.value; // 아이디 입력 값 가져오기
+        console.log("userId", userId);
         const idPattern = /^[a-zA-Z0-9]{4,12}$/; // 아이디는 4~12자, 영문과 숫자만 허용
 
         if (!idPattern.test(userId)) {
@@ -24,6 +25,7 @@
     // 비밀번호 유효성 검사 함수
     function checkPwd() {
         const pwd = document.myform.pwd.value; // 비밀번호 입력 값 가져오기
+        console.log("pwd", pwd);
         const pwdPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         // 비밀번호는 최소 8자, 하나 이상의 영문자, 숫자, 특수문자를 포함해야 함
 
@@ -35,16 +37,17 @@
     }
 
     // 로그인 폼 유효성 검사
-    function validateForm() {
+    function finalCheck() {
         if (!checkId()) {
-            document.myform.userId.focus(); // 유효성 검사를 통과하지 못하면 아이디 입력 칸으로 포커스
+            document.myform.id.focus(); // 유효성 검사를 통과하지 못하면 아이디 입력 칸으로 포커스
             return false;
         }
         if (!checkPwd()) {
             document.myform.pwd.focus(); // 유효성 검사를 통과하지 못하면 비밀번호 입력 칸으로 포커스
             return false;
         }
-        return true; // 유효성 검사를 모두 통과한 경우
+        
+        document.myform.submit();
     }
 </script>
 </head>
@@ -65,10 +68,10 @@
         회원이 아니시면 회원가입 후 다양한 혜택을 누리세요.</div>
     
     <!-- 유효성 검사 함수 validateForm 호출 -->
-    <form name="myform" action="LoginOk.main" method="post" onsubmit="return validateForm()">
-        <input type="text" name="mid" class="input-field" placeholder="아이디" required>
-        <input type="password" name="pwd" class="input-field" placeholder="비밀번호" required>
-        <button type="submit" class="login-btn">로그인</button>
+    <form name="myform" action="LoginOk.main" method="post">
+        <input type="text" id="input_id" name="id" class="input-field" placeholder="아이디" required>
+        <input type="password"  id="input_pwd" name="pwd" class="input-field" placeholder="비밀번호" required>
+        <input type="button" class="login-btn" value="로그인" onclick="finalCheck()" />
     </form>
     
     <a href="#" class="link">회원정보찾기</a>

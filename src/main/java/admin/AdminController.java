@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import store.ProcessAllianceApplyCommand;
+
 
 @SuppressWarnings("serial")
 @WebServlet("*.ad")
@@ -26,39 +28,19 @@ public class AdminController extends HttpServlet {
 		
 		System.out.println("AdminController com:"+com);
 		
-		if(com.equals("/AdminMainPage")) {
+		// admin 메인 페이지로 입점신청 리스트를 보여준다.
+		if(com.equals("/AdminMain")) {
+			command = new AdminMainCommand();
+			command.execute(request, response);
 			viewPage += "/adminMain.jsp";
 		}
-		
-		// 로그인 링크를 클릭했을때
-		else if(com.equals("/Login")) {
-			viewPage += "/login.jsp";
+		else if(com.equals("/AddAlliance")) {
+			command = new AddAllianceCommand();
+			command.execute(request, response);
+			viewPage += "/addAlliance.jsp";
 		}
 		
-		/*
-		 * // 로그인 폼에서 아이디와 비번을 넣고 ok 누른경우 else if(com.equals("/LoginOk")) { command =
-		 * new LoginOkCommand(); command.execute(request, response); viewPage =
-		 * "/include/message.jsp";
-		 * 
-		 * }
-		 * 
-		 * else if(com.equals("/Logout")) { command = new LogoutCommand();
-		 * command.execute(request, response); viewPage = "/include/message.jsp"; }
-		 */
-			
-		// 회원가입 링크를 클릭했을때
-		else if(com.equals("/MemberJoin")) {
-			viewPage += "/joinType.jsp";
-		}
-		
-		// 메인페이지에서 제휴입점신청 클릭했을때
-		else if(com.equals("/ContractApply")) {
-			viewPage += "/allianceApply.jsp";
-		}
-		// 메인페이지에서 광고상품안내 클릭했을때
-		else if(com.equals("/ShowAd")) {
-			viewPage += "/showAd.jsp";
-		}
+	
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

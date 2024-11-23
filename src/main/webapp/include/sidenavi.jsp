@@ -211,11 +211,13 @@
   <hr/>
   
   
-  <div>
-  	
-  
-  </div>
-  
+    <!-- 관리자에게는 관리자페이지 메뉴를 보여주도록 한다. -->
+  <c:if test="${sLevel==0}">
+  	<div onclick="location.href='${ctp}/AdminMain.ad'" style="cursor:pointer;">
+	  	<span class="menu_label_span">관리자 페이지 바로가기</span>
+  	</div>
+  <hr/>
+  </c:if>
   
   
 </div>

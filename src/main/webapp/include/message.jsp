@@ -14,7 +14,7 @@
 		if("${message}" != "NO") alert("${message}");
 		
 		// 슬러시가 사이에 몇개 들어가든 상관없다고 한다. 다 한 개로 처리한다.
-		location.href="${ctp}////${url}";
+		location.href="${ctp}/${url}";
 		
 	</script>
 </head>

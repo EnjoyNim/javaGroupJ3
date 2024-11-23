@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.JoinPrivateOkCommand;
-
 @SuppressWarnings("serial")
 @WebServlet("*.st")
 public class StoreController extends HttpServlet {
@@ -27,21 +25,16 @@ public class StoreController extends HttpServlet {
 		
 		System.out.println("StoreController com:"+com);
 	
-		
-			// 업체회원가입을 선택했을때
-		if(com.equals("/JoinFormStore")) {
-			viewPage += "/joinFormStore.jsp";
-		
-		}
-		else if(com.equals("/JoinStoreOk")) {
-			command = new JoinStoreOkCommand();
+		// 제휴신청을 처리한다.
+		if(com.equals("/ProcessAllianceApply")) {
+			command = new ProcessAllianceApplyCommand();
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
-		// 샵을 선택해서 클릭했을때 보여줄 샵 상세페이지
+		// 샵을 선택,클릭했을때 보여줄 샵 상세페이지
 		else if(com.equals("/ShowStoreDetail")) {
-			// 상세페이지가 보여질때는 헤더페이지의 검색창을 보이지 않고 그자리에 해당 업소 상호명을 보여주도록
-			request.setAttribute("headerForStoreDetail", "true");
+			command = new ShowStoreDetailCommand();
+			command.execute(request, response);
 			viewPage += "/storeDetail.jsp";
 		}
 		
