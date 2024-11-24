@@ -1,24 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="ctp" value="${pageContext.request.contextPath}"/>
 				<h4 style="text-align:center">1. 샵 정보 입력 및 변경</h4>
  <table class="table table-hover text-center" style="width:100%; text-align:left">
-		<tr><th>idx</th><td><input type="text" id="svo_idx" class="form-control" value="${svo.idx}" style="background-color:gray" readonly></td></tr>
+		<tr><th>idx</th><td><input type="number" id="svo_idx" class="form-control" value="${svo.idx}" style="background-color:gray" readonly></td></tr>
 		<tr><th>storeId</th><td><input type="text" id="svo_store_id" class="form-control" value="${svo.storeId}" style="background-color:gray" readonly></td></tr>
 		<tr><th>storeName</th><td><input type="text" id="svo_store_name" class="form-control" value="${svo.storeName}"></td></tr>
 		<tr><th>ownerName</th><td><input type="text" id="svo_owner_name" class="form-control" value="${svo.ownerName}"></td></tr>
-		<tr><th>tel</th><td><input type="text" id="svo_tel" class="form-control" value="${svo.tel}"></td></tr>
+		<tr><th>tel</th><td><input type="number" id="svo_tel" class="form-control" value="${svo.tel}"></td></tr>
 		<tr><th>address</th><td><input type="text" id="svo_address" class="form-control" value="${svo.address}"></td></tr>
 		<tr><th>email</th><td><input type="text" id="svo_email" class="form-control" value="${svo.email}"></td></tr>
-		<tr><th>level</th><td><input type="text"  id="svo_level" class="form-control" value="${svo.level}"></td></tr>
-		<tr><th>contractStartDate</th><td><input type="text" id="svo_contract_start_date" class="form-control" value="${svo.contractStartDate}"></td></tr>
-		<tr><th>contractEndDate</th><td><input type="text" id="svo_contract_end_date" class="form-control" value="${svo.contractEndDate}"></td></tr>
+		<tr><th>level</th><td><input type="number"  id="svo_level" class="form-control" value="${svo.level}"></td></tr>
+		
+		<tr>
+            <th class="text-center">contractStartDate</th>
+              <td>
+                <input type="date" id="svo_contract_start_date" class="form-control" value="${fn:substring(svo.contractStartDate, 0, 10)}" />
+            </td> 
+        </tr>
+		
+		<tr>
+            <th class="text-center">contractEndDate</th>
+              <td>
+                <input type="date" id="svo_contract_end_date" class="form-control" value="${fn:substring(svo.contractEndDate, 0, 10)}" />
+            </td> 
+        </tr>
+		
 		<tr><th>contractPrice</th><td><input type="number" id="svo_contract_price" class="form-control" value="${svo.contractPrice}"></td></tr>
 		<tr><th>contactName</th><td><input type="text" id="svo_contact_name" class="form-control" value="${svo.contactName}"></td></tr>
 		<tr><th>contactPhone</th><td><input type="text" id="svo_contact_phone" class="form-control" value="${svo.contactPhone}"></td></tr>
 		<tr><th>contactTime</th><td><input type="text" id="svo_contact_time" class="form-control" value="${svo.contactTime}"></td></tr>
 		<tr><th>inquiry</th><td><textarea rows="3" id="svo_inquiry" class="form-control">${svo.inquiry}</textarea></td></tr>
 		<tr><th>appliedDate</th><td><input type="text" id="svo_applied_date" class="form-control" value="${svo.appliedDate}"  style="background-color:gray" readonly></td></tr>
+		
 											<!-- 콤보박스로 입점중, 취소됨, 신청, 작업중 중 하나로 설정하도록 해야할듯 -->
 		<tr><th>process</th><td>
 			<select id="svo_process" class="form-control">
@@ -39,27 +55,42 @@
 				<h4 style="text-align:center">2. 샵 웹페이지 정보 입력</h4>
  <table style="width:100%" class="table table-hover text-center">
  
-		<tr style="width:5%"><th>idx</th><td><input type="text" id="sprvo_idx" class="form-control" value="${sprVo.idx}" style="background-color:gray" readonly></td></tr>
+		<tr style="width:5%"><th>idx</th><td><input type="number" id="sprvo_idx" class="form-control" value="${sprVo.idx}" style="background-color:gray" readonly></td></tr>
 		<tr><th>storeId</th><td><input type="text" id="sprvo_store_id" class="form-control" value="${svo.storeId}" style="background-color:gray" readonly></td></tr>
 		<tr><th>storeName</th><td><input type="text" id="sprvo_store_name" class="form-control" value="${svo.storeName}"></td></tr>
-		<tr><th>tel</th><td><input type="text" id="sprvo_tel" class="form-control" value="${sprVo.tel}"></td></tr>
+		<tr><th>tel</th><td><input type="number" id="sprvo_tel" class="form-control" value="${sprVo.tel}"></td></tr>
 		<tr><th>address</th><td><input type="text" id="sprvo_address" class="form-control" value="${sprVo.address}"></td></tr>
-		<tr><th>email</th><td><input id="sprvo_email" type="text" class="form-control" value="${sprVo.email}"></td></tr>
+		<tr><th>email</th><td><input type="text" id="sprvo_email" class="form-control" value="${sprVo.email}"></td></tr>
 		<tr><th>title</th><td><input type="text" id="sprvo_title" class="form-control" value="${sprVo.title}"></td></tr>
-		<tr><th>heartCnt</th><td><input type="text" id="sprvo_heart_cnt" class="form-control" value="${sprVo.heartCnt}"></td></tr>
-		<tr><th>reviewCnt</th><td><input type="text" id="sprvo_review_cnt" class="form-control" value="${sprVo.reviewCnt}"></td></tr>
+		<tr><th>heartCnt</th><td><input type="number" id="sprvo_heart_cnt" class="form-control" value="${sprVo.heartCnt}"></td></tr>
+		<tr><th>reviewCnt</th><td><input type="number" id="sprvo_review_cnt" class="form-control" value="${sprVo.reviewCnt}"></td></tr>
+		
+		
+		
+		
 		
 						<!-- 파일선택 input -->
 		<tr><th>storeMainPhoto</th><td><input class="form-control" type="file" id="sprvo_store_main_photo" value="${sprVo.storeMainPhoto}"></td></tr>
+		<tr><th class="imgDemo" style="display:flex;justify-content:center"></th></tr>
+
+
+
+
 						    <!-- 여러파일선택가능 -->
 		<tr><th>storePhoto</th><td><input class="form-control" type="file" id="sprvo_store_photo" value="${sprVo.storePhoto}" multiple></td></tr>
+		<tr><th class="imgsDemo" style="display:flex;"></th></tr>
+	
+	
+	
+	
+	
 	
 		
 		<tr><th>courseInfo</th><td><input type="text" id="sprvo_course_info" class="form-control" value="${sprVo.courseInfo}"></td></tr>
 		<tr><th>courseTitle</th><td><input type="text" id="sprvo_course_title" class="form-control" value="${sprVo.courseTitle}"></td></tr>
 		<tr><th>courseItemTitle</th><td><input type="text" id="sprvo_course_item_title" class="form-control" value="${sprVo.courseItemTitle}"></td></tr>
 		
-		<tr><th>coursePrice</th><td><input type="text" id="sprvo_course_price" class="form-control" value="${sprVo.coursePrice}"></td></tr>
+		<tr><th>coursePrice</th><td><input type="number" id="sprvo_course_price" class="form-control" value="${sprVo.coursePrice}"></td></tr>
 		<tr><th>courseItemInfo</th><td><input type="text" id="sprvo_course_item_info" class="form-control" value="${sprVo.courseItemInfo}"></td></tr>
 		
 		
@@ -77,8 +108,6 @@
 </table>
 
 		<button type="button" onclick="backToParentPage()">적용</button>
-		
-<!-- 		////////////////////////// 레벨 넘버로 , 날짜 날짜인풋으로.. 그리고 메인페이지와 상세페이지를 읽어오는 부분하고 시간나면 채팅 구현 , 여기부터 하면 된다.  -->
 		
 		
 		<script>
@@ -146,15 +175,111 @@
 				sprvoJsonObj.parkingInfo =document.getElementById("sprvo_parking_info").value;
 				sprvoJsonObj.note =document.getElementById("sprvo_note").value; 
 				
-	
-				
-				
 				voJsonArray.push(sprvoJsonObj);   
+				
+				
+				// 사진과 나머지 데이터가 두번의 ajax 로 별도로 가기때문에 사진만 가는 전역변수 form 에 storeId를 추가해줌, 서버에서는 request.getParam으로 받으면 됨
+				form.append( "storeId", document.getElementById("svo_store_id").value);
+
 				
 				// 본문 페이지에 있는 처리함수 호출
 				closeModal();
 			}
+			
+			
+			
+			
+			// 이미지 여러장 미리보기(하지만 한장만 미리보기용으로 수정해서 쓴다.)
+			$(function(){
+					// 이 태그에 변화가 올때 다음 콜백 함수를 호출해라. 콜백 함수 이름만 쓴다.
+				$("#sprvo_store_main_photo").on("change", imageCheck);
+			});
+			
+			
+			function imageCheck(e){
+				let files = e.target.files;
+				
+				// files 를 호출해서 자른후에 배열로 만들어서 리턴
+				// prototype 은 특정 객체의 모든 속성을 갖고 있는 것을 말한다.
+				let filesArr = Array.prototype.slice.call(files);
+				
+				filesArr.forEach(function(f){ // forEach 의 각 요소를 f 라 치고
+					if(!f.type.match("image.*")){ // 모든 이미지파일
+						alert("업로드할 파일은 이미지파일만 가능합니다.");
+						return false;
+					}
+				});
+				// 멀티파일 이미지 미리보기
+				let i = e.target.files.length;
+				// in 과 of 가 있음 in 는 다음에 인덱스 번호, of 는 다음에 파일명이 옴
+				for(let image of e.target.files){
+					// img 태그를 생성한다.
+					let img = document.createElement('img');
+					let reader = new FileReader();
+					
+					reader.onload = function(e){
+						// 만들어진 img 태그에 src 속성을 추가하고 속성의 값도 넣는다.
+						img.setAttribute("src", e.target.result);
+						img.setAttribute("width", 100);
+					}
+					reader.readAsDataURL(e.target.files[--i]);
+					form.append( "mainPhoto", e.target.files[i] );
+								// class 를 선택할때는 .  appendChild 는 기존것에 추가한다는 의미이다.
+					document.querySelector(".imgDemo").appendChild(img);
+					// 한장만 표시하고 빠져나가기
+					break;
+				}
+			}
+			
+			
+			
+			
+			
+			
+			// 이미지 여러장 미리보기
+			$(function(){
+					// 이 태그에 변화가 올때 다음 콜백 함수를 호출해라. 콜백 함수 이름만 쓴다.
+				$("#sprvo_store_photo").on("change", multiImageCheck);
+			});
+			
+			
+			function multiImageCheck(e){
+				let files = e.target.files;
+				
+				// files 를 호출해서 자른후에 배열로 만들어서 리턴
+				// prototype 은 특정 객체의 모든 속성을 갖고 있는 것을 말한다.
+				let filesArr = Array.prototype.slice.call(files);
+				
+				filesArr.forEach(function(f){ // forEach 의 각 요소를 f 라 치고
+					if(!f.type.match("image.*")){ // 모든 이미지파일
+						alert("업로드할 파일은 이미지파일만 가능합니다.");
+						return false;
+					}
+				});
+				// 멀티파일 이미지 미리보기
+				let i = e.target.files.length;
+				// in 과 of 가 있음 in 는 다음에 인덱스 번호, of 는 다음에 파일명이 옴
+				for(let image of e.target.files){
+					// img 태그를 생성한다.
+					let img = document.createElement('img');
+					let reader = new FileReader();
+					
+					reader.onload = function(e){
+						// 만들어진 img 태그에 src 속성을 추가하고 속성의 값도 넣는다.
+						img.setAttribute("src", e.target.result);
+						img.setAttribute("width", 100);
+					}
+					reader.readAsDataURL(e.target.files[--i]);
+					// 여기서 개수를 붙여준다.
+					form.append( "photos"+i, e.target.files[i] );
+								// class 를 선택할때는 .  appendChild 는 기존것에 추가한다는 의미이다.
+					document.querySelector(".imgsDemo").appendChild(img);
+				}
+			}
 		
+			
+			
+			
 		</script>
 																							
 

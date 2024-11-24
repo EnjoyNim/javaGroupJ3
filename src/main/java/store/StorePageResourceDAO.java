@@ -43,7 +43,7 @@ public class StorePageResourceDAO {
 	public int insertStorePageResource(StorePageResourceVO vo) {
 		int result = 0;
 		try {
-			sql = "insert into storePageResource values(default,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into storePageResource values(default,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getStoreId());
 			pstmt.setString(2, vo.getStoreName());
@@ -65,7 +65,8 @@ public class StorePageResourceDAO {
 			pstmt.setString(18, vo.getBusinessHours());
 			pstmt.setString(19, vo.getWorkerInfo());
 			pstmt.setString(20, vo.getUsingProduct());
-			pstmt.setString(21, vo.getNote());
+			pstmt.setString(21, vo.getParkingInfo());
+			pstmt.setString(22, vo.getNote());
 			
 			result = pstmt.executeUpdate();
 

@@ -104,11 +104,12 @@
     }
     
     
-    
+    // 모달에서 아래의 전역변수에 값을 채운다.
     let voJsonArray = new Array();
     let svoJsonObj = new Object();
     let sprvoJsonObj = new Object();
-    
+    // 이미지 파일이름 저장용 전역변수
+    let form = new FormData();
     
     function closeModal(){
     	
@@ -116,25 +117,48 @@
     	$(function () {
     		   $('#modal').modal('toggle');
     		});
-    	
+
     	
     	
     	console.log("svoJsonObj.email:", svoJsonObj.email);
+
     	
     	$.ajax({
+    		type:"post",
 			url:"AddAllianceOk.ad",
-							// Json 이든 JsonArray 이든 모두 보낼때는  JSON.stringify() 를 해야한다.
+			async    : false, 
+				// Json 이든 JsonArray 이든 모두 보낼때는  JSON.stringify() 를 해야한다.
 			data:{"voJsonArray": JSON.stringify(voJsonArray)},
-			method:"post",
 			success:function(res){
-				alert("res:"+res+", 회신 받음");
+				//alert("res1:"+res+", 회신 받음");
+			},
+			error:function(){
+				//alert("json 전송오류");
+			}
+		});
+    	
+    	
+    	$.ajax({
+    		type:"post",
+			url:"PhotoViewAjax",   // multipart/form-data 는 이상하게 확장자 패턴이 안된다고 한다. 그래서 디렉토리 패턴으로.
+			async    : false,  // 여러개의 ajax 통신을 할려면 ajax 끼리 동기화해야한다. 안그러면 서버로 갈때 마구 섞인다고 한다.
+			enctype:"multipart/form-data",
+				// Json 이든 JsonArray 이든 모두 보낼때는  JSON.stringify() 를 해야한다.
+			data:form,
+			processData: false,   // false 는 있는 그대로 처리해라라는 의미
+    		contentType: false,
+    		cache: false, // 필수는 아님
+    		timeout: 6000, // 타임아웃 초값, 필수는 아님
+			success:function(res){
+				//alert("res2:"+res+", 회신 받음");
 				// 페이지 리로딩
 				location.reload();
 			},
 			error:function(){
-				alert("전송오류");
+				//alert("사진전송 전송오류");
 			}
 		});
+    	
     		
     }
   </script>
@@ -252,8 +276,8 @@
 <!-- 검색기 끝 -->
 
 
-<!-- The Modal -->
-<div class="modal fade" id="myModal" style="width:80vw">
+<!-- The Modal            data-backdrop="static" data-keyboard="false" 을 추가해주면 모달의 밖을 클릭해도 닫히지 않는다.                    -->
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" style="width:80vw">
 					 	<!--여기서 modal-lg 를 주면 모달이 커진다.(800px) 더 큰건 modal-xl(1140px),  아무것도 안주면 500px,  modal-sm 은 300px -->
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">

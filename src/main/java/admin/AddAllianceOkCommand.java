@@ -4,20 +4,10 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-/*import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;*/
-
-/*import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;*/
 
 import store.StoreDAO;
 import store.StorePageResourceDAO;
@@ -114,7 +104,7 @@ public class AddAllianceOkCommand implements AdminInterface {
 			System.out.println(getClass() + " execute e:" + e.getMessage());
 			result = "fail";
 		}
-
+		 
 		// 리스판스로 값만을 보낸다.
 		response.getWriter().write(result);
 
