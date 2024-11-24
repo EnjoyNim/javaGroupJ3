@@ -174,7 +174,7 @@
 
 <p><br/></p>
 <div class="container" style="width:100%">
-  <h2 class="text-center">입점 신청 리 스 트</h2>
+  <h2 class="text-center">스토어 리스트</h2>
   
   <table class="table table-borderless mt-3 mb-0 p-0">
     <tr>
@@ -228,11 +228,14 @@
 		      						<!-- 신청/취소 상태라면 입점처리 버튼을 보여준다. -->
 		      <c:if test="${vo.process=='신청'||vo.process=='취소됨'||vo.process=='작업중'}">
 		      		<c:set var="voToProcess" value="${vo}"></c:set>
-		      		<td class="text-left"><button type="button" class="btn btn-success" onclick='addAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점처리</button></td>
+		      		<td class="text-left"><button type="button" class="btn btn-primary" onclick='addAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">처리</button></td>
 		      </c:if>
 		      						<!--  입점 상태라면 입점취소 버튼을 보여준다. -->
 		      <c:if test="${vo.process=='입점중'}">
-		      		<td class="text-left"><button type="button"  class="btn btn-success" onclick='cancelAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점취소</button></td>
+		      		<td class="text-left">
+		      			<button type="button"  class="btn btn-danger" onclick='cancelAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점취소</button>
+		      			<button type="button"  class="btn btn-primary" onclick='addAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">처리</button>
+		      		</td>
 		      </c:if>
 		     	  
 		    </tr>
@@ -282,7 +285,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">입점처리</h3>
+        <h3 class="modal-title">처리</h3>
         <button type="button" class="close" data-dismiss="modal">×</button>
       </div>
       <div class="modal-body">

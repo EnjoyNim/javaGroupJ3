@@ -65,19 +65,23 @@
 		<tr><th>heartCnt</th><td><input type="number" id="sprvo_heart_cnt" class="form-control" value="${sprVo.heartCnt}"></td></tr>
 		<tr><th>reviewCnt</th><td><input type="number" id="sprvo_review_cnt" class="form-control" value="${sprVo.reviewCnt}"></td></tr>
 		
+		<tr><th>discountRate</th><td><input type="number" id="sprvo_discount_rate" class="form-control" value="${sprVo.discountRate}"></td></tr>
+		<tr><th>originalPrice</th><td><input type="number" id="sprvo_original_price" class="form-control" value="${sprVo.originalPrice}"></td></tr>
+		
 		
 		
 		
 		
 						<!-- 파일선택 input -->
 		<tr><th>storeMainPhoto</th><td><input class="form-control" type="file" id="sprvo_store_main_photo" value="${sprVo.storeMainPhoto}"></td></tr>
-		<tr><th class="imgDemo" style="display:flex;justify-content:center"></th></tr>
+		<tr><th class="imgDemo" style="display:flex;justify-content:center"></th><td><img src="${ctp}/images/photoView/${sprVo.storeMainPhoto}" alt="noimage" width="100px"></td></tr>
 
 
 
 
 						    <!-- 여러파일선택가능 -->
 		<tr><th>storePhoto</th><td><input class="form-control" type="file" id="sprvo_store_photo" value="${sprVo.storePhoto}" multiple></td></tr>
+							 <!-- 기존에 지정해둔 이미지가 있다면 여기에 표시해주도록 해야한다. -->
 		<tr><th class="imgsDemo" style="display:flex;"></th></tr>
 	
 	
@@ -153,6 +157,8 @@
 				sprvoJsonObj.title =document.getElementById("sprvo_title").value;
 				sprvoJsonObj.heartCnt =document.getElementById("sprvo_heart_cnt").value;
 				sprvoJsonObj.reviewCnt =document.getElementById("sprvo_review_cnt").value;
+				sprvoJsonObj.discountRate =document.getElementById("sprvo_discount_rate").value;
+				sprvoJsonObj.originalPrice =document.getElementById("sprvo_original_price").value;
 				
 				
 				sprvoJsonObj.storeMainPhoto =document.getElementById("sprvo_store_main_photo").value;
@@ -223,6 +229,7 @@
 						img.setAttribute("width", 100);
 					}
 					reader.readAsDataURL(e.target.files[--i]);
+					// 본문에 생성한 form 전역변수에 사진파일정보를 담는다. 
 					form.append( "mainPhoto", e.target.files[i] );
 								// class 를 선택할때는 .  appendChild 는 기존것에 추가한다는 의미이다.
 					document.querySelector(".imgDemo").appendChild(img);
@@ -270,7 +277,8 @@
 						img.setAttribute("width", 100);
 					}
 					reader.readAsDataURL(e.target.files[--i]);
-					// 여기서 개수를 붙여준다.
+					// 본문에 생성한 form 전역변수에 숫자를 붙여서 사진파일정보를 담는다.
+					// 같은 이름으로 하면 아무리 여러장을 담아도 마지막에 담은 것만 들어간다. 서버에서도 이렇게 각각 분리
 					form.append( "photos"+i, e.target.files[i] );
 								// class 를 선택할때는 .  appendChild 는 기존것에 추가한다는 의미이다.
 					document.querySelector(".imgsDemo").appendChild(img);

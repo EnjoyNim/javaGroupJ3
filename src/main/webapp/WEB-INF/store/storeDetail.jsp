@@ -31,12 +31,18 @@
 <div id="shop_detail">
 
 <div id="shop_screen_shot">
- <!-- swiper 를 두 개이상 사용할때는 이렇게 구분하는 클래스이름을 swiper-container 뒤에 따로 붙여주고
- javascript 에서 Swiper 객체를 생성할때도 구분하는 클래스이름(nearby_shop)을 사용해야한다. -->
  <div class="swiper-container shop_screen_shot">
   <div class="swiper-wrapper">
-    			<!-- 넘어온 shop vo 의 이미지 파일 이름들을 연결한 문자열을 가져와서 jstl 로 개수에 맞게 잘라서 생성  -->
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
+    			
+    <!-- storePhoto 는 여러장이 있을 수 있고 각 사진은 ^로 이어져있다. -->
+    <c:forTokens var="photo" items="${sprVo.storePhoto}" delims="^">
+    			
+    	<div class="swiper-slide"><img src="${ctp}/images/photoView/${photo}" style="width:100%"></div>
+    
+    </c:forTokens>		
+    
+    
+<%--     <div class="swiper-slide"><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby2.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby3.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby4.webp" style="width:100%"></div>
@@ -52,7 +58,7 @@
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby14.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby15.webp" style="width:100%"></div>
     <div class="swiper-slide"><img src="${ctp}/images/img_nearby16.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div>
+    <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div> --%>
   </div>
  </div>
 </div>
@@ -72,8 +78,8 @@
 
 	<!-- vo로부터 타이틀과 주소를 가져와서 처리 -->
 <div style="font-size:24px;font-weidht:bold; height:30px; margin-top:10px">
-	<strong>타이틀 (예 서초동 마사지 오투타이)</strong></div>
-<p style="font-size:15px;">주소 (예 서울 서초구 서초대로75길 34/ 서초동 1208-14 5층)</p>
+	<strong>${sprVo.title}</strong></div>
+<p style="font-size:15px;">${sprVo.address}</p>
 
 	<!-- flex -->
 <div id="review_and_heart" class="review_and_heart">
@@ -81,12 +87,12 @@
    <div class="inner">
    	 	<!-- <div class="ico_review"></div> -->
    	 	<img alt="리뷰아이콘" src="${ctp}/images/ico_review.png">
-   	 	<div class="review_cnt" style="margin-left:5px"><span style="font-size:19px;font-weight:bold">4</span></div>
+   	 	<div class="review_cnt" style="margin-left:5px"><span style="font-size:19px;font-weight:bold">${sprVo.reviewCnt}</span></div>
    </div>
    <div class="inner" style="margin-left:10px">
    		<img alt="하트아이콘" src="${ctp}/images/ico_heart_fill.png">
    	 <!-- 	<div class="ico_heart_fill"></div> -->
-   	 	<div class="heart_cnt" style="margin-left:5px"><span style="font-size:19px;font-weight:bold">15</span></div>
+   	 	<div class="heart_cnt" style="margin-left:5px"><span style="font-size:19px;font-weight:bold">${sprVo.heartCnt}</span></div>
    </div>
 </div>
 

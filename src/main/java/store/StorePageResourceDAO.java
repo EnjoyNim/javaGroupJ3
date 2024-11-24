@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 import common.GetConn;
 
 public class StorePageResourceDAO {
@@ -38,12 +40,42 @@ public class StorePageResourceDAO {
 
 
 
+	public int updatePhoto(String storeId, String mainPhoto, String storePhoto) {
+		int result = 0;
+		try {
+			
+			sql = "update storePageResource set storeMainPhoto=?, storePhoto=? where storeId=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			if(mainPhoto==null || mainPhoto.equals("")) {
+				pstmt.setString(1, "noimage.jpg");
+			}else {
+				pstmt.setString(1, mainPhoto);
+			}
+			
+			if(storePhoto==null || storePhoto.equals("")) {
+				pstmt.setString(2, "noimage.jpg");
+			}else {
+				pstmt.setString(2, storePhoto);
+			}
+			
+			pstmt.setString(3, storeId);
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(getClass() + " updatePhoto e :" + e.getMessage());
+		} finally {
+			pstmtClose();
+		}
+		return result;
+	}
 	
 	
 	public int insertStorePageResource(StorePageResourceVO vo) {
 		int result = 0;
 		try {
-			sql = "insert into storePageResource values(default,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into storePageResource values(default,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getStoreId());
 			pstmt.setString(2, vo.getStoreName());
@@ -53,20 +85,22 @@ public class StorePageResourceDAO {
 			pstmt.setString(6, vo.getTitle());
 			pstmt.setInt(7, vo.getHeartCnt());
 			pstmt.setInt(8, vo.getReviewCnt());
-			pstmt.setString(9, vo.getStoreMainPhoto());
-			pstmt.setString(10, vo.getStorePhoto());
-			pstmt.setString(11, vo.getCourseInfo());
-			pstmt.setString(12, vo.getCourseTitle());
-			pstmt.setString(13, vo.getCourseItemTitle());
-			pstmt.setString(14, vo.getCoursePrice());
-			pstmt.setString(15, vo.getCourseItemInfo());
-			pstmt.setString(16, vo.getNotice());
-			pstmt.setString(17, vo.getStoreIntroduction());
-			pstmt.setString(18, vo.getBusinessHours());
-			pstmt.setString(19, vo.getWorkerInfo());
-			pstmt.setString(20, vo.getUsingProduct());
-			pstmt.setString(21, vo.getParkingInfo());
-			pstmt.setString(22, vo.getNote());
+			pstmt.setInt(9, vo.getDiscountRate());
+			pstmt.setInt(10, vo.getOriginalPrice());
+			pstmt.setString(11, vo.getStoreMainPhoto());
+			pstmt.setString(12, vo.getStorePhoto());
+			pstmt.setString(13, vo.getCourseInfo());
+			pstmt.setString(14, vo.getCourseTitle());
+			pstmt.setString(15, vo.getCourseItemTitle());
+			pstmt.setString(16, vo.getCoursePrice());
+			pstmt.setString(17, vo.getCourseItemInfo());
+			pstmt.setString(18, vo.getNotice());
+			pstmt.setString(19, vo.getStoreIntroduction());
+			pstmt.setString(20, vo.getBusinessHours());
+			pstmt.setString(21, vo.getWorkerInfo());
+			pstmt.setString(22, vo.getUsingProduct());
+			pstmt.setString(23, vo.getParkingInfo());
+			pstmt.setString(24, vo.getNote());
 			
 			result = pstmt.executeUpdate();
 
@@ -78,6 +112,38 @@ public class StorePageResourceDAO {
 		return result;
 	}
 
+	
+	
+	
+	
+	public boolean checkStorePageResourceByIdOrStoreName(String strToCheck, boolean isStoreIdCheck) {
+	
+		try {
+
+			if (isStoreIdCheck) {
+				sql = "select * from storePageResource where storeId=?";
+			} else {
+				sql = "select * from storePageResource where storeName=?";
+			}
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, strToCheck);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			System.out.println(getClass()+" checkStorePageResourceByIdOrStoreName e:" + e.getMessage());
+		} finally {
+			rsClose();
+		}
+		return false;
+	}
+	
+	
+	
 	
 	
 	
@@ -114,6 +180,12 @@ public class StorePageResourceDAO {
 				vo.setTitle(rs.getString("title"));
 				vo.setHeartCnt(rs.getInt("heartCnt"));
 				vo.setReviewCnt(rs.getInt("reviewCnt"));
+				vo.setDiscountRate(rs.getInt("discountRate"));
+				vo.setOriginalPrice(rs.getInt("originalPrice"));
+				
+				int discountedPrice = (int)(vo.getOriginalPrice() * (100 - vo.getDiscountRate())/100.0);
+				vo.setDiscountedPrice(discountedPrice);
+				
 				vo.setStoreMainPhoto(rs.getString("storeMainPhoto"));
 				vo.setStorePhoto(rs.getString("storePhoto"));
 				vo.setCourseInfo(rs.getString("courseInfo"));
@@ -158,4 +230,50 @@ public class StorePageResourceDAO {
 		return totRecCnt;
 	}
 
+
+	public int updateStorePageResource(StorePageResourceVO vo) {
+		int result = 0;
+		try {
+			sql = "update storePageResource set storeName=?,tel=?,address=?,email=?,"
+					+ "title=?,heartCnt=?,reviewCnt=?,discountRate=?,originalPrice=?,courseInfo=?,courseTitle=?,courseItemTitle=?,"
+					+ "coursePrice=?,courseItemInfo=?,notice=?,storeIntroduction=?,businessHours=?,"
+					+ "workerInfo=?,usingProduct=?,parkingInfo=?,note=? where storeId=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getStoreName());
+			pstmt.setString(2, vo.getTel());
+			pstmt.setString(3, vo.getAddress());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setString(5, vo.getTitle());
+			pstmt.setInt(6, vo.getHeartCnt());
+			pstmt.setInt(7, vo.getReviewCnt());
+			pstmt.setInt(8, vo.getDiscountRate());
+			pstmt.setInt(9, vo.getOriginalPrice());
+			pstmt.setString(10, vo.getCourseInfo());
+			pstmt.setString(11, vo.getCourseTitle());
+			pstmt.setString(12, vo.getCourseItemTitle());
+			pstmt.setString(13, vo.getCoursePrice());
+			pstmt.setString(14, vo.getCourseItemInfo());
+			pstmt.setString(15, vo.getNotice());
+			pstmt.setString(16, vo.getStoreIntroduction());
+			pstmt.setString(17, vo.getBusinessHours());
+			pstmt.setString(18, vo.getWorkerInfo());
+			pstmt.setString(19, vo.getUsingProduct());
+			pstmt.setString(20, vo.getParkingInfo());
+			pstmt.setString(21, vo.getNote());
+			
+			pstmt.setString( 22, vo.getStoreId());
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(getClass() + " updateStorePageResource e :" + e.getMessage());
+		} finally {
+			pstmtClose();
+		}
+		return result;
+	}
+
+	public List<StorePageResourceVO> getStorePageResourceList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

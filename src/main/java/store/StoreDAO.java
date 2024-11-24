@@ -233,4 +233,53 @@ public class StoreDAO {
 		}
 		return result;	
 	}
+
+	/**
+	 * 현재 입점중인 스토어들 중 최근에 입점을 시작한 순으로 개수만큼 가져온다.
+	 * @param recCnt
+	 * @return
+	 */
+	public List<StoreVO> getListByRecentStore(int recCnt) {
+		List<StoreVO> vos = new ArrayList<StoreVO>();
+		try {
+			//샵의 진행 상태: "입점중", "취소됨", "신청", "작업중"
+			sql = "select * from allianceStores where process='입점중' order by contractStartDate desc limit ?";
+		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, recCnt);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				vo = new StoreVO();
+				vo.setIdx(rs.getInt("idx"));
+				vo.setStoreId(rs.getString("storeId"));
+				vo.setStoreName(rs.getString("storeName"));
+				vo.setOwnerName(rs.getString("ownerName"));
+				vo.setTel(rs.getString("tel"));
+				vo.setAddress(rs.getString("address"));
+				vo.setEmail(rs.getString("email"));
+				vo.setLevel(rs.getInt("level"));
+				vo.setContractStartDate(rs.getString("contractStartDate"));
+				vo.setContractEndDate(rs.getString("contractEndDate"));
+				vo.setContractPrice(rs.getInt("contractPrice"));
+				vo.setContactName(rs.getString("contactName"));
+				vo.setContactPhone(rs.getString("contactPhone"));
+				vo.setContactTime(rs.getString("contactTime"));
+				
+				String inquiry = rs.getString("inquiry").replaceAll("\\r?\\n", "<br/>");
+				inquiry = inquiry.replace("'", "&#39;").replace("\"", "&#39;");
+				vo.setInquiry(inquiry);
+				
+				vo.setAppliedDate(rs.getString("appliedDate"));
+				vo.setProcess(rs.getString("process"));
+				
+				vos.add(vo);
+			}
+		} catch (SQLException e) {
+			System.out.println( getClass()+" getListByRecentStore e : " + e.getMessage());
+		} finally {
+			rsClose();
+		}
+		return vos;
+	}
 }

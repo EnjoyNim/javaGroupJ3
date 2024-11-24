@@ -74,9 +74,14 @@ public class AddAllianceOkCommand implements AdminInterface {
 					
 					sprVo.setHeartCnt(Integer.parseInt(voJsonObject.get("heartCnt").toString()));
 					sprVo.setReviewCnt(Integer.parseInt(voJsonObject.get("reviewCnt").toString()));
-				
-					sprVo.setStoreMainPhoto(voJsonObject.get("storeMainPhoto").toString());
-					sprVo.setStorePhoto(voJsonObject.get("storePhoto").toString());
+					sprVo.setDiscountRate(Integer.parseInt(voJsonObject.get("discountRate").toString()));
+					sprVo.setOriginalPrice(Integer.parseInt(voJsonObject.get("originalPrice").toString()));
+					
+					// 사진은 addAllianceOkPhotoAjax.java 에서 처리한다.
+					sprVo.setStoreMainPhoto("noimage.jpg");
+					sprVo.setStorePhoto("noimage.jpg");
+					 
+					
 					sprVo.setCourseInfo(voJsonObject.get("courseInfo").toString());
 					sprVo.setCourseTitle(voJsonObject.get("courseTitle").toString());
 					sprVo.setCourseItemTitle(voJsonObject.get("courseItemTitle").toString());
@@ -91,7 +96,13 @@ public class AddAllianceOkCommand implements AdminInterface {
 					sprVo.setNote(voJsonObject.get("note").toString());
 					
 					StorePageResourceDAO sprDao = new StorePageResourceDAO();
-					result2 = sprDao.insertStorePageResource(sprVo);
+				
+					boolean exist = sprDao.checkStorePageResourceByIdOrStoreName(sprVo.getStoreId(), true);
+					if(exist) { // 이미 있는거면 업데이트
+						result2 = sprDao.updateStorePageResource(sprVo);
+					}else { // 없다면 새로 insert
+						result2 = sprDao.insertStorePageResource(sprVo);
+					}
 				}
 			}
 			

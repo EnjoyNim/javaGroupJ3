@@ -11,6 +11,8 @@ public class StorePageResourceVO {
 	private String title;
 	private int heartCnt;
 	private int reviewCnt;
+	private int discountRate;
+	private int originalPrice;
 	private String storeMainPhoto;
 	private String storePhoto;
 	private String courseInfo;
@@ -25,6 +27,10 @@ public class StorePageResourceVO {
 	private String usingProduct;
 	private String parkingInfo;
 	private String note;
+	
+	private int discountedPrice; // 디비에는 없는 필드, 서버에서 계산해서 넣는다.
+	
+	
 	public int getIdx() {
 		return idx;
 	}
@@ -163,17 +169,37 @@ public class StorePageResourceVO {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	
+	public int getDiscountRate() {
+		return discountRate;
+	}
+	public void setDiscountRate(int discountRate) {
+		this.discountRate = discountRate;
+	}
+	public int getOriginalPrice() {
+		return originalPrice;
+	}
+	public void setOriginalPrice(int originalPrice) {
+		this.originalPrice = originalPrice;
+	}
+	public int getDiscountedPrice() {
+		return discountedPrice;
+	}
+	public void setDiscountedPrice(int discountedPrice) {
+		this.discountedPrice = discountedPrice;
+	}
 	@Override
 	public String toString() {
 		return "StorePageResourceVO [idx=" + idx + ", storeId=" + storeId + ", storeName=" + storeName + ", tel=" + tel
 				+ ", address=" + address + ", email=" + email + ", title=" + title + ", heartCnt=" + heartCnt
-				+ ", reviewCnt=" + reviewCnt + ", storeMainPhoto=" + storeMainPhoto + ", storePhoto=" + storePhoto
-				+ ", courseInfo=" + courseInfo + ", courseTitle=" + courseTitle + ", courseItemTitle=" + courseItemTitle
-				+ ", coursePrice=" + coursePrice + ", courseItemInfo=" + courseItemInfo + ", notice=" + notice
-				+ ", storeIntroduction=" + storeIntroduction + ", businessHours=" + businessHours + ", workerInfo="
-				+ workerInfo + ", usingProduct=" + usingProduct + ", parkingInfo=" + parkingInfo + ", note=" + note
-				+ "]";
+				+ ", reviewCnt=" + reviewCnt + ", discountRate=" + discountRate + ", originalPrice=" + originalPrice
+				+ ", storeMainPhoto=" + storeMainPhoto + ", storePhoto=" + storePhoto + ", courseInfo=" + courseInfo
+				+ ", courseTitle=" + courseTitle + ", courseItemTitle=" + courseItemTitle + ", coursePrice="
+				+ coursePrice + ", courseItemInfo=" + courseItemInfo + ", notice=" + notice + ", storeIntroduction="
+				+ storeIntroduction + ", businessHours=" + businessHours + ", workerInfo=" + workerInfo
+				+ ", usingProduct=" + usingProduct + ", parkingInfo=" + parkingInfo + ", note=" + note
+				+ ", discountedPrice=" + discountedPrice + "]";
 	}
+
+
 
 }

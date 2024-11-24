@@ -33,37 +33,39 @@ import javax.servlet.http.Part;
 			
 			System.out.println("storeId:"+storeId);
 			
+			String mainPhotoName = "noimage.jpg";
+			String photoName = "";
+			
 			Part filePart = request.getPart("mainPhoto");
 			
 			if(filePart!=null) {
 				
-			String fileName = filePart.getSubmittedFileName();
-			
-			if(fileName != null && !fileName.isEmpty()) {
-				InputStream fis = filePart.getInputStream();
+				String fileName = filePart.getSubmittedFileName();
 				
-				// 파일명 중복방지처리(UUID활용)
-				String uid = UUID.randomUUID().toString().substring(0,8);
-				
-				// 중복방지를 위한 파일명 조합하기(파일형식: 파일명_중복방지코드.확장자)
-				fileName = fileName.substring(0, fileName.lastIndexOf(".")) + "_" + uid + fileName.substring(fileName.lastIndexOf("."));
-				
-				FileOutputStream fos = new FileOutputStream(realPath + fileName);
-				
-				// 생성된 객체에 파일의 내용을 2048Byte씩 보내어준다.
-				byte[] buffer = new byte[2048];
-				int size = 0;
-				while((size=fis.read(buffer)) != -1) {
-					fos.write(buffer, 0, size);
+				if(fileName != null && !fileName.isEmpty()) {
+					InputStream fis = filePart.getInputStream();
+					
+					// 파일명 중복방지처리(UUID활용)
+					String uid = UUID.randomUUID().toString().substring(0,8);
+					
+					// 중복방지를 위한 파일명 조합하기(파일형식: 파일명_중복방지코드.확장자)
+					fileName = fileName.substring(0, fileName.lastIndexOf(".")) + "_" + uid + fileName.substring(fileName.lastIndexOf("."));
+					
+					FileOutputStream fos = new FileOutputStream(realPath + fileName);
+					
+					// 생성된 객체에 파일의 내용을 2048Byte씩 보내어준다.
+					byte[] buffer = new byte[2048];
+					int size = 0;
+					while((size=fis.read(buffer)) != -1) {
+						fos.write(buffer, 0, size);
+					}
+					fos.flush();
+					fos.close();
+					fis.close();
+					
+					
+					mainPhotoName = fileName;
 				}
-				fos.flush();
-				fos.close();
-				fis.close();
-				
-				res += fileName+"/";
-				
-				System.out.println("mainPhto:"+res);
-			}
 			
 			}
 			
@@ -104,19 +106,21 @@ import javax.servlet.http.Part;
 				fos.close();
 				fis.close();
 				
-				res += fileName+"/";
-				System.out.println("photos:"+fileName);
+				photoName +=  fileName+"^";
+					
 				}
 			}
 		  }
 		  
-		  			// fileName을 디비에 저장해야한다. 여러개가 오는 photos 는 ^ 로 이어붙여서 저장하고 나중에 분리하자. 
-		  			// 기타사진들은 그냥 두고 업로드한 이미지들은 jsp 에 보여질때는 ${ctp}/images/photoView/fileName 으로
-		  			// 처리해야한다. 
-		  			// 메인페이지와 상세페이지가 호출될때 메인페이지에는 vos 를 상세페이지에는 vo 를 전달하고 해당 페이지에서 jstl 로 보여지는 부분을 처리해야한다.
-		  			// 메인페이지 내주변을 최신입점샵으로 바꾸자. 그리고 미리 데이터를 넣어놓을것, 대략적인 흐름의 ppt 를 스샷과 도표로 작성할것. 디비도 워크벤치스샷해서 ppt에 넣을것.
 		  
+		 
+		  // 마지막 ^ 는 제거
+		  photoName = photoName.substring(0, photoName.length()-1);
 		  
+		  System.out.println("mainPhto:"+mainPhotoName);
+		  System.out.println("photos:"+photoName);
+		  
+		  new StorePageResourceDAO().updatePhoto(storeId, mainPhotoName, photoName);
 			
 			response.getWriter().write(res);
 		}

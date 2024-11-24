@@ -27,6 +27,8 @@ public class MainController extends HttpServlet {
 		System.out.println("MainController com:"+com);
 		
 		if(com.equals("/MainPage")) {
+			command = new MainPageCommand();
+			command.execute(request, response);
 			viewPage += "/main.jsp";
 		}
 		

@@ -11,9 +11,11 @@ create table storePageResource(
 	title varchar(200) not null, /*웹페이지에 표시될 타이틀 예) 역삼동 에스테틱 강남뷰티*/
 	heartCnt int default 0,  /* 사용자들로부터 받은 하트개수 */
 	reviewCnt int default 0,  /* 사용자들이 남긴 리뷰개수 */
+	discountRate int default 0, /* 메인페이지의 swiper 에 보여지는 할인율 % */
+	originalPrice int default 0, /* 메인페이지의 swiper 에 취소선으로 보여지는 본래가격 */
 	
-	storeMainPhoto varchar(200) not null,  /* main 페이지용 상점 대표 사진 1장의 이름 */
-	storePhoto varchar(500) not null,  /* 상점 디테일 페이지 헤더용 사진 파일들 이름, /로 연결되어 있다. */
+	storeMainPhoto varchar(200) default 'noimage.jpg',  /* main 페이지용 상점 대표 사진 1장의 이름 */
+	storePhoto varchar(500) default 'noimage.jpg',  /* 상점 디테일 페이지 헤더용 사진 파일들 이름, /로 연결되어 있다. */
 	courseInfo varchar(400) not null, /* 24시간~ 예약필수 까지 샵의 정보를 표현하는 20개 아이콘의 단어들 슬러시로 연결되어 있다.*/
 	
 	courseTitle varchar(600) not null, /*코스이름들, 코스이름^아이템개수/코스이름^아이템개수 의 형식으로 연결되어 있다.*/

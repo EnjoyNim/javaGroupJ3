@@ -25,8 +25,8 @@ public class AddAllianceCommand implements AdminInterface {
 		
 		System.out.println("svo.getStoreId():"+svo.getStoreId());
 		
-		StorePageResourceDAO srDao = new StorePageResourceDAO();
-		StorePageResourceVO sprVo = srDao.getStorePageResourceByIdOrStoreName(storeId, true);
+		StorePageResourceDAO sprDao = new StorePageResourceDAO();
+		StorePageResourceVO sprVo = sprDao.getStorePageResourceByIdOrStoreName(storeId, true);
 		
 		System.out.println("sprVo.getStoreId():"+sprVo.getStoreId());
 		
