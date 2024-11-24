@@ -22,7 +22,7 @@ create table allianceStores(
 	contactTime varchar(100) not null,   /* 담당자와 통화 가능 시각 */
 	inquiry varchar(500) default null,   /* 입점 신청시 문의사항*/
 	appliedDate datetime default now(),  /* 글을 작성한 날짜 시간*/
-	process varchar(30) default '신청',    /* 입점 신청에 대한 관리자의 처리상태, "입점", "신청", "취소"*/
+	process varchar(30) default '신청',    /* 이 샵의 진행 상태: "입점중", "취소됨", "신청", "작업중" */
 	
 	primary key(idx),
 	unique key(storeId)

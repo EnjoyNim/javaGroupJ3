@@ -34,10 +34,19 @@ public class AdminController extends HttpServlet {
 			command.execute(request, response);
 			viewPage += "/adminMain.jsp";
 		}
+		
+		// admin 메인 페이지의 입점신청리스트에서 입점처리 버튼을 ajax 로 여기로 오고 입점처리를 위한 상세정보입력창을 띄워준다.
 		else if(com.equals("/AddAlliance")) {
 			command = new AddAllianceCommand();
 			command.execute(request, response);
 			viewPage += "/addAlliance.jsp";
+		}
+		
+		// admin 메인 페이지의 입점처리에서 완료 버튼을 ajax 로 여기로 오고 관련 디비에 정보를 insert 및 업데이트 한다.
+		else if(com.equals("/AddAllianceOk")) {
+			command = new AddAllianceOkCommand();
+			command.execute(request, response);
+			return;
 		}
 		
 	

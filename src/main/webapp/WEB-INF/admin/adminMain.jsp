@@ -27,7 +27,7 @@
 			success:function(res){
 				console.log("res", res);
 				// 모달에 html 결과를 지정해줌
-				/* $("#here").html(result); */
+				$("#myModal #modalContent").html(res);
 			},
 			error:function(){
 				alert("전송오류");
@@ -102,6 +102,41 @@
     		}
     	});
     }
+    
+    
+    
+    let voJsonArray = new Array();
+    let svoJsonObj = new Object();
+    let sprvoJsonObj = new Object();
+    
+    
+    function closeModal(){
+    	
+    	// 모달 열려있으면 닫기, 닫혀있으면 연다.
+    	$(function () {
+    		   $('#modal').modal('toggle');
+    		});
+    	
+    	
+    	
+    	console.log("svoJsonObj.email:", svoJsonObj.email);
+    	
+    	$.ajax({
+			url:"AddAllianceOk.ad",
+							// Json 이든 JsonArray 이든 모두 보낼때는  JSON.stringify() 를 해야한다.
+			data:{"voJsonArray": JSON.stringify(voJsonArray)},
+			method:"post",
+			success:function(res){
+				alert("res:"+res+", 회신 받음");
+				// 페이지 리로딩
+				location.reload();
+			},
+			error:function(){
+				alert("전송오류");
+			}
+		});
+    		
+    }
   </script>
 </head>
 
@@ -167,13 +202,13 @@
 		      <td class="text-left">${vo.process}</td>
 		      
 		      						<!-- 신청/취소 상태라면 입점처리 버튼을 보여준다. -->
-		      <c:if test="${vo.process=='신청'||vo.process=='취소'}">
+		      <c:if test="${vo.process=='신청'||vo.process=='취소됨'||vo.process=='작업중'}">
 		      		<c:set var="voToProcess" value="${vo}"></c:set>
-		      		<td class="text-left"><button type="button" onclick='addAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점처리</button></td>
+		      		<td class="text-left"><button type="button" class="btn btn-success" onclick='addAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점처리</button></td>
 		      </c:if>
 		      						<!--  입점 상태라면 입점취소 버튼을 보여준다. -->
-		      <c:if test="${vo.process=='입점'}">
-		      		<td class="text-left"><button type="button" onclick='cancelAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점취소</button></td>
+		      <c:if test="${vo.process=='입점중'}">
+		      		<td class="text-left"><button type="button"  class="btn btn-success" onclick='cancelAlliance("${vo.storeId}")' data-toggle="modal" data-target="#myModal">입점취소</button></td>
 		      </c:if>
 		     	  
 		    </tr>
@@ -218,8 +253,9 @@
 
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal fade" id="myModal" style="width:80vw">
+					 	<!--여기서 modal-lg 를 주면 모달이 커진다.(800px) 더 큰건 modal-xl(1140px),  아무것도 안주면 500px,  modal-sm 은 300px -->
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title">입점처리</h3>
@@ -227,12 +263,7 @@
       </div>
       <div class="modal-body">
         <div id="modalContent">
-        	<table>
-        		<tr><td>샵아이디:<input type="text" value="${voToProcess.storeId}" readonly/></td></tr>
-        		<tr><td>샵이름:<input type="text" value="${voToProcess.storeName}" readonly/></td></tr>
         	
-        	
-        	</table>
         
         
         

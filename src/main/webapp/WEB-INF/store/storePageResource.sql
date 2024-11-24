@@ -23,7 +23,7 @@ create table storePageResource(
 	
 	notice varchar(1000) default null, /*공지사항*/
 	storeIntroduction varchar(1000) default null, /*업체소개*/
-	bussinessHours varchar(200) not null, /*영업시간*/
+	businessHours varchar(200) not null, /*영업시간*/
 	workerInfo varchar(1000) default null, /*관리사 정보*/
 	usingProduct varchar(200) default null, /*사용제품*/
 	parkingInfo varchar(300) default null, /*주자정보*/

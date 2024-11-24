@@ -198,4 +198,39 @@ public class StoreDAO {
 		}
 		return vos;
 	}
+
+	
+	
+	public int updateStoreInfo(StoreVO svo) {
+		int result = 0;
+		try {
+			sql = "update allianceStores set storeName=?,ownerName=?,tel=?,address=?,email=?,level=?,"
+					+ "contractStartDate=?, contractEndDate=?, contractPrice=?, contactName=?, contactPhone=?,"
+					+ "contactTime=?, inquiry=?, appliedDate=?, process=? where storeId=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, svo.getStoreName());
+			pstmt.setString(2, svo.getOwnerName());
+			pstmt.setString(3, svo.getTel());
+			pstmt.setString(4, svo.getAddress());
+			pstmt.setString(5, svo.getEmail());
+			pstmt.setInt(6, svo.getLevel());
+			pstmt.setString(7, svo.getContractStartDate());
+			pstmt.setString(8, svo.getContractEndDate());
+			pstmt.setInt(9, svo.getContractPrice());
+			pstmt.setString(10, svo.getContactName());
+			pstmt.setString(11, svo.getContactPhone());
+			pstmt.setString(12, svo.getContactTime());
+			pstmt.setString(13, svo.getInquiry());
+			pstmt.setString(14, svo.getAppliedDate());
+			pstmt.setString(15, svo.getProcess());
+			pstmt.setString(16, svo.getStoreId());
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(getClass() + " updateStoreInfo e :" + e.getMessage());
+		} finally {
+			pstmtClose();
+		}
+		return result;	
+	}
 }

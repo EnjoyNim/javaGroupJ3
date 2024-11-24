@@ -20,7 +20,7 @@ public class StorePageResourceVO {
 	private String courseItemInfo;
 	private String notice;
 	private String storeIntroduction;
-	private String bussinessHours;
+	private String businessHours;
 	private String workerInfo;
 	private String usingProduct;
 	private String parkingInfo;
@@ -133,11 +133,11 @@ public class StorePageResourceVO {
 	public void setStoreIntroduction(String storeIntroduction) {
 		this.storeIntroduction = storeIntroduction;
 	}
-	public String getBussinessHours() {
-		return bussinessHours;
+	public String getBusinessHours() {
+		return businessHours;
 	}
-	public void setBussinessHours(String bussinessHours) {
-		this.bussinessHours = bussinessHours;
+	public void setBusinessHours(String businessHours) {
+		this.businessHours = businessHours;
 	}
 	public String getWorkerInfo() {
 		return workerInfo;
@@ -171,7 +171,7 @@ public class StorePageResourceVO {
 				+ ", reviewCnt=" + reviewCnt + ", storeMainPhoto=" + storeMainPhoto + ", storePhoto=" + storePhoto
 				+ ", courseInfo=" + courseInfo + ", courseTitle=" + courseTitle + ", courseItemTitle=" + courseItemTitle
 				+ ", coursePrice=" + coursePrice + ", courseItemInfo=" + courseItemInfo + ", notice=" + notice
-				+ ", storeIntroduction=" + storeIntroduction + ", bussinessHours=" + bussinessHours + ", workerInfo="
+				+ ", storeIntroduction=" + storeIntroduction + ", businessHours=" + businessHours + ", workerInfo="
 				+ workerInfo + ", usingProduct=" + usingProduct + ", parkingInfo=" + parkingInfo + ", note=" + note
 				+ "]";
 	}
