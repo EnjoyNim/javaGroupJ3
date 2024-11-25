@@ -69,25 +69,14 @@
 		<tr><th>originalPrice</th><td><input type="number" id="sprvo_original_price" class="form-control" value="${sprVo.originalPrice}"></td></tr>
 		
 		
-		
-		
-		
 						<!-- 파일선택 input -->
 		<tr><th>storeMainPhoto</th><td><input class="form-control" type="file" id="sprvo_store_main_photo" value="${sprVo.storeMainPhoto}"></td></tr>
 		<tr><th class="imgDemo" style="display:flex;justify-content:center"></th><td><img src="${ctp}/images/photoView/${sprVo.storeMainPhoto}" alt="noimage" width="100px"></td></tr>
 
-
-
-
-						    <!-- 여러파일선택가능 -->
+  						    <!-- 여러파일선택가능 -->
 		<tr><th>storePhoto</th><td><input class="form-control" type="file" id="sprvo_store_photo" value="${sprVo.storePhoto}" multiple></td></tr>
 							 <!-- 기존에 지정해둔 이미지가 있다면 여기에 표시해주도록 해야한다. -->
 		<tr><th class="imgsDemo" style="display:flex;"></th></tr>
-	
-	
-	
-	
-	
 	
 		
 		<tr><th>courseInfo</th><td><input type="text" id="sprvo_course_info" class="form-control" value="${sprVo.courseInfo}"></td></tr>
@@ -182,18 +171,13 @@
 				sprvoJsonObj.note =document.getElementById("sprvo_note").value; 
 				
 				voJsonArray.push(sprvoJsonObj);   
-				
-				
+	
 				// 사진과 나머지 데이터가 두번의 ajax 로 별도로 가기때문에 사진만 가는 전역변수 form 에 storeId를 추가해줌, 서버에서는 request.getParam으로 받으면 됨
 				form.append( "storeId", document.getElementById("svo_store_id").value);
 
-				
 				// 본문 페이지에 있는 처리함수 호출
 				closeModal();
 			}
-			
-			
-			
 			
 			// 이미지 여러장 미리보기(하지만 한장만 미리보기용으로 수정해서 쓴다.)
 			$(function(){
@@ -239,16 +223,11 @@
 			}
 			
 			
-			
-			
-			
-			
 			// 이미지 여러장 미리보기
 			$(function(){
 					// 이 태그에 변화가 올때 다음 콜백 함수를 호출해라. 콜백 함수 이름만 쓴다.
 				$("#sprvo_store_photo").on("change", multiImageCheck);
-			});
-			
+			});			
 			
 			function multiImageCheck(e){
 				let files = e.target.files;
@@ -285,9 +264,6 @@
 				}
 			}
 		
-			
-			
-			
 		</script>
 																							
 

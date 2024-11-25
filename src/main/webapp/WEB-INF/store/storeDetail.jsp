@@ -40,25 +40,7 @@
     	<div class="swiper-slide"><img src="${ctp}/images/photoView/${photo}" style="width:100%"></div>
     
     </c:forTokens>		
-    
-    
-<%--     <div class="swiper-slide"><img src="${ctp}/images/img_nearby1.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby2.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby3.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby4.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby5.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby6.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby7.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby8.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby9.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby10.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby11.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby12.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby13.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby14.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby15.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby16.webp" style="width:100%"></div>
-    <div class="swiper-slide"><img src="${ctp}/images/img_nearby17.webp" style="width:100%"></div> --%>
+
   </div>
  </div>
 </div>
@@ -226,11 +208,6 @@
 		
 	</div>
 	<!-- 스웨디시 관리의 아이템들 3개 끝 -->
-	
-	
-	
-	
-	
 	
 	
 	

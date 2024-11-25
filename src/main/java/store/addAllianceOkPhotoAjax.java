@@ -31,8 +31,6 @@ import javax.servlet.http.Part;
 			
 			String storeId = request.getParameter("storeId");
 			
-			System.out.println("storeId:"+storeId);
-			
 			String mainPhotoName = "noimage.jpg";
 			String photoName = "";
 			
@@ -112,8 +110,7 @@ import javax.servlet.http.Part;
 			}
 		  }
 		  
-		  
-		 
+
 		  // 마지막 ^ 는 제거
 		  photoName = photoName.substring(0, photoName.length()-1);
 		  

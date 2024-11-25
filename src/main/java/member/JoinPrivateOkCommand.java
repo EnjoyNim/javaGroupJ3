@@ -63,7 +63,7 @@ public class JoinPrivateOkCommand implements MemberInterface {
 		  	
 		  	request.setAttribute("message", "회원가입이 성공적으로 완료되었습니다.");
 		  	// 회원가입이 성공적이었으므로 이제 로그인창으로 보냄
-		  	request.setAttribute("url", "Login.mem"); 
+		  	request.setAttribute("url", "Login.main"); 
 		  	
 		  }else {
 		  	

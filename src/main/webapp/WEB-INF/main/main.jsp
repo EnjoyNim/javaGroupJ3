@@ -179,8 +179,6 @@ function showSlides() {
  <div class="swiper-container new_shop">
   <div class="swiper-wrapper">
   
-  
-  
    <!-- vos 사이즈만큼 동적으로 추가해준다. -->
   
   <c:forEach var="sprVo" items="${sprVos}">
@@ -202,7 +200,6 @@ function showSlides() {
     			   </div>
     			</div>
     			
-    				
     			<div class="dist_and_price">
     				<div class="dist" style="margin-bottom:15px">0.3<span><em class="unit">km</em></span></div>
     				<div class="price">

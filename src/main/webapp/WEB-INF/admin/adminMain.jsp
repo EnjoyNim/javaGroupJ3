@@ -18,7 +18,7 @@
     	location.href = "BoardList.ad?pageSize="+pageSize+"&pag=1";
     }
     
-    // 입점처리 버튼을 누르면 호출
+    // 입점처리 버튼을 누르면 입점처리에 필요한 폼을 모달에 띄워준다.
     function addAlliance(storeId) {
     	$.ajax({
 			url:"AddAlliance.ad",
@@ -102,8 +102,7 @@
     		}
     	});
     }
-    
-    
+      
     // 모달에서 아래의 전역변수에 값을 채운다.
     let voJsonArray = new Array();
     let svoJsonObj = new Object();
@@ -111,18 +110,12 @@
     // 이미지 파일이름 저장용 전역변수
     let form = new FormData();
     
-    function closeModal(){
-    	
+    function closeModal(){ 	
     	// 모달 열려있으면 닫기, 닫혀있으면 연다.
     	$(function () {
     		   $('#modal').modal('toggle');
     		});
-
-    	
-    	
-    	console.log("svoJsonObj.email:", svoJsonObj.email);
-
-    	
+   	
     	$.ajax({
     		type:"post",
 			url:"AddAllianceOk.ad",
@@ -136,8 +129,7 @@
 				//alert("json 전송오류");
 			}
 		});
-    	
-    	
+    	   	
     	$.ajax({
     		type:"post",
 			url:"PhotoViewAjax",   // multipart/form-data 는 이상하게 확장자 패턴이 안된다고 한다. 그래서 디렉토리 패턴으로.
